@@ -40,8 +40,12 @@ Atau _untuk collaborator_
    del -Recurse .eslintrc.cjs, .gitignore, README.md, components.json, index.html, package-lock.json, package.json, postcss.config.js, src/App.tsx, src/index.css, src/lib/utils.ts, src/main.tsx, src/vite-env.d.ts, tailwind.config.js, tsconfig.json, tsconfig.node.json, vite.config.ts, public/, src/App.css, src/assets
 
    git pull origin main
-
 ```
+3. Instalasi Component dari [`Shadcn UI`](https://ui.shadcn.com/docs/components)
+
+List Komponen yang digunakan dalam Project
+| Component | CLI | 
+| Button | ```npx shadcn-ui@latest add button``` |
 
 ## More
 ### React + TypeScript + Vite
