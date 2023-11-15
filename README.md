@@ -27,7 +27,7 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 
 #### Mobile Developer
 | Role                   | Nama                  |
-| ---------------------- | --------------------- |
+| ______________________ | _____________________ |
 | Hacker/Programmer      | Galung Wendi Wijaya   |
 |                        | Messy Wirdianti       |
 | Hacker/Programmer + Scrum | Galung Wendi Wijaya |
