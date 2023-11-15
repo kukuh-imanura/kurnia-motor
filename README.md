@@ -16,13 +16,13 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 
 #### Web Developer
 | Role | Nama |
-|------|------|
+| ---- | ---- |
 | Hacker/Programmer | [`Kukuh Imanura`](https://www.instagram.com/kukuh-imanura) |
 | .... | .... |
 
 #### Mobile Developer
 | Role | Nama |
-|------|------|
+| ---- | ---- |
 | .... | .... |
 
 ## Persiapan
