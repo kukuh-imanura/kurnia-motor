@@ -45,6 +45,7 @@ Atau _untuk collaborator_
 
 List Komponen yang digunakan dalam Project
 | Component | CLI | 
+| --------- | --- |
 | Button | ```npx shadcn-ui@latest add button``` |
 
 ## More
