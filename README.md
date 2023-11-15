@@ -1,4 +1,49 @@
-# React + TypeScript + Vite
+# Massive Project
+// Copyright (c) 2023, Kuda Terbang Team
+// All rights reserved.
+
+Repository ini diperuntukkan untuk pengembangan `Website Admin` berbasis `React`.
+Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable component dari [`Shadcn UI`](https://ui.shadcn.com/).
+
+## Daftar Isi
+
+- [About Us](#about-us)
+- [Persiapan](#persiapan)
+- [More](#more)
+
+## About Us
+### Kelompok Kuda Terbang
+
+#### Web Developer
+| Role | Nama |
+|------|------|
+| Hacker/Programmer | [`Kukuh Imanura`](https://www.instagram.com/kukuh-imanura) |
+| .... | .... |
+
+#### Mobile Developer
+| Role | Nama |
+|------|------|
+| .... | .... |
+
+## Persiapan
+1. Instalasi [`Shadcn UI`](https://ui.shadcn.com/docs/installation/vite)
+2. Clone/Pull Repository
+```git
+   git clone https://github.com/kukuh-imanura/kurnia-motor.git
+```
+`Atau`
+_collaborator_
+```git
+   git init
+   git add .
+   git commit -m "first commit"
+   git branch -M main
+   git remote add origin https://github.com/kukuh-imanura/kurnia-motor.git
+   git pull -u origin main
+```
+
+## More
+### React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -7,7 +52,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+#### Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 

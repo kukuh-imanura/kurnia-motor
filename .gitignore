@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Personal
+/kukuh
+/note
+/test
+*test*
