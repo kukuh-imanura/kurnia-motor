@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button"
+import {Button} from '@/components/ui/button'
 
 function App() {
   return (
-    <div>
-      <Button>Click me</Button>
+    <div className="flex items-center justify-center h-screen">
+      <Button className="shad-button_primary">Click me</Button>
     </div>
   )
 }
