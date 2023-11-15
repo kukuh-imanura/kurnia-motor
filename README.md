@@ -1,6 +1,6 @@
 # Massive Project
-Copyright (c) 2023, Kuda Terbang Team
-All rights reserved.
+<!-- Copyright (c) 2023, Kuda Terbang Team -->
+<!-- All rights reserved. -->
 
 Repository ini diperuntukkan untuk pengembangan `Website Admin` berbasis `React`.
 Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable component dari [`Shadcn UI`](https://ui.shadcn.com/).
@@ -34,11 +34,13 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 Atau _untuk collaborator_
 ```git
    git init
-   git add .
-   git commit -m "first commit"
    git branch -M main
    git remote add origin https://github.com/kukuh-imanura/kurnia-motor.git
-   git pull -u origin main
+   
+   del -Recurse .eslintrc.cjs, .gitignore, README.md, components.json, index.html, package-lock.json, package.json, postcss.config.js, src/App.tsx, src/index.css, src/lib/utils.ts, src/main.tsx, src/vite-env.d.ts, tailwind.config.js, tsconfig.json, tsconfig.node.json, vite.config.ts, public/, src/App.css, src/assets
+
+   git pull origin main
+
 ```
 
 ## More
