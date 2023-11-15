@@ -18,12 +18,22 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 | Role | Nama |
 | ---- | ---- |
 | Hacker/Programmer | [`Kukuh Imanura`](https://www.instagram.com/kukuh-imanura) |
-| .... | .... |
+|  | Ahmad Ainul Yaqin |
+|  | Nur Lailatul Hidayah |
+| Hipster/Designer | Andre Putra Agustian |
+|  | Fransiska Jesika |
+| Hustler/PM + Scrum | Hary Putra Wardhana |
+
 
 #### Mobile Developer
 | Role | Nama |
 | ---- | ---- |
-| .... | .... |
+| Hacker/Programmer | Galung Wendi Wijaya |
+|  | Messy Wirdianti |
+| Hacker/Programmer + Scrum | Galung Wendi Wijaya |
+| Hipster/Designer | Ella |
+|  | Oktariza Dwi Putri |
+
 
 ## Persiapan
 1. Instalasi [`Shadcn UI`](https://ui.shadcn.com/docs/installation/vite)
