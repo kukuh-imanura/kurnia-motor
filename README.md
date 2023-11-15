@@ -15,17 +15,19 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 ### Kelompok Kuda Terbang
 
 #### Web Developer
-| Role | Nama |
-| Hacker/Programmer | [`Kukuh Imanura`](https://www.instagram.com/kukuh-imanura) |
-| Hacker/Programmer | Ahmad Ainul Yaqin |
-| Hacker/Programmer | Nur Lailatul Hidayah |
-| Hipster/Designer | Andre Putra Agustian |
-| Hipster/Designer | Fransiska Jesika |
-| Hustler/PM + Scrum | Hary Putra Wardhana |
+| Role               | Nama                                                       |
+| -----------------  | ---------------------------------------------------------- |
+| Hacker/Programmer  | [`Kukuh Imanura`](https://www.instagram.com/kukuh-imanura) |
+| Hacker/Programmer  | Ahmad Ainul Yaqin                                          |
+| Hacker/Programmer  | Nur Lailatul Hidayah                                       |
+| Hipster/Designer   | Andre Putra Agustian                                       |
+| Hipster/Designer   | Fransiska Jesika                                           |
+| Hustler/PM + Scrum | Hary Putra Wardhana                                        |
 
 
 #### Mobile Developer
 | Role | Nama |
+| ---- | ---- |
 | Hacker/Programmer | Galung Wendi Wijaya |
 | Hacker/Programmer | Messy Wirdianti |
 | Hacker/Programmer + Scrum | Galung Wendi Wijaya |
@@ -54,6 +56,8 @@ Atau _untuk collaborator_
 List Komponen yang digunakan dalam Project
 | Component | CLI | 
 | --------- | --- |
+| Button | `npx shadcn-ui@latest add button` |
+| Button | `npx shadcn-ui@latest add button` |
 | Button | `npx shadcn-ui@latest add button` |
 
 ## More
