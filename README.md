@@ -16,7 +16,6 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 
 #### Web Developer
 | Role | Nama |
-| ---- | ---- |
 | Hacker/Programmer | [`Kukuh Imanura`](https://www.instagram.com/kukuh-imanura) |
 | Hacker/Programmer | Ahmad Ainul Yaqin |
 | Hacker/Programmer | Nur Lailatul Hidayah |
@@ -27,7 +26,6 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 
 #### Mobile Developer
 | Role | Nama |
-| ---- | ---- |
 | Hacker/Programmer | Galung Wendi Wijaya |
 | Hacker/Programmer | Messy Wirdianti |
 | Hacker/Programmer + Scrum | Galung Wendi Wijaya |
