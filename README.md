@@ -51,7 +51,15 @@ Atau _untuk collaborator_
 
    git pull origin main
 ```
-3. Instalasi Component dari [`Shadcn UI`](https://ui.shadcn.com/docs/components)
+
+3. Instalasi Tambahan
+
+List Komponen yang digunakan dalam Project
+| Name | CLI | 
+| --------- | --- |
+| React Router | `npm install react-router-dom` |
+
+4. Instalasi Component dari [`Shadcn UI`](https://ui.shadcn.com/docs/components)
 
 List Komponen yang digunakan dalam Project
 | Component | CLI | 

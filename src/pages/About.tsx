@@ -1,6 +1,6 @@
 import Navbar from "@/components/default/Navbar"
 
-function Home() {
+function About() {
   return (
     <div>
       <Navbar />
@@ -8,4 +8,4 @@ function Home() {
   )
 }
 
-export default Home
+export default About
