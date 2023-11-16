@@ -14,10 +14,10 @@ function Navbar() {
       <img src={logo} alt="" className='w-44'/>
 
       <div>
-        <Link to="/" className={`text-center inline-block w-32 hover:font-bold hover:text-orange-500 ${location.pathname === "/" ? classActive : ''}`}>Beranda</Link>
+        <Link to="/" className={`text-right inline-block w-32 hover:font-bold hover:text-orange-500 ${location.pathname === "/" ? classActive : ''}`}>Beranda</Link>
         {/* DROPDOWN */}
         <Dropdown/>
-        <Link to="/about" className={`text-center inline-block w-32 hover:font-bold hover:text-orange-500 ${location.pathname === "/about" ? classActive : ''}`}>Tentang Kami</Link>
+        <Link to="/about" className={`text-left inline-block w-32 hover:font-bold hover:text-orange-500 ${location.pathname === "/about" ? classActive : ''}`}>Tentang Kami</Link>
       </div>
 
       <button className='px-10 h-11 text-gray-100 rounded font-bold' style={{backgroundColor : '#F18805'}}>Keluar</button>
