@@ -2,6 +2,7 @@
 import { Link, useLocation } from "react-router-dom"
 import logo from '/assets/images/logo-orange.png?url'
 import Dropdown from "./Dropdown"
+import Button from "./Button"
 
 
 function Navbar() {
@@ -19,7 +20,7 @@ function Navbar() {
         <Link to="/about" className={`text-left inline-block w-32 hover:font-bold hover:text-brand-1 ${useLocation().pathname === "/about" ? classActive : ''}`}>Tentang Kami</Link>
       </div>
 
-      <button className='px-10 h-11 text-gray-100 rounded font-bold bg-brand-1'>Keluar</button>
+      <Button.Navbar />
     </div>
   )
 }

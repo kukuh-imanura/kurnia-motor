@@ -39,6 +39,9 @@ module.exports = {
         420: '420px',
         465: '465px',
       },
+      height: {
+        hero: '558.84px',
+      },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
       },
