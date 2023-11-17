@@ -6,21 +6,20 @@ import Dropdown from "./Dropdown"
 
 function Navbar() {
 
-  const location = useLocation()
-  const classActive = "font-bold text-orange-500"
+  const classActive = "font-bold text-brand-1"
 
   return (
-    <div className="sticky top-0 w-full text-gray-900 py-3 px-10 flex justify-between items-center" style={{backgroundColor : '#FFEDD3'}}>
+    <div className="sticky top-0 w-full text-gray-900 py-3 px-10 flex justify-between items-center bg-surface-2">
       <img src={logo} alt="" className='w-44'/>
 
       <div>
-        <Link to="/" className={`text-right inline-block w-32 hover:font-bold hover:text-orange-500 ${location.pathname === "/" ? classActive : ''}`}>Beranda</Link>
+        <Link to="/" className={`text-right inline-block w-32 hover:font-bold hover:text-brand-1 ${useLocation().pathname === "/" ? classActive : ''}`}>Beranda</Link>
         {/* DROPDOWN */}
         <Dropdown/>
-        <Link to="/about" className={`text-left inline-block w-32 hover:font-bold hover:text-orange-500 ${location.pathname === "/about" ? classActive : ''}`}>Tentang Kami</Link>
+        <Link to="/about" className={`text-left inline-block w-32 hover:font-bold hover:text-brand-1 ${useLocation().pathname === "/about" ? classActive : ''}`}>Tentang Kami</Link>
       </div>
 
-      <button className='px-10 h-11 text-gray-100 rounded font-bold' style={{backgroundColor : '#F18805'}}>Keluar</button>
+      <button className='px-10 h-11 text-gray-100 rounded font-bold bg-brand-1'>Keluar</button>
     </div>
   )
 }

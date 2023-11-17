@@ -14,6 +14,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        'surface-1': '#FFF8EF',
+        'surface-2': '#FFEDD3',
+        'brand-1': '#F18805',
+        'brand-2': '#FFCE85',
         'primary-500': '#877EFF',
         'primary-600': '#5D5FEF',
         'secondary-500': '#FFB620',
