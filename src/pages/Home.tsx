@@ -6,6 +6,11 @@ import { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import Slider from "@/components/default/Slider";
 import imgPickup from "../../public/assets/images/pickup/def.png";
+import imgBooking from "../../public/assets/images/booking/def.png";
+import review1 from "../../public/assets/images/review/1.png";
+import review2 from "../../public/assets/images/review/2.png";
+import review3 from "../../public/assets/images/review/3.png";
+import Footer from "@/components/default/Footer";
 
 
 function Home() {
@@ -33,6 +38,28 @@ function Home() {
     { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
   ];
 
+  // BOOKING
+  const cardBooking = [
+    { img: imgBooking, text: "Mr. X"},
+    { img: imgBooking, text: "Mr. Y"},
+    { img: imgBooking, text: "Mr. Z"},
+    { img: imgBooking, text: "Mr. A"},
+    { img: imgBooking, text: "Mr. B"},
+    { img: imgBooking, text: "Mr. C"},
+    { img: imgBooking, text: "Mr. D"},
+  ];
+  
+  // BOOKING
+  const cardReview = [
+    { img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { img: review2, star:5, text: "Bengkel ini memberikan kemudahan, dalam melakukan servis. tak perlu pergi ke bengkel cukup kontak dan mereka bisa datang ke rumah."},
+    { img: review3, star:5, text: "Tak perlu repot dan tak perlu antri bengkel ini memberikan kemudahan. servis kendaraan dan harga terjangkau."},
+    { img: review2, star:5, text: "Mr. A"},
+    { img: review1, star:5, text: "Mr. B"},
+    { img: review2, star:5, text: "Mr. C"},
+    { img: review3, star:5, text: "Mr. D"},
+  ];
+
   return (
     <div>
       <Navbar />
@@ -56,17 +83,29 @@ function Home() {
 
         <div className="px-10 h-full w-full">
           <p className="text-2xl text-gray-900">TERBARU</p>
-          <Slider cards={cardPickup}/>
+          <Slider.Default cards={cardPickup}/>
         </div>
       </section>
 
-      <section id="booking" className="h-screen bg-surface-1 px-20 pb-10 pt-[80.16px]">
+      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
         <Tittle text="PERMINTAAN BOOKING ONLINE"/>
+
+        <div className="px-10 h-full w-full">
+          <p className="text-2xl text-gray-900">TERBARU</p>
+          <Slider.Default cards={cardBooking}/>
+        </div>
       </section>
 
-      <section id="review" className="h-screen bg-surface-1 px-20 pb-10 pt-[80.16px]">
+      <section id="pickup" className="pb-10 max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
         <Tittle text="APA KATA MEREKA?"/>
+
+        <div className="px-10 h-full w-full">
+          <p className="text-2xl text-gray-900">TERBARU</p>
+          <Slider.Review cards={cardReview}/>
+        </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

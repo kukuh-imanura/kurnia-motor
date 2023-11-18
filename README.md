@@ -58,6 +58,7 @@ List Komponen yang digunakan dalam Project
 | Name | CLI | 
 | --------- | --- |
 | React Router | `npm install react-router-dom` |
+| React Icon | `npm install react-icons --save` |
 
 4. Instalasi Component dari [`Shadcn UI`](https://ui.shadcn.com/docs/components)
 
