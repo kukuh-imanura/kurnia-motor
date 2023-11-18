@@ -1,7 +1,7 @@
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div className="bg-brand-1 text-center py-5 font-bold">Copyright © 2023 Kurnia Motor</div>
   )
 }
 
