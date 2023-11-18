@@ -8,12 +8,14 @@ import About from './pages/About.tsx'
 import Customer from './pages/Customer.tsx'
 import Admin from './pages/Admin.tsx'
 import Laporan from './pages/Laporan.tsx'
+import Detail from './pages/Detail.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/detail" element={<Detail />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/laporan" element={<Laporan />} />

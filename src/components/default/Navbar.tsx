@@ -10,7 +10,7 @@ function Navbar() {
   const classActive = "font-bold text-brand-1"
 
   return (
-    <div className="sticky top-0 w-full text-gray-900 py-3 px-10 flex justify-between items-center bg-surface-2">
+    <div className="sticky top-0 w-full text-gray-900 py-3 px-10 flex justify-between items-center bg-surface-2 z-10">
       <img src={logo} alt="" className='w-44'/>
 
       <div>

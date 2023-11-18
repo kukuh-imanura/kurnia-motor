@@ -4,6 +4,9 @@ import Button from "@/components/default/Button"
 import Tittle from "@/components/default/Tittle"
 import { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
+import Slider from "@/components/default/Slider";
+import imgPickup from "../../public/assets/images/pickup/def.png";
+
 
 function Home() {
   const location = useLocation()
@@ -18,6 +21,17 @@ function Home() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   })
+
+  // PICKUP
+  const cardPickup = [
+    { img: imgPickup, text: "Honda Beat", btn: "Detail1", link: "/detail" },
+    { img: imgPickup, text: "Honda Beat", btn: "Detail2", link: "/detail" },
+    { img: imgPickup, text: "Honda Beat", btn: "Detail3", link: "/detail" },
+    { img: imgPickup, text: "Honda Beat", btn: "Detail4", link: "/detail" },
+    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
+    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
+    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
+  ];
 
   return (
     <div>
@@ -37,11 +51,16 @@ function Home() {
         </div>
       </section>
 
-      <section id="booking" className="h-screen bg-surface-1 px-20 pb-10 pt-[80.16px]">
+      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
         <Tittle text="PERMINTAAN ANTAR JEMPUT"/>
+
+        <div className="px-10 h-full w-full">
+          <p className="text-2xl text-gray-900">TERBARU</p>
+          <Slider cards={cardPickup}/>
+        </div>
       </section>
 
-      <section id="pickup" className="h-screen bg-surface-1 px-20 pb-10 pt-[80.16px]">
+      <section id="booking" className="h-screen bg-surface-1 px-20 pb-10 pt-[80.16px]">
         <Tittle text="PERMINTAAN BOOKING ONLINE"/>
       </section>
 

@@ -10,8 +10,8 @@ function Navbar() {
 function Card(props:any) {
   return (
     <Link to={props.link} className="bg-brand-1 w-full h-full rounded-md shadow-md px-5 flex flex-col justify-center">
-      <p className="text-xl">{props.text}</p>
-      <p className="text-xs italic">Lihat Selengkapnya</p>
+      <p className="text-xl text-gray-100">{props.text}</p>
+      <p className="text-xs italic text-gray-100">Lihat Selengkapnya</p>
     </Link>
   )
 }

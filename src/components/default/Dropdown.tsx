@@ -6,7 +6,7 @@ export default function Dropdown() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className={`w-28 text-center inline-flex w-full justify-center gap-x-1.5 px-3 py-2 hover:font-bold hover:text-brand-1 ${useLocation().pathname === "/customer" || useLocation().pathname === "/admin" || useLocation().pathname === "/laporan" ? 'font-bold text-brand-1' : ''}`}>Layanan</Menu.Button>
+        <Menu.Button className={`w-28 text-center inline-flex w-full justify-center gap-x-1.5 px-3 py-2 hover:font-bold hover:text-brand-1 ${useLocation().pathname === "/customer" || useLocation().pathname === "/admin" || useLocation().pathname === "/laporan" || useLocation().pathname === "/detail" ? 'font-bold text-brand-1' : ''}`}>Layanan</Menu.Button>
       </div>
 
       <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
