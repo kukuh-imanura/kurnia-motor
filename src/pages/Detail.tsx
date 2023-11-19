@@ -1,9 +1,15 @@
 import Footer from "@/components/default/Footer"
 import Input from "@/components/default/Input"
 import Navbar from "@/components/default/Navbar"
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 function Detail() {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   return (
     <div className="bg-surface-1">
       <Navbar />
