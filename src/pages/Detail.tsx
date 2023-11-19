@@ -16,6 +16,7 @@ function Detail() {
       <div id="form" className="mx-20 my-10 bg-brand-1 p-10 rounded-md">
         <Link to="/#pickup" className="font-bold">KEMBALI</Link>
 
+        {/* TODO : Mengambil Data dari Card */}
         <form action="" method="post" className="mt-10 px-20 pb-10 space-y-5">
           <Input.Disabled label="Nama Customer" placeholder="Mr. X"/>
           <Input.Disabled label="Nomor Telepon" placeholder="0887-222-123-3212"/>

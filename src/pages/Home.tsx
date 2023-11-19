@@ -52,7 +52,7 @@ function Home() {
     { img: imgBooking, text: "Mr. D"},
   ];
   
-  // REVIEW
+  // ULASAN
   const cardReview = [
     { img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
     { img: review2, star:5, text: "Bengkel ini memberikan kemudahan, dalam melakukan servis. tak perlu pergi ke bengkel cukup kontak dan mereka bisa datang ke rumah."},

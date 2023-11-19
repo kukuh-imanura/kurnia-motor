@@ -16,6 +16,7 @@ function Action(props:any) {
           ) : ''
         }
         <Link to="" className="bg-[#20B038] py-1 w-full text-center">Terima Pengajuan</Link>
+        {/* TODO : Action Hapus Ketika di Tolak */}
         <Link to="" className="bg-[#DF1407] py-1 w-full text-center">Tolak Pengajuan</Link>
       </div>
     </div>
