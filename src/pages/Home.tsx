@@ -5,15 +5,18 @@ import Tittle from "@/components/default/Tittle"
 import { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import Slider from "@/components/default/Slider";
+import Footer from "@/components/default/Footer";
+
+// TESTER, 
 import imgPickup from "../../public/assets/images/pickup/def.png";
 import imgBooking from "../../public/assets/images/booking/def.png";
 import review1 from "../../public/assets/images/review/1.png";
 import review2 from "../../public/assets/images/review/2.png";
 import review3 from "../../public/assets/images/review/3.png";
-import Footer from "@/components/default/Footer";
 
 
 function Home() {
+  // HANDLE NAVIGASI
   const location = useLocation()
   const id = location.hash.substring(1)
 
@@ -49,7 +52,7 @@ function Home() {
     { img: imgBooking, text: "Mr. D"},
   ];
   
-  // BOOKING
+  // REVIEW
   const cardReview = [
     { img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
     { img: review2, star:5, text: "Bengkel ini memberikan kemudahan, dalam melakukan servis. tak perlu pergi ke bengkel cukup kontak dan mereka bisa datang ke rumah."},
@@ -78,7 +81,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
+      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-nav-h flex flex-col justify-between items-center gap-10">
         <Tittle text="PERMINTAAN ANTAR JEMPUT"/>
 
         <div className="px-10 h-full w-full">
@@ -87,7 +90,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
+      <section id="booking" className="max-w-screen h-fit bg-surface-1 px-20 pt-nav-h flex flex-col justify-between items-center gap-10">
         <Tittle text="PERMINTAAN BOOKING ONLINE"/>
 
         <div className="px-10 h-full w-full">
@@ -96,7 +99,7 @@ function Home() {
         </div>
       </section>
 
-      <section id="pickup" className="pb-10 max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
+      <section id="review" className="pb-10 max-w-screen h-fit bg-surface-1 px-20 pt-nav-h flex flex-col justify-between items-center gap-10">
         <Tittle text="APA KATA MEREKA?"/>
 
         <div className="px-10 h-full w-full">
