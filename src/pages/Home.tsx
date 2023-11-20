@@ -32,24 +32,24 @@ function Home() {
 
   // PICKUP
   const cardPickup = [
-    { img: imgPickup, text: "Honda Beat", btn: "Detail1", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail2", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail3", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail4", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
+    { id: 1, img: imgPickup, text: "Honda Beat", btn: "Detail1", link: "/detail", status: "accepted", date: "16-11-2023"},
+    { id: 2, img: imgPickup, text: "Honda Beat", btn: "Detail2", link: "/detail", status: "accepted", date: "17-11-2023"},
+    { id: 3, img: imgPickup, text: "Honda Beat", btn: "Detail3", link: "/detail", status: "denied", date: "18-11-2023"},
+    { id: 4, img: imgPickup, text: "Honda Beat", btn: "Detail4", link: "/detail", status: "denied", date: "19-11-2023"},
+    { id: 5, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "denied", date: "20-11-2023"},
+    { id: 6, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: "20-11-2023"},
+    { id: 7, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: "20-11-2023"},
   ];
 
   // BOOKING
   const cardBooking = [
-    { img: imgBooking, text: "Mr. X"},
-    { img: imgBooking, text: "Mr. Y"},
-    { img: imgBooking, text: "Mr. Z"},
-    { img: imgBooking, text: "Mr. A"},
-    { img: imgBooking, text: "Mr. B"},
-    { img: imgBooking, text: "Mr. C"},
-    { img: imgBooking, text: "Mr. D"},
+    { id: 1, img: imgBooking, text: "Mr. X", status: "waiting", date: "20-11-2023"},
+    { id: 2, img: imgBooking, text: "Mr. Y", status: "waiting", date: "20-11-2023"},
+    { id: 3, img: imgBooking, text: "Mr. Z", status: "waiting", date: "20-11-2023"},
+    { id: 4, img: imgBooking, text: "Mr. A", status: "waiting", date: "20-11-2023"},
+    { id: 5, img: imgBooking, text: "Mr. B", status: "waiting", date: "20-11-2023"},
+    { id: 6, img: imgBooking, text: "Mr. C", status: "waiting", date: "20-11-2023"},
+    { id: 7, img: imgBooking, text: "Mr. D", status: "waiting", date: "20-11-2023"},
   ];
   
   // ULASAN
@@ -86,7 +86,7 @@ function Home() {
 
         <div className="px-10 h-full w-full">
           <p className="text-2xl text-gray-900">TERBARU</p>
-          <Slider.Default cards={cardPickup}/>
+          <Slider.Action cards={cardPickup}/>
         </div>
       </section>
 
@@ -95,7 +95,7 @@ function Home() {
 
         <div className="px-10 h-full w-full">
           <p className="text-2xl text-gray-900">TERBARU</p>
-          <Slider.Default cards={cardBooking}/>
+          <Slider.Action cards={cardBooking}/>
         </div>
       </section>
 
