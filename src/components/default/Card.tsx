@@ -21,7 +21,6 @@ function Action(props:any) {
           ) : ''
         }
         
-        {/* TODO : Action Hapus Ketika di Tolak */}
         <button onClick={() => setStatus("accepted")} className="bg-[#20B038] py-1 w-full text-center">Terima Pengajuan</button>
         <button onClick={() => setStatus("denied")} className="bg-[#DF1407] py-1 w-full text-center">Tolak Pengajuan</button>
       </div>
