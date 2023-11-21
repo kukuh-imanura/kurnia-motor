@@ -10,7 +10,6 @@ function Action(props:any) {
   const today = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
   
   const newCard = card.filter((value:any) => {
-    // Memeriksa apakah tanggal kartu sama dengan tanggal hari ini
     return value.date === today && value.status === "waiting"
   });
 

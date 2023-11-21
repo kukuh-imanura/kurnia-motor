@@ -31,36 +31,38 @@ function Home() {
   })
 
   // PICKUP
+  const date = new Date()
+  const today = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
   const cardPickup = [
-    { id: 1, img: imgPickup, text: "Honda Beat", btn: "Detail1", link: "/detail", status: "accepted", date: "16-11-2023"},
-    { id: 2, img: imgPickup, text: "Honda Beat", btn: "Detail2", link: "/detail", status: "accepted", date: "17-11-2023"},
-    { id: 3, img: imgPickup, text: "Honda Beat", btn: "Detail3", link: "/detail", status: "denied", date: "18-11-2023"},
-    { id: 4, img: imgPickup, text: "Honda Beat", btn: "Detail4", link: "/detail", status: "denied", date: "19-11-2023"},
-    { id: 5, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "denied", date: "20-11-2023"},
-    { id: 6, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: "20-11-2023"},
-    { id: 7, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: "20-11-2023"},
+    { id: 1, img: imgPickup, text: "Honda Beat", btn: "Detail1", link: "/detail", status: "waiting", date: today},
+    { id: 2, img: imgPickup, text: "Honda Beat", btn: "Detail2", link: "/detail", status: "waiting", date: today},
+    { id: 3, img: imgPickup, text: "Honda Beat", btn: "Detail3", link: "/detail", status: "waiting", date: today},
+    { id: 4, img: imgPickup, text: "Honda Beat", btn: "Detail4", link: "/detail", status: "waiting", date: today},
+    { id: 5, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: today},
+    { id: 6, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: today},
+    { id: 7, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: today},
   ];
 
   // BOOKING
   const cardBooking = [
-    { id: 1, img: imgBooking, text: "Mr. X", status: "waiting", date: "20-11-2023"},
-    { id: 2, img: imgBooking, text: "Mr. Y", status: "waiting", date: "20-11-2023"},
-    { id: 3, img: imgBooking, text: "Mr. Z", status: "waiting", date: "20-11-2023"},
-    { id: 4, img: imgBooking, text: "Mr. A", status: "waiting", date: "20-11-2023"},
-    { id: 5, img: imgBooking, text: "Mr. B", status: "waiting", date: "20-11-2023"},
-    { id: 6, img: imgBooking, text: "Mr. C", status: "waiting", date: "20-11-2023"},
-    { id: 7, img: imgBooking, text: "Mr. D", status: "waiting", date: "20-11-2023"},
+    { id: 1, img: imgBooking, text: "Mr. X", status: "waiting", date: today},
+    { id: 2, img: imgBooking, text: "Mr. Y", status: "waiting", date: today},
+    { id: 3, img: imgBooking, text: "Mr. Z", status: "waiting", date: today},
+    { id: 4, img: imgBooking, text: "Mr. A", status: "waiting", date: today},
+    { id: 5, img: imgBooking, text: "Mr. B", status: "waiting", date: today},
+    { id: 6, img: imgBooking, text: "Mr. C", status: "waiting", date: today},
+    { id: 7, img: imgBooking, text: "Mr. D", status: "waiting", date: today},
   ];
   
   // ULASAN
   const cardReview = [
-    { img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
-    { img: review2, star:5, text: "Bengkel ini memberikan kemudahan, dalam melakukan servis. tak perlu pergi ke bengkel cukup kontak dan mereka bisa datang ke rumah."},
-    { img: review3, star:5, text: "Tak perlu repot dan tak perlu antri bengkel ini memberikan kemudahan. servis kendaraan dan harga terjangkau."},
-    { img: review2, star:5, text: "Mr. A"},
-    { img: review1, star:5, text: "Mr. B"},
-    { img: review2, star:5, text: "Mr. C"},
-    { img: review3, star:5, text: "Mr. D"},
+    { id: 1, date: "18-11-2023", time: "11:30", img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 2, date: "19-11-2023", time: "10:30", img: review2, star:5, text: "Bengkel ini memberikan kemudahan, dalam melakukan servis. tak perlu pergi ke bengkel cukup kontak dan mereka bisa datang ke rumah."},
+    { id: 3, date: "18-11-2023", time: "10:30", img: review3, star:5, text: "Tak perlu repot dan tak perlu antri bengkel ini memberikan kemudahan. servis kendaraan dan harga terjangkau."},
+    { id: 4, date: "20-11-2023", time: "11:30", img: review2, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 5, date: "20-11-2023", time: "10:30", img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 6, date: today, time: "11:30", img: review2, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 7, date: today, time: "10:30", img: review3, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
   ];
 
   return (
