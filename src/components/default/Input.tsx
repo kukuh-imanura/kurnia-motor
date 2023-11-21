@@ -24,9 +24,18 @@ function Disabled(props:any) {
   )
 }
 
+function Login(props:any) {
+  return (
+    <>
+      <input type={props.type} placeholder={props.placeholder} className="w-full pl-2 bg-white/0 placeholder:text-gray-900 placeholder:text-sm border-b-[1px] border-gray-900 focus:outline-none" />
+    </>
+  )
+}
+
 const Input = {
   Default,
   Disabled,
+  Login,
 }
 
 export default Input

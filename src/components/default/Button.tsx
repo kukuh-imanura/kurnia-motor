@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function Navbar() {
   return (
-    <button className='px-10 h-11 text-gray-100 rounded font-bold bg-brand-1'>Keluar</button>
+    <Link to="/login" className='px-10 h-11 text-gray-100 rounded font-bold bg-brand-1 flex items-center'>Keluar</Link>
   )
 }
 

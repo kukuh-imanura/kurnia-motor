@@ -9,6 +9,8 @@ import Customer from './pages/Customer.tsx'
 import Admin from './pages/Admin.tsx'
 import Laporan from './pages/Laporan.tsx'
 import Detail from './pages/Detail.tsx'
+import Login from './pages/Login.tsx'
+import Recovery from './pages/Recovery.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -20,6 +22,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/admin" element={<Admin />} />
         <Route path="/laporan" element={<Laporan />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/recovery" element={<Recovery />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
