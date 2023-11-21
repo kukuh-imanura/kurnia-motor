@@ -5,7 +5,7 @@ import { useState } from "react"
 function Action(props:any) {
   // HANDLE ACTION
   const [_, setStatus] = useState(props.status)
-  // TODO : simpan status setelah di set
+  // TODO : BackEnd, simpan status setelah di set
 
   return (
     <div className="bg-white w-[327.67px] shadow-md">
