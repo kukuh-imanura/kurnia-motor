@@ -13,7 +13,7 @@
     -moz-appearance: textfield !important;
   }
   * {
-    @apply box-border list-none p-0 m-0 scroll-smooth;
+    @apply box-border p-0 m-0 scroll-smooth;
   }
 
   body {

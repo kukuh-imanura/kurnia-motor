@@ -5,15 +5,18 @@ import Tittle from "@/components/default/Tittle"
 import { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import Slider from "@/components/default/Slider";
+import Footer from "@/components/default/Footer";
+
+// TESTER, 
 import imgPickup from "../../public/assets/images/pickup/def.png";
 import imgBooking from "../../public/assets/images/booking/def.png";
 import review1 from "../../public/assets/images/review/1.png";
 import review2 from "../../public/assets/images/review/2.png";
 import review3 from "../../public/assets/images/review/3.png";
-import Footer from "@/components/default/Footer";
 
 
 function Home() {
+  // HANDLE NAVIGASI
   const location = useLocation()
   const id = location.hash.substring(1)
 
@@ -28,36 +31,38 @@ function Home() {
   })
 
   // PICKUP
+  const date = new Date()
+  const today = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
   const cardPickup = [
-    { img: imgPickup, text: "Honda Beat", btn: "Detail1", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail2", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail3", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail4", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
-    { img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail" },
+    { id: 1, img: imgPickup, text: "Honda Beat", btn: "Detail1", link: "/detail", status: "waiting", date: today},
+    { id: 2, img: imgPickup, text: "Honda Beat", btn: "Detail2", link: "/detail", status: "waiting", date: today},
+    { id: 3, img: imgPickup, text: "Honda Beat", btn: "Detail3", link: "/detail", status: "waiting", date: today},
+    { id: 4, img: imgPickup, text: "Honda Beat", btn: "Detail4", link: "/detail", status: "waiting", date: today},
+    { id: 5, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: today},
+    { id: 6, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: today},
+    { id: 7, img: imgPickup, text: "Honda Beat", btn: "Detail5", link: "/detail", status: "waiting", date: today},
   ];
 
   // BOOKING
   const cardBooking = [
-    { img: imgBooking, text: "Mr. X"},
-    { img: imgBooking, text: "Mr. Y"},
-    { img: imgBooking, text: "Mr. Z"},
-    { img: imgBooking, text: "Mr. A"},
-    { img: imgBooking, text: "Mr. B"},
-    { img: imgBooking, text: "Mr. C"},
-    { img: imgBooking, text: "Mr. D"},
+    { id: 1, img: imgBooking, text: "Mr. X", status: "waiting", date: today},
+    { id: 2, img: imgBooking, text: "Mr. Y", status: "waiting", date: today},
+    { id: 3, img: imgBooking, text: "Mr. Z", status: "waiting", date: today},
+    { id: 4, img: imgBooking, text: "Mr. A", status: "waiting", date: today},
+    { id: 5, img: imgBooking, text: "Mr. B", status: "waiting", date: today},
+    { id: 6, img: imgBooking, text: "Mr. C", status: "waiting", date: today},
+    { id: 7, img: imgBooking, text: "Mr. D", status: "waiting", date: today},
   ];
   
-  // BOOKING
+  // ULASAN
   const cardReview = [
-    { img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
-    { img: review2, star:5, text: "Bengkel ini memberikan kemudahan, dalam melakukan servis. tak perlu pergi ke bengkel cukup kontak dan mereka bisa datang ke rumah."},
-    { img: review3, star:5, text: "Tak perlu repot dan tak perlu antri bengkel ini memberikan kemudahan. servis kendaraan dan harga terjangkau."},
-    { img: review2, star:5, text: "Mr. A"},
-    { img: review1, star:5, text: "Mr. B"},
-    { img: review2, star:5, text: "Mr. C"},
-    { img: review3, star:5, text: "Mr. D"},
+    { id: 1, date: "18-11-2023", time: "11:30", img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 2, date: "19-11-2023", time: "10:30", img: review2, star:5, text: "Bengkel ini memberikan kemudahan, dalam melakukan servis. tak perlu pergi ke bengkel cukup kontak dan mereka bisa datang ke rumah."},
+    { id: 3, date: "18-11-2023", time: "10:30", img: review3, star:5, text: "Tak perlu repot dan tak perlu antri bengkel ini memberikan kemudahan. servis kendaraan dan harga terjangkau."},
+    { id: 4, date: "20-11-2023", time: "11:30", img: review2, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 5, date: "20-11-2023", time: "10:30", img: review1, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 6, date: today, time: "11:30", img: review2, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
+    { id: 7, date: today, time: "10:30", img: review3, star:5, text: "Pelayanan sangat profesional dan memuaskan."},
   ];
 
   return (
@@ -78,25 +83,25 @@ function Home() {
         </div>
       </section>
 
-      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
+      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-nav-h flex flex-col justify-between items-center gap-10">
         <Tittle text="PERMINTAAN ANTAR JEMPUT"/>
 
         <div className="px-10 h-full w-full">
           <p className="text-2xl text-gray-900">TERBARU</p>
-          <Slider.Default cards={cardPickup}/>
+          <Slider.Action cards={cardPickup}/>
         </div>
       </section>
 
-      <section id="pickup" className="max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
+      <section id="booking" className="max-w-screen h-fit bg-surface-1 px-20 pt-nav-h flex flex-col justify-between items-center gap-10">
         <Tittle text="PERMINTAAN BOOKING ONLINE"/>
 
         <div className="px-10 h-full w-full">
           <p className="text-2xl text-gray-900">TERBARU</p>
-          <Slider.Default cards={cardBooking}/>
+          <Slider.Action cards={cardBooking}/>
         </div>
       </section>
 
-      <section id="pickup" className="pb-10 max-w-screen h-fit bg-surface-1 px-20 pt-[80.16px] flex flex-col justify-between items-center gap-10">
+      <section id="review" className="pb-10 max-w-screen h-fit bg-surface-1 px-20 pt-nav-h flex flex-col justify-between items-center gap-10">
         <Tittle text="APA KATA MEREKA?"/>
 
         <div className="px-10 h-full w-full">

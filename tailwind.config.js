@@ -39,6 +39,9 @@ module.exports = {
         420: "420px",
         465: "465px",
       },
+      spacing: {
+        'nav-h': '80.16px',
+      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },

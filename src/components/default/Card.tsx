@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
 import imgStar from '../../../public/assets/icons/star.png'
+import { useState } from "react"
 
 function Action(props:any) {
+  // HANDLE ACTION
+  const [_, setStatus] = useState(props.status)
+  // TODO : BackEnd, simpan status setelah di set
+
   return (
     <div className="bg-white w-[327.67px] shadow-md">
       <div className="p-2 flex gap-2 flex-col items-center">
@@ -15,8 +20,9 @@ function Action(props:any) {
             <Link to={props.link} className="bg-brand-1 py-1 w-full text-center">{props.btn}</Link>
           ) : ''
         }
-        <Link to="" className="bg-[#20B038] py-1 w-full text-center">Terima Pengajuan</Link>
-        <Link to="" className="bg-[#DF1407] py-1 w-full text-center">Tolak Pengajuan</Link>
+        
+        <button onClick={() => setStatus("accepted")} className="bg-[#20B038] py-1 w-full text-center">Terima Pengajuan</button>
+        <button onClick={() => setStatus("denied")} className="bg-[#DF1407] py-1 w-full text-center">Tolak Pengajuan</button>
       </div>
     </div>
   )
