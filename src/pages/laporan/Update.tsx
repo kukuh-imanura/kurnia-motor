@@ -1,3 +1,4 @@
+import Button from "@/components/default/Button"
 import Footer from "@/components/default/Footer"
 import Input from "@/components/default/Input"
 import Navbar from "@/components/default/Navbar"
@@ -17,6 +18,10 @@ function Update() {
             <Input.Default className="bg-brand-1 rounded-md text-gray-100 placeholder:text-gray-100 placeholder:text-center pt-3 w-32 focus:outline-none" placeholder=".../.../..."/>
           </div>
           <Table.Form header={header}/>
+          <div className="mt-10 flex space-x-3 justify-end px-20">
+            <Button.Default link="/laporan" text="Simpan" className="w-32"/>
+            <Button.Default link="/laporan" text="Batal" className="w-32"/>
+          </div>
         </div>
       </section>
 
