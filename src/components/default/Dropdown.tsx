@@ -46,6 +46,14 @@ export default function Dropdown() {
 
             <Menu.Item>
               {({ active }) => (
+                <Link to="/chat" className={`block px-4 py-2 text-sm ${active ? "text-brand-1 font-bold" : "text-gray-900"}`}>
+                  Chat Customer
+                </Link>
+              )}
+            </Menu.Item>
+
+            <Menu.Item>
+              {({ active }) => (
                 <Link to="/laporan" className={`block px-4 py-2 text-sm ${active ? "text-brand-1 font-bold" : "text-gray-900"}`}>
                   Laporan Pembukuan
                 </Link>
