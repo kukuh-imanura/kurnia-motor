@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const AddUserAdmin = () => {
+const AddUserCustomer = () => {
   const [name, setName] = useState("");
   const [tlp, setTlp] = useState("");
   const [email, setEmail] = useState("");
@@ -13,14 +13,14 @@ const AddUserAdmin = () => {
   const saveUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post("https://bengkel-api-ruby.vercel.app/api/auth/registerAdmin", {
+      await axios.post("https://bengkel-api-ruby.vercel.app/api/auth/registerCustomer", {
         name,
         tlp,
         email,
         username,
         password,
       });
-      navigate("/admin");
+      navigate("/customer");
     } catch (error) {
       console.log(error);
     }
@@ -77,4 +77,4 @@ const AddUserAdmin = () => {
   );
 };
 
-export default AddUserAdmin;
+export default AddUserCustomer;

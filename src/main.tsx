@@ -10,6 +10,7 @@ import Admin from "./pages/Admin.tsx";
 import Laporan from "./pages/Laporan.tsx";
 import Detail from "./pages/Detail.tsx";
 import AddUserAdmin from "./components/default/AddUserAdmin.tsx";
+import AddUserCustomer from "./components/default/AddUserCustomer.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -21,7 +22,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/admin" element={<Admin />} />
         <Route path="/laporan" element={<Laporan />} />
         <Route path="/about" element={<About />} />
-        <Route path="/add" element={<AddUserAdmin />} />
+        <Route path="/addAdmin" element={<AddUserAdmin />} />
+        <Route path="/addCustomer" element={<AddUserCustomer />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

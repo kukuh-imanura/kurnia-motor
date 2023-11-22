@@ -32,7 +32,7 @@ function Admin() {
   }, [page, keyword]);
 
   const getUsers = async () => {
-    const response = await axios.get(`http://localhost:5000/api/admin/allAdmin?search_query=${keyword}&page=${page}&limit=${limit}`);
+    const response = await axios.get(`https://bengkel-api-ruby.vercel.app/api/admin/allAdmin?search_query=${keyword}&page=${page}&limit=${limit}`);
     setUsers(response.data.result as User[]);
     setPage(response.data.page);
     setPages(response.data.totalPage);
@@ -55,9 +55,9 @@ function Admin() {
     setKeyword(query);
   };
 
-  const deleteUser = async (id_admin) => {
+  const deleteUser = async (id_admin: number) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/${id_admin}`);
+      await axios.delete(`https://bengkel-api-ruby.vercel.app/api/admin/${id_admin}`);
       getUsers();
     } catch (error) {
       console.log(error);
@@ -66,12 +66,12 @@ function Admin() {
   return (
     <div>
       <Navbar />
-      <section className=" bg-surface-1 h-full  px-36 ">
+      <section className=" bg-surface-1 h-auto pb-40 px-36 ">
         <div>
           <h1 className="text-stone-800 text-center text-4xl  whitespace-nowrap pt-9 max-md:pt-10 mb-10">DATA ADMIN</h1>
         </div>
         <div className="flex justify-between items-center">
-          <Link to={"/add"}>
+          <Link to={"/addAdmin"}>
             <Button className="text-orange-50 text-xl font-bold bg-brand-1 px-11 py-6 ">Tambah</Button>
           </Link>
           <form className="text-stone-800 w-1/3  " onSubmit={searchData}>
@@ -98,7 +98,7 @@ function Admin() {
           <TableBody>
             {users.map((user, i) => (
               <TableRow key={user.id_admin}>
-                <TableCell className="font-medium">{i + 1}</TableCell>
+                <TableCell className="font-medium">{i + 1 + page * limit}</TableCell>
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.tlp}</TableCell>
                 <TableCell>{user.email}</TableCell>
@@ -128,7 +128,7 @@ function Admin() {
             pageLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:text-gray-700"}
             previousLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-500 bg-white border-t border-b border-l border-gray-300 rounded-l-md hover:text-gray-700"}
             nextLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-500 bg-white border-l border-t border-b border-r border-gray-300 rounded-l-md rounded-r-md hover:text-gray-700"}
-            activeLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-orange-500 border border-blue-500 rounded-md pointer-events-none"}
+            activeLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-orange-800 border border-blue-500 rounded-md pointer-events-none"}
             disabledLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-300 bg-white border border-gray-300 rounded-md pointer-events-none"}
           />
         </nav>
