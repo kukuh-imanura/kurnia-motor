@@ -1,7 +1,6 @@
 import Footer from "@/components/default/Footer"
-import Input from "@/components/default/Input"
 import Navbar from "@/components/default/Navbar"
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Table from "@/components/default/Table";
 import { Link } from "react-router-dom";
 
 function Laporan() {
@@ -30,25 +29,22 @@ function Laporan() {
     // { tanggal: '02/03/2023', layanan: 'Ganti oli MPX', satuan: 1, harga: 35000, total: 35000},
   ]
 
+  const header = ["", "Tanggal", "Layanan", "Satuan", "Harga", "Total"]
+  const footer = (
+    <>
+      <th colSpan={5} className="text-left pl-20">
+        SUBTOTAL PENDAPATAN BULAN INI
+      </th>
+      <th>12.000.000</th>
+    </>
+  );
+
   // TODO : Backend, FILTER BULAN
   // const bulanIni = laporan.filter((value) => {
   //   const bulan = value.tanggal.split('/')[1];
   //   return bulan === '03';
   // })
   // console.log(bulanIni)
-
-  // FILTER TANGGAL MENJADI SATU
-  const uniqueDates = new Set();
-  
-  const transformedLaporan = laporan.map((value, _) => {
-    if (!uniqueDates.has(value.tanggal)) {
-      uniqueDates.add(value.tanggal);
-      return value;
-    } else {
-      return { ...value, tanggal: '' };
-    }
-  });
-
 
   return (
     <div>
@@ -60,45 +56,11 @@ function Laporan() {
         </div>
 
         <div className="font-bold space-x-3 mt-10 flex justify-end">
-          <Link to="laporan/update" className="bg-[#20B038] px-10 py-3 rounded">Update</Link>
+          <Link to="update" className="bg-[#20B038] px-10 py-3 rounded">Update</Link>
           <button className="bg-[#DF1407] px-10 py-3 rounded">Hapus</button>
         </div>
 
-        <table className="w-full mt-5">
-          <tr className="bg-brand-1 h-10">
-            <td></td>
-            <th>Tanggal</th>
-            <th>Layanan</th>
-            <th>Satuan</th>
-            <th>Harga</th>
-            <th>Total</th>
-          </tr>
-
-          {
-            transformedLaporan.map((value, index) => (
-              <tr key={index} className={`${index % 2 === 0 ? "bg-surface-2" : ""} text-gray-900 h-10`}>
-                <td><Input.Checkbox /></td>
-                <td>{value.tanggal}</td>
-                <td className="text-left">{value.layanan}</td>
-                <td>{value.satuan}</td>
-                <td>{value.harga}</td>
-                <td>{value.total}</td>
-              </tr>
-            ))
-          }
-          
-          <tr className="bg-brand-1 text-gray-100 h-10">
-            <th colSpan={5} className="text-left pl-20">SUBTOTAL PENDAPATAN BULAN INI</th>
-            <th>12.000.000</th>
-          </tr>
-
-        </table>
-
-        <div className="text-gray-900 flex items-center justify-center space-x-10 mt-10 ">
-          <FaChevronLeft />
-          <p>January 2023</p>
-          <FaChevronRight />
-        </div>
+        <Table header={header} content={laporan} footer={footer}/>
 
       </div>
       <Footer />
