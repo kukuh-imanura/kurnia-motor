@@ -126,9 +126,9 @@ function Admin() {
             onPageChange={changePage}
             containerClassName={"flex space-x-3  items-center"} // Updated to include 'items-center'
             pageLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:text-gray-700"}
-            previousLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-500 bg-white border-t border-b border-l border-gray-300 rounded-l-md hover:text-gray-700"}
+            previousLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-500 bg-white border-t border-r border-b border-l border-gray-300 rounded-l-md rounded-r-md hover:text-gray-700"}
             nextLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-500 bg-white border-l border-t border-b border-r border-gray-300 rounded-l-md rounded-r-md hover:text-gray-700"}
-            activeLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-orange-800 border border-blue-500 rounded-md pointer-events-none"}
+            activeLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-white active-link border border-blue-500 rounded-md pointer-events-none"}
             disabledLinkClassName={"inline-flex items-center px-3 py-1 text-sm font-medium text-gray-300 bg-white border border-gray-300 rounded-md pointer-events-none"}
           />
         </nav>
