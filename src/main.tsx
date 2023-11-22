@@ -13,8 +13,10 @@ import Login from './pages/Login.tsx'
 import Recovery from './pages/Recovery.tsx'
 import Chat from './pages/Chat.tsx'
 import Update from './pages/laporan/Update.tsx'
+import AddUserAdmin from "./components/default/AddUserAdmin.tsx";
+import AddUserCustomer from "./components/default/AddUserCustomer.tsx";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -31,8 +33,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/recovery" element={<Recovery />} />
+        <Route path="/addAdmin" element={<AddUserAdmin />} />
+        <Route path="/addCustomer" element={<AddUserCustomer />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
-)
+);
