@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
 
-
-function Navbar() {
+function Default(props:any) {
   return (
-    <button className='px-10 h-11 text-gray-100 rounded font-bold bg-brand-1'>Keluar</button>
+    <Link to={props.link} className={`${props.className} px-10 h-11 text-gray-100 rounded font-bold bg-brand-1 flex items-center`}>{props.text}</Link>
+  )
+}
+
+function Navbar(props:any) {
+  return (
+    <Link to="/login" className={`${props.className} px-10 h-11 text-gray-100 rounded font-bold bg-brand-1 flex items-center`}>Keluar</Link>
   )
 }
 
@@ -17,6 +22,7 @@ function Card(props:any) {
 }
 
 const Button = {
+  Default,
   Navbar,
   Card,
 }

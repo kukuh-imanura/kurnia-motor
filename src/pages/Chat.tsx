@@ -1,6 +1,6 @@
 import Navbar from "@/components/default/Navbar"
 
-function Laporan() {
+function Chat() {
   return (
     <div>
       <Navbar />
@@ -8,4 +8,4 @@ function Laporan() {
   )
 }
 
-export default Laporan
+export default Chat
