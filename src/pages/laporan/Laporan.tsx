@@ -60,7 +60,7 @@ function Laporan() {
           <button className="bg-[#DF1407] px-10 py-3 rounded">Hapus</button>
         </div>
 
-        <Table header={header} content={laporan} footer={footer}/>
+        <Table.Laporan header={header} content={laporan} footer={footer} className="mt-5"/>
 
       </div>
       <Footer />

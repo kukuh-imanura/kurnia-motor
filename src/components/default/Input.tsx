@@ -11,7 +11,7 @@ function Default(props: any) {
       ) : (
         ""
       )}
-      <input id={props.label} type="text" placeholder={props.placeholder} className={`bg-gray-100 w-full px-5 py-1 placeholder:text-gray-900 ${props.className}`} />
+      <input id={props.label} type={props.type} placeholder={props.placeholder} className={`${props.className} px-5 py-1 placeholder:text-gray-900`} />
     </div>
   );
 }
