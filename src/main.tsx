@@ -15,6 +15,7 @@ import Chat from "./pages/Chat.tsx";
 import Update from "./pages/laporan/Update.tsx";
 import AddUserAdmin from "./components/default/AddUserAdmin.tsx";
 import AddUserCustomer from "./components/default/AddUserCustomer.tsx";
+import Profile from "./pages/admin/Profile.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -23,13 +24,16 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<Home />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/customer" element={<Customer />} />
+
+        {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/admin/profile" element={<Profile />} />
 
         {/* LAPORAN AREA */}
         <Route path="/laporan" element={<Laporan />} />
         <Route path="/laporan/update" element={<Update />} />
 
+        <Route path="/chat" element={<Chat />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/recovery" element={<Recovery />} />
