@@ -9,7 +9,7 @@ import Customer from "./pages/Customer.tsx";
 import Admin from "./pages/Admin.tsx";
 import Laporan from "./pages/laporan/Laporan.tsx";
 import Detail from "./pages/Detail.tsx";
-import Login from "./pages/Login.tsx";
+import Login from "./pages/login/Login.tsx";
 import Recovery from "./pages/Recovery.tsx";
 import Chat from "./pages/Chat.tsx";
 import Update from "./pages/laporan/Update.tsx";
