@@ -31,7 +31,7 @@ Dibuat menggunakan `Vite + TypeScript` dengan framework `Tailwind` dan reusable 
 | Hacker/Programmer | Galung Wendi Wijaya |
 | Hacker/Programmer | Messy Wirdianti |
 | Hacker/Programmer + Scrum | Galung Wendi Wijaya |
-| Hipster/Designer | Ella |
+| Hipster/Designer | Ellria Elda Servanda N. |
 | Hipster/Designer | Oktariza Dwi Putri |
 
 

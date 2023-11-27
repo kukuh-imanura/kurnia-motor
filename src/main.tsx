@@ -1,18 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './globals.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home.tsx'
-import NotFound from './pages/NotFound.tsx'
-import About from './pages/About.tsx'
-import Customer from './pages/Customer.tsx'
-import Admin from './pages/Admin.tsx'
-import Laporan from './pages/laporan/Laporan.tsx'
-import Detail from './pages/Detail.tsx'
-import Login from './pages/Login.tsx'
-import Recovery from './pages/Recovery.tsx'
-import Chat from './pages/Chat.tsx'
-import Update from './pages/laporan/Update.tsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./globals.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.tsx";
+import NotFound from "./pages/NotFound.tsx";
+import About from "./pages/About.tsx";
+import Customer from "./pages/Customer.tsx";
+import Admin from "./pages/Admin.tsx";
+import Laporan from "./pages/laporan/Laporan.tsx";
+import Detail from "./pages/Detail.tsx";
+import Login from "./pages/Login.tsx";
+import Recovery from "./pages/Recovery.tsx";
+import Chat from "./pages/Chat.tsx";
+import Update from "./pages/laporan/Update.tsx";
 import AddUserAdmin from "./components/default/AddUserAdmin.tsx";
 import AddUserCustomer from "./components/default/AddUserCustomer.tsx";
 
@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/customer" element={<Customer />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/chat" element={<Chat />} />
-        
+
         {/* LAPORAN AREA */}
         <Route path="/laporan" element={<Laporan />} />
         <Route path="/laporan/update" element={<Update />} />
@@ -35,6 +35,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/recovery" element={<Recovery />} />
         <Route path="/addAdmin" element={<AddUserAdmin />} />
         <Route path="/addCustomer" element={<AddUserCustomer />} />
+        {/* <Route path="/editAdmin/:adminId" element={<EditUserAdmin />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
