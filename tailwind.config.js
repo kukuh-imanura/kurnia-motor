@@ -16,6 +16,7 @@ module.exports = {
       colors: {
         "surface-1": "#FFF8EF",
         "surface-2": "#FFEDD3",
+        "surface-invers": "#272323",
         "brand-1": "#F18805",
         "brand-2": "#FFCE85",
         "primary-500": "#877EFF",

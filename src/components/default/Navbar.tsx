@@ -3,9 +3,10 @@ import { Link, useLocation } from "react-router-dom"
 import logo from '/assets/images/logo-orange.png?url'
 import Dropdown from "./Dropdown"
 import Button from "./Button"
+import { MdLogout } from "react-icons/md";
 
 
-function Navbar() {
+function Default1() {
 
   const classActive = "font-bold text-brand-1"
 
@@ -24,6 +25,22 @@ function Navbar() {
       <Button.Navbar />
     </div>
   )
+}
+
+function Default2() {
+  return (
+    <div className="flex p-10 items-center justify-between w-full">
+      <p className="text-3xl font-bold">Dashboard</p>
+      <Link to="/login">
+        <MdLogout size="2em"/>
+      </Link>
+    </div>
+  )
+}
+
+const Navbar = {
+  Default1,
+  Default2,
 }
 
 export default Navbar

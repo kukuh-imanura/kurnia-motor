@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaLock, FaLockOpen } from "react-icons/fa6";
 
 function Default(props: any) {
   return (
@@ -32,9 +33,36 @@ function Disabled(props: any) {
 }
 
 function Login(props: any) {
+  const [type, setType] = useState(props.type)
+  const handleSetType = () => {
+    type === "text" ? setType("password") : setType("text")
+  }
+
   return (
     <>
-      <input type={props.type} placeholder={props.placeholder} className="w-full pl-2 bg-white/0 placeholder:text-gray-900 placeholder:text-sm border-b-[1px] border-gray-900 focus:outline-none" />
+      {type === "submit" ? (
+        <input type={props.type} placeholder={props.placeholder} value={props.value} className={`${props.className} w-full py-1 px-5 bg-brand-1 text-gray-100 rounded-full border-gray-900`} />
+      ) : (
+        <div className="relative rounded-full">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+            {
+              props.type === "password" ? (
+                type === "password" ? <FaLock/> : <FaLockOpen />
+              ) : props.icon
+            }
+          </div>
+
+          <input type={type} placeholder={props.placeholder} value={props.value} className={`${props.className} block w-full py-1 pl-10 pr-20 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full border-gray-900 focus:outline-none`} />
+
+          {
+            props.type === "password" ? (
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" onClick={handleSetType}>
+                {type === "text" ? <FaEyeSlash /> : <FaEye />}
+              </div>
+            ) : ""
+          }
+        </div>
+      )}
     </>
   );
 }
