@@ -10,7 +10,7 @@ import Admin from "./pages/Admin.tsx";
 import Laporan from "./pages/laporan/Laporan.tsx";
 import Detail from "./pages/Detail.tsx";
 import Login from "./pages/login/Login.tsx";
-import Recovery from "./pages/Recovery.tsx";
+import Recovery from "./pages/login/Recovery.tsx";
 import Chat from "./pages/Chat.tsx";
 import Update from "./pages/laporan/Update.tsx";
 import AddUserAdmin from "./components/default/AddUserAdmin.tsx";
@@ -35,8 +35,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
         <Route path="/chat" element={<Chat />} />
         <Route path="/about" element={<About />} />
+
+        {/* LOGIN AREA */}
         <Route path="/login" element={<Login />} />
-        <Route path="/recovery" element={<Recovery />} />
+        <Route path="/login/recovery" element={<Recovery />} />
+
         <Route path="/addAdmin" element={<AddUserAdmin />} />
         <Route path="/addCustomer" element={<AddUserCustomer />} />
         {/* <Route path="/editAdmin/:adminId" element={<EditUserAdmin />} /> */}
