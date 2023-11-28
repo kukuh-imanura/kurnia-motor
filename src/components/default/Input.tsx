@@ -52,7 +52,7 @@ function Login(props: any) {
             }
           </div>
 
-          <input type={type} placeholder={props.placeholder} value={props.value} className={`${props.className} block w-full py-1 pl-10 pr-20 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full border-gray-900 focus:outline-none`} />
+          <input type={type} placeholder={props.placeholder} value={props.value} className={`${props.className} block w-full py-1 pl-10 pr-10 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full border-gray-900 focus:outline-none`} />
 
           {
             props.type === "password" ? (
