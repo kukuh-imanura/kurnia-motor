@@ -1,17 +1,5 @@
-import Footer from "@/components/default/Footer"
 import Navbar from "@/components/default/Navbar"
 import Sidebar from "@/components/default/Sidebar"
-
-function Test() {
-  return (
-    <div className="bg-surface-1">
-      <Navbar.Default1 />
-
-
-      <Footer />
-    </div>
-  )
-}
 
 function About() {
   return (
