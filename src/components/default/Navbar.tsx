@@ -27,10 +27,10 @@ function Default1() {
   )
 }
 
-function Default2() {
+function Default2(props:any) {
   return (
     <div className="flex p-10 items-center justify-between w-full">
-      <p className="text-3xl font-bold">Dashboard</p>
+      <p className="text-3xl font-bold">{props.text}</p>
       <Link to="/login">
         <MdLogout size="2em"/>
       </Link>
