@@ -1,17 +1,30 @@
 import Card from "./Card";
 import { useState } from "react";
 
-function Default(props:any) {
-  const cardPickup = props.cards
+function Action(props:any) {
+  
+  // TODO : BackEnd, urutkan card berdasarkan waktu
+  const card = props.cards
+  
+  // FILTER SLIDE
+  const date = new Date()
+  const today = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
+  
+  const newCard = card.filter((value:any) => {
+    return value.date === today && value.status === "waiting"
+  });
 
+  // console.log(newCard)
+
+  // HANDLE SLIDE
   const cardCount = 3
-  const slideCount = Math.ceil(cardPickup.length / cardCount)
+  const slideCount = Math.ceil(newCard.length / cardCount)
   const slideCountArrray = Array.from({length:slideCount}, (_, index) => index)
 
   const [activeSlide, setActiveSlide] = useState(0)
 
   const firstCard = activeSlide * cardCount
-  const currentSlide = cardPickup.slice(firstCard, firstCard + cardCount)
+  const currentSlide = newCard.slice(firstCard, firstCard + cardCount)
 
   return (
     <div>
@@ -19,7 +32,7 @@ function Default(props:any) {
       {/* CARD */}
       <div className="flex gap-5 w-fit">
         {currentSlide.map((value:any, index:any) => (
-          <Card.Action key={index} img={value.img} text={value.text} btn={value.btn} link={value.link} />
+          <Card.Action key={index} img={value.img} text={value.text} btn={value.btn} link={value.link} status={value.status}/>
         ))}
       </div>
 
@@ -72,7 +85,7 @@ function Review(props:any) {
 }
 
 const Slider = {
-  Default,
+  Action,
   Review,
 }
 

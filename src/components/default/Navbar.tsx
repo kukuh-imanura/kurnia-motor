@@ -3,9 +3,11 @@ import { Link, useLocation } from "react-router-dom"
 import logo from '/assets/images/logo-orange.png?url'
 import Dropdown from "./Dropdown"
 import Button from "./Button"
+import { MdLogout } from "react-icons/md";
+import Input from "./Input";
 
 
-function Navbar() {
+function Default1() {
 
   const classActive = "font-bold text-brand-1"
 
@@ -24,6 +26,29 @@ function Navbar() {
       <Button.Navbar />
     </div>
   )
+}
+
+function Default2(props:any) {
+  return (
+    <div className={`${props.className} flex p-10 items-center justify-between w-full`}>
+      <p className="text-3xl font-bold">{props.text}</p>
+      <div className="flex gap-5">
+        {
+          props.input ? (
+            <Input.Search placeholder="Masukkan Kata Kunci"/>
+          ) : ""
+        }
+        <Link to="/login">
+          <MdLogout size="2em"/>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+const Navbar = {
+  Default1,
+  Default2,
 }
 
 export default Navbar
