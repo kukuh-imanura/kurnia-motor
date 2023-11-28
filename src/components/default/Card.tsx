@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import imgStar from "/assets/icons/star.png";
 import { useState } from "react";
 
 function Action(props: any) {
@@ -35,22 +34,25 @@ function Action(props: any) {
 }
 
 function Review(props: any) {
-  const star = props.star;
+  const star = 5;
 
   return (
-    <div className="bg-white w-[327.67px] shadow-md">
-      <div>
-        <img src={props.img} alt="Img" />
+    <div className="bg-white shadow-md rounded-xl p-10 h-fit space-y-5">
+      <img src="/assets/images/review/1.png" alt="" />
+
+      <div className="flex justify-center">
+        {
+          Array.from({length:star}).map((_, index) => (
+            <img key={index} src="/assets/icons/star.png" alt="⭐" />
+          ))
+        }
       </div>
 
-      <div className="text-gray-900 px-10 py-5 space-y-5 text-center h-52">
-        <p className="flex justify-center">
-          {Array.from({ length: star }, (_, index) => index).map((_, index) => (
-            <img key={index} src={imgStar} alt="Star" className="h-6" />
-          ))}
-        </p>
-        <p>{props.text}</p>
+      <div>
+        <p className="font-bold text-center text-lg">Nama</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quisquam possimus vero architecto commodi, obcaecati temporibus ut maxime delectus quasi quam sapiente provident veritatis soluta eaque illum animi quibusdam saepe?</p>
       </div>
+
     </div>
   );
 }

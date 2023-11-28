@@ -3,17 +3,20 @@ import ReactDOM from "react-dom/client";
 import "./globals.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Main
+import Home from "./pages/Home.tsx";
+import About from "./pages/About.tsx";
+import NotFound from "./pages/NotFound.tsx";
+
 // Login Area
 import Login from "./pages/login/Login.tsx";
 import Recovery from "./pages/login/Recovery.tsx";
 import Reset from "./pages/login/Reset.tsx";
 
 // Layanan Area
-import Home from "./pages/Home.tsx";
 import Detail from "./pages/Detail.tsx";
 import Chat from "./pages/Chat.tsx";
-import About from "./pages/About.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import Review from "./pages/layanan/Review.tsx";
 
 // Admin Area
 import Admin from "./pages/Admin.tsx";
@@ -33,17 +36,20 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Routes>
 
+        {/* MAIN */}
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/about" element={<About />} />
+
         {/* LOGIN AREA */}
         <Route path="/login" element={<Login />} />
         <Route path="/login/recovery" element={<Recovery />} />
         <Route path="/login/reset" element={<Reset />} />
         
         {/* LAYANAN AREA */}
-        <Route path="/" element={<Home />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/review" element={<Review />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />

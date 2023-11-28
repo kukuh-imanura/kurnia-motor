@@ -4,6 +4,7 @@ import logo from '/assets/images/logo-orange.png?url'
 import Dropdown from "./Dropdown"
 import Button from "./Button"
 import { MdLogout } from "react-icons/md";
+import Input from "./Input";
 
 
 function Default1() {
@@ -27,13 +28,20 @@ function Default1() {
   )
 }
 
-function Default2() {
+function Default2(props:any) {
   return (
-    <div className="flex p-10 items-center justify-between w-full">
-      <p className="text-3xl font-bold">Dashboard</p>
-      <Link to="/login">
-        <MdLogout size="2em"/>
-      </Link>
+    <div className={`${props.className} flex p-10 items-center justify-between w-full`}>
+      <p className="text-3xl font-bold">{props.text}</p>
+      <div className="flex gap-5">
+        {
+          props.input ? (
+            <Input.Search placeholder="Masukkan Kata Kunci"/>
+          ) : ""
+        }
+        <Link to="/login">
+          <MdLogout size="2em"/>
+        </Link>
+      </div>
     </div>
   )
 }
