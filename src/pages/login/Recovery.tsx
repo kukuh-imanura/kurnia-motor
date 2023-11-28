@@ -1,5 +1,5 @@
 import Input from "@/components/default/Input"
-import { FaUser } from "react-icons/fa6";
+import { FaUser, FaEnvelope } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -13,16 +13,15 @@ function Login() {
 
         <div className="w-2/5 h-screen bg-white/80 flex justify-center items-center">
           <div className="text-gray-900 w-1/2">
-            <p className="text-2xl font-bold">Login.</p>
-            <p className="mb-2 text-sm">Masuk ke akun anda</p>
-            <form action="" method="post" className="space-y-2">
+            <p className="text-2xl font-bold">Lupa Kata Sandi.</p>
+            <p className="mb-2 text-sm">Masukkan username dan email untuk verifikasi</p>
+            <form method="post" className="space-y-2">
               <Input.Login placeholder="Username" icon={<FaUser />}/>
-              <Input.Login placeholder="Kata sandi" type="password"/>
-              <Link to="/login/recovery" className="italic text-sm text-right block pb-2">Lupa password</Link>
-              
-              {/* Link-nya cuma untuk sementara */}
-              <Link to="/" >
-                <Input.Login value="Masuk" type="submit" className="cursor-pointer"/>
+              <Input.Login placeholder="Email" type="email" icon={<FaEnvelope />} />
+
+              {/* Link hanya sementara */}
+              <Link to="/login">
+                <Input.Login value="Kirim" type="submit" className="cursor-pointer mt-2"/>
               </Link>
             </form>
           </div>
