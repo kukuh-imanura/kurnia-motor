@@ -15,7 +15,7 @@ import Reset from "./pages/login/Reset.tsx";
 
 // Layanan Area
 import Detail from "./pages/layanan/Detail.tsx";
-import Chat from "./pages/Chat.tsx";
+import Chat from "./pages/layanan/Chat.tsx";
 import Review from "./pages/layanan/Review.tsx";
 import Booking from "./pages/layanan/Booking.tsx";
 

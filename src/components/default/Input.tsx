@@ -62,16 +62,29 @@ function Search(props: any) {
   return (
     <>
       <div className="relative rounded-full">
-        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full py-1 pl-5 pr-10 bg-white/0 text-sm placeholder:text-light placeholder:text-gray-500 border-2 rounded-xl border-gray-900 focus:outline-none`} />
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-          <FaMagnifyingGlass />
-        </div>
+        {
+          props.icon === "left" ? (
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer">
+              <FaMagnifyingGlass className="text-brand-1"/>
+            </div>
+          ) : null
+        }
+
+        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full px-10 text-sm placeholder:text-light placeholder:text-gray-500 border-2 rounded-xl border-gray-900 focus:outline-none`} />
+        
+        {
+          props.icon === "right" ? (
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+              <FaMagnifyingGlass />
+            </div>
+          ) : null
+        }
       </div>
     </>
   );
 }
 
-function Default(props: any) {
+function Textarea(props: any) {
   return (
     <div className="m-5 p-5 border-2 rounded-xl">
       {
@@ -84,8 +97,17 @@ function Default(props: any) {
   );
 }
 
+function Default(props:any) {
+  return (
+    <>
+      <input type={props.type} placeholder={props.placeholder} className={`${props.className} focus:outline-none`} />
+    </>
+  )
+}
+
 const Input = {
   Default,
+  Textarea,
   Disabled,
   Checkbox,
   Login,

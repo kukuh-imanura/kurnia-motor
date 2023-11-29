@@ -55,7 +55,7 @@ function Detail() {
               </div>
             </div>
 
-            <Input.Default className="w-full" placeholder="( Opsional )" header/>
+            <Input.Textarea className="w-full" placeholder="( Opsional )" header/>
           </div>
         </div>
       </div>
