@@ -1,5 +1,6 @@
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Input from "@/components/default/Input"
+import Button from './Button';
 
 function Laporan(props:any) {
 
@@ -123,7 +124,39 @@ function Form(props:any) {
   );
 }
 
+function Default(props:any) {
+
+  return (
+    <div className={props.className}>
+      <table className='w-full'>
+
+        {
+          Array.from({length:10}).map((_, index) => (
+            <tr key={index} className='flex items-center justify-between p-3 border-y-2'>
+              <div className='flex items-center gap-5'>
+                <td>{index + 1}.</td>
+                <td><img src="/assets/images/admin/adelia.png" alt="Foto Profil" className='h-16 rounded-full'/></td>
+                <td>
+                  <p className='font-bold'>Nama</p>
+                  <p className='font-light'>10:00</p>
+                </td>
+              </div>
+              
+              <td className='flex gap-3'>
+                <Button.Default text="Terima"/>
+                <Button.Default text="Tolak"/>
+              </td>
+            </tr>
+          ))
+        }
+
+      </table>
+    </div>
+  );
+}
+
 const Table = {
+  Default,
   Laporan,
   Form,
 }

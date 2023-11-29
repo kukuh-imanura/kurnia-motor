@@ -75,7 +75,7 @@ function Search(props: any) {
   return (
     <>
       <div className="relative rounded-full">
-        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full py-1 pl-5 pr-10 bg-white/0 text-sm placeholder:text-light placeholder:text-gray-900 border-2 rounded-xl border-gray-900 focus:outline-none`} />
+        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full py-1 pl-5 pr-10 bg-white/0 text-sm placeholder:text-light placeholder:text-gray-500 border-2 rounded-xl border-gray-900 focus:outline-none`} />
         <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
           <FaMagnifyingGlass />
         </div>

@@ -17,6 +17,7 @@ import Reset from "./pages/login/Reset.tsx";
 import Detail from "./pages/Detail.tsx";
 import Chat from "./pages/Chat.tsx";
 import Review from "./pages/layanan/Review.tsx";
+import Booking from "./pages/layanan/Booking.tsx";
 
 // Admin Area
 import Admin from "./pages/Admin.tsx";
@@ -50,6 +51,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/detail" element={<Detail />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/booking" element={<Booking />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />

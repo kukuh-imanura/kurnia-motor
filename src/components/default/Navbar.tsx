@@ -35,7 +35,7 @@ function Default2(props:any) {
       <div className="flex gap-5">
         {
           props.input ? (
-            <Input.Search placeholder="Masukkan Kata Kunci"/>
+            <Input.Search placeholder="Masukkan kata kunci"/>
           ) : ""
         }
         <Link to="/login">
