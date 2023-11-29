@@ -1,22 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './globals.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './pages/login/Login.tsx'
-import Recovery from './pages/login/Recovery.tsx'
-import Reset from './pages/login/Reset.tsx'
-import Home from './pages/Home.tsx'
-import NotFound from './pages/NotFound.tsx'
-import About from './pages/About.tsx'
-import Customer from './pages/Customer.tsx'
-import Admin from './pages/Admin.tsx'
-import Laporan from './pages/laporan/Laporan.tsx'
-import Detail from './pages/Detail.tsx'
-import Chat from './pages/Chat.tsx'
-import Review from './pages/layanan/Review.tsx'
-import Profile from './pages/Profile.tsx'
-import AddUserAdmin from './components/default/AddUserAdmin.tsx'
-import AddUserCustomer from './components/default/AddUserCustomer.tsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./globals.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Main
+import Home from "./pages/Home.tsx";
+import About from "./pages/About.tsx";
+import NotFound from "./pages/NotFound.tsx";
+
+// Login Area
+import Login from "./pages/login/Login.tsx";
+import Recovery from "./pages/login/Recovery.tsx";
+import Reset from "./pages/login/Reset.tsx";
+
+// Layanan Area
+import Detail from "./pages/Detail.tsx";
+import Chat from "./pages/Chat.tsx";
+import Review from "./pages/layanan/Review.tsx";
+
+// Admin Area
+import Admin from "./pages/Admin.tsx";
+import Profile from "./pages/admin/Profile.tsx";
+import AddUserAdmin from "./components/default/AddUserAdmin.tsx";
+
+// Customer Area
+import Customer from "./pages/Customer.tsx";
+import AddUserCustomer from "./components/default/AddUserCustomer.tsx";
+
+// Laporan Area
+import Laporan from "./pages/laporan/Laporan.tsx";
+import Update from "./pages/laporan/Update.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -37,6 +50,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/detail" element={<Detail />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/pickup" element={<Pickup />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />
