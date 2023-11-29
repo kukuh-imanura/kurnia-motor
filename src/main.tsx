@@ -17,6 +17,7 @@ import Reset from "./pages/login/Reset.tsx";
 import Detail from "./pages/Detail.tsx";
 import Chat from "./pages/Chat.tsx";
 import Review from "./pages/layanan/Review.tsx";
+import Booking from "./pages/layanan/Booking.tsx";
 
 // Admin Area
 import Admin from "./pages/Admin.tsx";
@@ -30,6 +31,7 @@ import AddUserCustomer from "./components/default/AddUserCustomer.tsx";
 // Laporan Area
 import Laporan from "./pages/laporan/Laporan.tsx";
 import Update from "./pages/laporan/Update.tsx";
+import Pickup from "./pages/layanan/Pickup.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -50,6 +52,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/detail" element={<Detail />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/pickup" element={<Pickup />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />
