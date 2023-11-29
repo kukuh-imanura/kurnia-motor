@@ -145,7 +145,7 @@ function Default(props:any) {
               <td className='flex gap-3'>
                 {
                   props.detail ? (
-                    <Button.Default text="Detail" />
+                    <Button.Default text="Detail" link="/detail" />
                   ) : null
                 }
                 <Button.Default text="Terima"/>

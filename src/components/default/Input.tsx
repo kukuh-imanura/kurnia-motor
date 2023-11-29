@@ -2,21 +2,6 @@ import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { FaEye, FaEyeSlash, FaLock, FaLockOpen, FaMagnifyingGlass } from "react-icons/fa6";
 
-function Default(props: any) {
-  return (
-    <div className="space-y-1">
-      {props.label ? (
-        <label htmlFor={props.label} className="pl-2">
-          {props.label}
-        </label>
-      ) : (
-        ""
-      )}
-      <input id={props.label} type={props.type} placeholder={props.placeholder} className={`${props.className} px-5 py-1 placeholder:text-gray-900`} />
-    </div>
-  );
-}
-
 function Disabled(props: any) {
   return (
     <div className="space-y-1">
@@ -41,6 +26,8 @@ function Checkbox() {
     </div>
   );
 }
+
+// DIVIDER
 
 function Login(props: any) {
   const [type, setType] = useState(props.type);
@@ -81,6 +68,19 @@ function Search(props: any) {
         </div>
       </div>
     </>
+  );
+}
+
+function Default(props: any) {
+  return (
+    <div className="m-5 p-5 border-2 rounded-xl">
+      {
+        props.header ? (
+          <p className="font-bold">Catatan Customer</p>
+        ) : null
+      }
+      <textarea rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`}/>
+    </div>
   );
 }
 
