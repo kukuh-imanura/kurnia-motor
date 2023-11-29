@@ -132,7 +132,7 @@ function Default(props:any) {
 
         {
           Array.from({length:10}).map((_, index) => (
-            <tr key={index} className='flex items-center justify-between p-3 border-y-2'>
+            <tr key={index} className={`flex items-center justify-between p-3 ${index % 2 === 0 ? "" : "border-y-2"}`}>
               <div className='flex items-center gap-5'>
                 <td>{index + 1}.</td>
                 <td><img src="/assets/images/admin/adelia.png" alt="Foto Profil" className='h-16 rounded-full'/></td>
@@ -143,6 +143,11 @@ function Default(props:any) {
               </div>
               
               <td className='flex gap-3'>
+                {
+                  props.detail ? (
+                    <Button.Default text="Detail" />
+                  ) : null
+                }
                 <Button.Default text="Terima"/>
                 <Button.Default text="Tolak"/>
               </td>
