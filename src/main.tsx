@@ -14,8 +14,8 @@ import Recovery from "./pages/login/Recovery.tsx";
 import Reset from "./pages/login/Reset.tsx";
 
 // Layanan Area
-import Detail from "./pages/Detail.tsx";
-import Chat from "./pages/Chat.tsx";
+import Detail from "./pages/layanan/Detail.tsx";
+import Chat from "./pages/layanan/Chat.tsx";
 import Review from "./pages/layanan/Review.tsx";
 import Booking from "./pages/layanan/Booking.tsx";
 
@@ -49,11 +49,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/login/reset" element={<Reset />} />
         
         {/* LAYANAN AREA */}
-        <Route path="/detail" element={<Detail />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/review" element={<Review />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/pickup" element={<Pickup />} />
+        <Route path="/detail" element={<Detail />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />
