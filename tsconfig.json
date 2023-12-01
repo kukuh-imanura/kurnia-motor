@@ -23,9 +23,8 @@
     // SHADCNUI
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
+      // "types": ["dotenv/config"]
     }
   },
   "include": ["src"],

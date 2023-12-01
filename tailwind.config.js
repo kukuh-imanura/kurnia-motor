@@ -28,6 +28,7 @@ module.exports = {
         "dark-2": "#09090A",
         "dark-3": "#101012",
         "dark-4": "#1F1F22",
+        "dark-5": "#DF1407",
         "light-1": "#FFFFFF",
         "light-2": "#EFEFEF",
         "light-3": "#7878A3",
@@ -41,7 +42,7 @@ module.exports = {
         465: "465px",
       },
       spacing: {
-        'nav-h': '80.16px',
+        "nav-h": "80.16px",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
