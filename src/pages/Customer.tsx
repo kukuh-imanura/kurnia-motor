@@ -41,14 +41,6 @@ function Customer() {
     });
   }, [page, keyword]);
 
-  const getUsers = async () => {
-    const response = await axios.get(`https://bengkel-api-ruby.vercel.app/api/customer/allCustomer?search_query=${keyword}&page=${page}&limit=${limit}`);
-    setUsers(response.data.result as User[]);
-    setPage(response.data.page);
-    setPages(response.data.totalPage);
-    setRows(response.data.totalRows);
-  };
-
   const changePage = ({ selected }: { selected: number }) => {
     setPage(selected);
     if (selected === 9) {

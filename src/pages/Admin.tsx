@@ -87,7 +87,7 @@ function Admin() {
             <Input className="py-6" type="text" placeholder="Cari" value={query} onChange={(e) => setQuery(e.target.value)} />
           </form>
           <Link to={"/addAdmin"}>
-            <Button className=" text-xl font-bold border-2 px-11 py-6 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]">Tambah</Button>
+            <Button className=" rounded-[30px] text-xl font-bold border-2 px-11 py-6 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]">Tambah</Button>
           </Link>
         </div>
 
