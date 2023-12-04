@@ -70,7 +70,7 @@ function Search(props: any) {
           ) : null
         }
 
-        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full px-10 text-sm placeholder:text-light placeholder:text-gray-500 border-2 rounded-xl border-gray-900 focus:outline-none`} />
+        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full px-10 text-sm placeholder:text-light placeholder:text-gray-500 rounded-xl border-gray-900 focus:outline-none`} />
         
         {
           props.icon === "right" ? (
@@ -92,7 +92,7 @@ function Textarea(props: any) {
           <p className="font-bold">Catatan Customer</p>
         ) : null
       }
-      <textarea rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`}/>
+      <textarea rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`} readOnly/>
     </div>
   );
 }
