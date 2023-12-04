@@ -11,6 +11,12 @@ import { useState } from "react";
 function Profile() {
 
   const [display, setDisplay] = useState("hidden")
+  const handleOverlayClick = (event:any) => {
+    // Menutup popup hanya jika event terjadi pada elemen overlay (filter-overlay)
+    if (event.target.classList.contains('filter-overlay')) {
+      setDisplay("hidden")
+    }
+  };
 
   return (
     <div className="h-screen bg-surface-1 text-gray-900 flex">
@@ -66,7 +72,7 @@ function Profile() {
       </div>
 
       {/* POPUP */}
-      <div className={` ${display} filter-overlay bg-black/50 z-20 fixed top-0 left-0 w-full h-full flex items-center justify-center`}>
+      <div onClick={handleOverlayClick} className={` ${display} filter-overlay bg-black/50 z-20 fixed top-0 left-0 w-full h-full flex items-center justify-center`}>
         
         {/* CARD */}
         <div className="bg-white shadow-md rounded-xl h-fit w-fit space-y-5">
@@ -94,6 +100,7 @@ function Profile() {
 
         </div>
       </div>
+
     </div>
   )
 }
