@@ -95,7 +95,7 @@ function Profile() {
           </div>
 
           <div className="flex items-center justify-center pb-7">
-            <Button.Default text="Submit" className="w-fit" onClick={() => setDisplay("hidden")}/>
+            <Button.Default text="Simpan" className="w-fit" onClick={() => setDisplay("hidden")}/>
           </div>
 
         </div>
