@@ -2,7 +2,9 @@ import { Link } from "react-router-dom"
 
 function Default(props:any) {
   return (
-    <Link to={props.link} className={`${props.className} px-10 h-11 rounded-full font-bold flex items-center border-2 ${props.text === "Terima" ? "border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]" : props.text === "Tolak" ? "border-[#DF1407] text-[#DF1407] hover:text-gray-100 hover:bg-[#DF1407]" : props.text === "Detail" ? "border-brand-1 text-brand-1 hover:text-gray-100 hover:bg-brand-1" : ""}`}>{props.text}</Link>
+    <Link to={props.link} onClick={props.onClick} className={`${props.className} px-10 h-11 rounded-full font-bold flex items-center border-2 ${props.text === "Terima" || props.text === "Simpan" ? "border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]" : props.text === "Tolak" ? "border-[#DF1407] text-[#DF1407] hover:text-gray-100 hover:bg-[#DF1407]" : props.text === "Detail" ? "border-brand-1 text-brand-1 hover:text-gray-100 hover:bg-brand-1" : ""}`}>
+      {props.text}
+    </Link>
   )
 }
 

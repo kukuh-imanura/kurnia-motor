@@ -11,13 +11,13 @@ function Chat() {
       <div className="w-5/6 flex flex-col justify-between">
         <Navbar.Default2 text="Chat Customer" />
 
-        <div className="h-full px-10 pb-10 flex gap-5">
+        <div className="h-full px-10 flex gap-5">
           <div className="w-2/5 flex flex-col gap-3">
             <div className="bg-surface-invers p-5 rounded-t-md h-[80px] flex items-center">
               <p className="font-bold text-gray-100">Chat</p>
             </div>
 
-            <Input.Search placeholder="Search" icon="left" className="border-0 shadow-md py-5 rounded-md bg-white" />
+            <Input.Search placeholder="Search" icon="left" className="border-0 outline-0 shadow-md py-5 rounded-md bg-white" />
 
             <div className="h-[322px] bg-white rounded-md overflow-auto">
               <div className="p-5 rounded-t-md flex gap-5 items-center">

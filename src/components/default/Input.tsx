@@ -70,7 +70,7 @@ function Search(props: any) {
           ) : null
         }
 
-        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full px-10 text-sm placeholder:text-light placeholder:text-gray-500 border-2 rounded-xl border-gray-900 focus:outline-none`} />
+        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full px-10 text-sm placeholder:text-light placeholder:text-gray-500 rounded-xl border-gray-900 focus:outline-none`} />
         
         {
           props.icon === "right" ? (
@@ -92,16 +92,25 @@ function Textarea(props: any) {
           <p className="font-bold">Catatan Customer</p>
         ) : null
       }
-      <textarea rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`}/>
+      <textarea rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`} readOnly/>
     </div>
   );
 }
 
 function Default(props:any) {
+  const [inputValue, setInputValue] = useState(props.value || '');
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
   return (
-    <>
-      <input type={props.type} placeholder={props.placeholder} className={`${props.className} focus:outline-none`} />
-    </>
+    <div className="flex flex-col">
+      {
+        props.label ? (
+          <label htmlFor="#" className="mb-2">{props.label} :</label>
+        ) : null
+      }
+      <input type={props.type} placeholder={props.placeholder} value={inputValue} onChange={handleChange} className={`${props.className} focus:outline-none`} />
+    </div>
   )
 }
 
