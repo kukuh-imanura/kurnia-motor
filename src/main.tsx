@@ -17,6 +17,8 @@ import Reset from "./pages/login/Reset.tsx";
 import Detail from "./pages/Detail.tsx";
 import Chat from "./pages/Chat.tsx";
 import Review from "./pages/layanan/Review.tsx";
+import Booking from "./pages/layanan/Booking.tsx";
+import Pickup from "./pages/layanan/Pickup.tsx";
 
 // Admin Area
 import Admin from "./pages/Admin.tsx";
@@ -66,7 +68,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         {/* LAPORAN AREA */}
         <Route path="/laporan" element={<Laporan />} />
         <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/Update" element={<Update />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
