@@ -9,7 +9,7 @@ function Review() {
       <Sidebar/>
 
       <div className="w-5/6 overflow-auto">
-        <Navbar.Default2 text="Ulasan" input/>
+        <Navbar.Default2 text="Ulasan"/>
 
         <div className="px-20">
           <div className="grid grid-cols-2 gap-5">
