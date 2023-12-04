@@ -98,10 +98,19 @@ function Textarea(props: any) {
 }
 
 function Default(props:any) {
+  const [inputValue, setInputValue] = useState(props.value || '');
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
   return (
-    <>
-      <input type={props.type} placeholder={props.placeholder} className={`${props.className} focus:outline-none`} />
-    </>
+    <div className="flex flex-col">
+      {
+        props.label ? (
+          <label htmlFor="#" className="mb-2">{props.label} :</label>
+        ) : null
+      }
+      <input type={props.type} placeholder={props.placeholder} value={inputValue} onChange={handleChange} className={`${props.className} focus:outline-none`} />
+    </div>
   )
 }
 
