@@ -75,14 +75,7 @@ function Customer() {
       <Sidebar />
 
       <div className="w-5/6 pb-80 px-12 ">
-        <Navbar.Default3
-          text="Data Customer"
-          input={{
-            onSubmit: searchData,
-            value: query,
-            onChange: (e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value),
-          }}
-        />
+        <Navbar.Default3 text="Data Customer"/>
 
         <div className=" flex justify-between items-center">
           <form className="text-stone-800 w-1/3  " onSubmit={searchData}>
