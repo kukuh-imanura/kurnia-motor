@@ -9,7 +9,7 @@ function Pickup() {
       <Sidebar/>
 
       <div className="w-5/6">
-        <Navbar.Default2 text="Permintaan Antar Jemput" input/>
+        <Navbar.Default2 text="Permintaan Antar Jemput"/>
 
         <div className="h-[523px] px-10 flex flex-col justify-between">
           <div className="overflow-auto">

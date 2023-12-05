@@ -9,7 +9,7 @@ function Booking() {
       <Sidebar/>
 
       <div className="w-5/6">
-        <Navbar.Default2 text="Booking Online" input/>
+        <Navbar.Default2 text="Booking Online"/>
 
         <div className="h-[523px] px-10 flex flex-col justify-between">
           <div className="overflow-auto">
