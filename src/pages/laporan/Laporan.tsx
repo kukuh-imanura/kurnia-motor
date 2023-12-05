@@ -55,7 +55,7 @@ function Laporan() {
 
       <div className="w-full">
         {/* <Link to ="/update"></Link> */}
-        <Navbar.Default2 text="Laporan Pembukuan" input/>
+        <Navbar.Default2 text="Laporan Pembukuan"/>
         <div className="text-center h-[523px] px-10 flex flex-col justify-between">
         <div className="overflow-auto">
           <div className="text-2xl font-bold text-gray-900">
