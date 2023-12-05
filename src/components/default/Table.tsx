@@ -1,4 +1,4 @@
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+// import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Input from "@/components/default/Input"
 import Button from './Button';
 
@@ -20,10 +20,10 @@ function Laporan(props:any) {
 
   return (
     <div>
-      <table className={`${props.className} w-full`}>
+      <table className={`${props.className} w-full rounded-md`}>
         {
           header ? (
-            <tr className="bg-brand-1 h-10">
+            <tr className="bg-dark-6 text-light-1 h-10">
               {
                 header.map((value:any, index:any) => (
                   <th key={index}>{value}</th>
@@ -34,7 +34,7 @@ function Laporan(props:any) {
         }
 
         {transformedLaporan.map((value:any, index:any) => (
-          <tr key={index} className={`${index % 2 === 0 ? "bg-surface-2" : ""} text-gray-900 h-10`}>
+          <tr key={index} className={`${index % 2 === 0 ? "bg-gray-200" : "bg-gray"} text-dark-1 h-10`}>
             <td>
               <Input.Checkbox />
             </td>
@@ -48,18 +48,18 @@ function Laporan(props:any) {
 
         {
           footer ? (
-            <tr className="bg-brand-1 text-gray-100 h-10">
+            <tr className="bg-dark-6 text-light-1 h-10">
               {footer}
             </tr>
           ) : null
         }
       </table>
 
-      <div className="text-gray-900 flex items-center justify-center space-x-10 mt-10 ">
+        {/* <div className="text-gray-900 flex items-center justify-center space-x-10 mt-10 ">
           <FaChevronLeft />
           <p>January 2023</p>
           <FaChevronRight />
-        </div>
+        </div> */}
     </div>
   );
 }
@@ -75,7 +75,7 @@ function Form(props:any) {
 
         {
           header ? (
-            <tr className="bg-brand-1 h-10">
+            <tr className="bg-dark-6 h-10">
               {
                 header.map((value:any, index:any) => (
                   <th key={index}>{value}</th>
@@ -87,13 +87,15 @@ function Form(props:any) {
 
         {
           Array.from({ length:row }).map((_, index) => (
-            <tr key={index} className={`${index % 2 === 0 ? "bg-surface-2" : "bg-surface-1"} text-gray-900 h-10 text-center`}>
+            <tr key={index} className={`${index % 2 === 0 ? "bg-gray-200" : "bg-gray-100"} text-dark-1 h-10 text-center`}>
               <td className='w-10'><Input.Checkbox /></td>
+              
               {
                 Array.from({length:header.length - 1}).map((_, index) => (
                   <td key={index}><Input.Default className="w-3/4 h-1/2 border border-gray-900"/></td>
                 ))
               }
+
             </tr>
           ))
         }

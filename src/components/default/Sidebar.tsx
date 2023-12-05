@@ -20,7 +20,7 @@ function Sidebar() {
   ]
 
   return (
-    <div className="h-full w-1/6 bg-brand-1 flex flex-col justify-between">
+    <div className="w-1/6 bg-brand-1 flex flex-col justify-between">
       <div className="w-full bg-surface-invers py-5 text-brand-1 flex flex-col items-center">
         <img src="/assets/images/admin/adelia.png" alt="Foto Admin" className="rounded-full" />
         <p className="text-2xl font-bold mt-3">Halo Adel</p>
