@@ -16,14 +16,16 @@ function Update() {
       <Sidebar/>
 
       <div className="w-full">
-        <Navbar.Default2 />
-        <section className="p-20 bg-surface-1">
-        <div className="text-center h-[60px] text-2xl font-bold text-gray-900">
-        <Link to="/laporan">
+        <Navbar.Default2 text={
+          <div className="text-center h-[60px] text-2xl font-bold text-gray-900">
+            <Link to="/laporan" className="flex items-center gap-5">
               <FaArrowLeft />
-              Tambahkan Data Laporan
+              <p className="text-3xl">Tambahkan Data Laporan</p>
             </Link>
-                </div>
+          </div>
+        }/>
+        <section className="p-20 bg-surface-1">
+
           {/* <div className="h-10 text-2xl font-bold text-gray-900">
           <p>Tambah Data Laporan</p>
           </div> */}
