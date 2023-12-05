@@ -4,6 +4,8 @@ import Sidebar from "@/components/default/Sidebar"
 import Input from "@/components/default/Input"
 import Navbar from "@/components/default/Navbar"
 import Table from "@/components/default/Table"
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa6";
 
 function Update() {
 
@@ -14,10 +16,13 @@ function Update() {
       <Sidebar/>
 
       <div className="w-full">
-        <Navbar.Default2/>
+        <Navbar.Default2 />
         <section className="p-20 bg-surface-1">
         <div className="text-center h-[60px] text-2xl font-bold text-gray-900">
-                  <p>Tambah Data Laporan</p>
+        <Link to="/laporan">
+              <FaArrowLeft />
+              Tambahkan Data Laporan
+            </Link>
                 </div>
           {/* <div className="h-10 text-2xl font-bold text-gray-900">
           <p>Tambah Data Laporan</p>
@@ -30,7 +35,7 @@ function Update() {
                   <Button.Default text="Hapus"/>
                 </td>
             </div>
-          <Table.Form header={header} className="bg-dark-5 text-light-1 h-10"/>
+          <Table.Form header={header} className="bg-dark-6 text-light-1 h-10"/>
 
           {/* <div>
           <div className="w-6 h-6 p-1.5 justify-center items-center inline-flex" />

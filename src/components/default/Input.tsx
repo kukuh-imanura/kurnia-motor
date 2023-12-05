@@ -2,21 +2,6 @@ import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { FaEye, FaEyeSlash, FaLock, FaLockOpen, FaMagnifyingGlass } from "react-icons/fa6";
 
-function Default(props: any) {
-  return (
-    <div className="space-y-1">
-      {props.label ? (
-        <label htmlFor={props.label} className="pl-2">
-          {props.label}
-        </label>
-      ) : (
-        ""
-      )}
-      <input id={props.label} type={props.type} placeholder={props.placeholder} className={`${props.className} px-5 py-1 placeholder:text-gray-900`} />
-    </div>
-  );
-}
-
 function Disabled(props: any) {
   return (
     <div className="space-y-1">
@@ -41,6 +26,8 @@ function Checkbox() {
     </div>
   );
 }
+
+// DIVIDER
 
 function Login(props: any) {
   const [type, setType] = useState(props.type);
@@ -75,17 +62,61 @@ function Search(props: any) {
   return (
     <>
       <div className="relative rounded-full">
-        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full py-1 pl-5 pr-10 bg-white/0 text-sm placeholder:text-light placeholder:text-gray-500 border-2 rounded-xl border-gray-900 focus:outline-none`} />
-        <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-          <FaMagnifyingGlass />
-        </div>
+        {
+          props.icon === "left" ? (
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer">
+              <FaMagnifyingGlass className="text-brand-1"/>
+            </div>
+          ) : null
+        }
+
+        <input type="text" placeholder={props.placeholder} value={props.value} className={`${props.className} h-full block w-full px-10 text-sm placeholder:text-light placeholder:text-gray-500 rounded-xl border-gray-900 focus:outline-none`} />
+        
+        {
+          props.icon === "right" ? (
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+              <FaMagnifyingGlass />
+            </div>
+          ) : null
+        }
       </div>
     </>
   );
 }
 
+function Textarea(props: any) {
+  return (
+    <div className="m-5 p-5 border-2 rounded-xl">
+      {
+        props.header ? (
+          <p className="font-bold">Catatan Customer</p>
+        ) : null
+      }
+      <textarea rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`} readOnly/>
+    </div>
+  );
+}
+
+function Default(props:any) {
+  const [inputValue, setInputValue] = useState(props.value || '');
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+  return (
+    <div className="flex flex-col">
+      {
+        props.label ? (
+          <label htmlFor="#" className="mb-2">{props.label} :</label>
+        ) : null
+      }
+      <input type={props.type} placeholder={props.placeholder} value={inputValue} onChange={handleChange} className={`${props.className} focus:outline-none`} />
+    </div>
+  )
+}
+
 const Input = {
   Default,
+  Textarea,
   Disabled,
   Checkbox,
   Login,

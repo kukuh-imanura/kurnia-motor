@@ -54,6 +54,7 @@ function Laporan() {
       <Sidebar/>
 
       <div className="w-full">
+        {/* <Link to ="/update"></Link> */}
         <Navbar.Default2 text="Laporan Pembukuan" input/>
         <div className="text-center h-[523px] px-10 flex flex-col justify-between">
         <div className="overflow-auto">
@@ -63,7 +64,7 @@ function Laporan() {
                 </div>
 
                 <td className='space-x-3 mt-10 flex justify-end'>
-                <Button.Default text="Tambahkan"/>
+                <Button.Default text="Tambahkan" link="/update"/>
                 <Button.Default text="Hapus"/>
               </td>
                 {/* <div className="font-bold space-x-3 mt-10 flex justify-end">

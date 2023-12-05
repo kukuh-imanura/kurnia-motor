@@ -23,7 +23,7 @@ function Laporan(props:any) {
       <table className={`${props.className} w-full rounded-md`}>
         {
           header ? (
-            <tr className="bg-dark-5 text-light-1 h-10">
+            <tr className="bg-dark-6 text-light-1 h-10">
               {
                 header.map((value:any, index:any) => (
                   <th key={index}>{value}</th>
@@ -48,7 +48,7 @@ function Laporan(props:any) {
 
         {
           footer ? (
-            <tr className="bg-dark-5 text-light-1 h-10">
+            <tr className="bg-dark-6 text-light-1 h-10">
               {footer}
             </tr>
           ) : null
@@ -75,7 +75,7 @@ function Form(props:any) {
 
         {
           header ? (
-            <tr className="bg-dark-5 h-10">
+            <tr className="bg-dark-6 h-10">
               {
                 header.map((value:any, index:any) => (
                   <th key={index}>{value}</th>
@@ -147,7 +147,7 @@ function Default(props:any) {
               <td className='flex gap-3'>
                 {
                   props.detail ? (
-                    <Button.Default text="Detail" />
+                    <Button.Default text="Detail" link="/detail" />
                   ) : null
                 }
                 <Button.Default text="Terima"/>
