@@ -10,7 +10,7 @@ function Sidebar() {
   const menuLayanan = [
     {text:"Antrian Online", link: "/booking"},
     {text:"Antar Jemput", link: "/pickup"},
-    {text:"Chat Customer", link: "/chat"},
+    // {text:"Chat Customer", link: "/chat"},
   ]
 
   const menuInformasi = [

@@ -15,9 +15,10 @@ function Login() {
           <div className="text-gray-900 w-1/2">
             <p className="text-2xl font-bold">Login.</p>
             <p className="mb-2 text-sm">Masuk ke akun anda</p>
+
             <form action="" method="post" className="space-y-2">
-              <Input.Login placeholder="Username" icon={<FaUser />}/>
-              <Input.Login placeholder="Kata sandi" type="password"/>
+              <Input.Login name="username" placeholder="Username" icon={<FaUser />}/>
+              <Input.Login name="password" placeholder="Kata sandi" type="password"/>
               <Link to="/login/recovery" className="italic text-sm text-right block pb-2">Lupa password</Link>
               
               {/* Link-nya cuma untuk sementara */}
@@ -25,6 +26,7 @@ function Login() {
                 <Input.Login value="Masuk" type="submit" className="cursor-pointer"/>
               </Link>
             </form>
+
           </div>
         </div>
       </div>

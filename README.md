@@ -60,6 +60,7 @@ List Komponen yang digunakan dalam Project
 | React Router | `npm install react-router-dom` |
 | React Icon | `npm install react-icons --save` |
 | React Paginate | `npm install react-paginate` |
+| React Hook Form | `npm install react-hook-form` |
 | Axios | `npm install axios` |
 
 4. Instalasi Component dari [`Shadcn UI`](https://ui.shadcn.com/docs/components)
