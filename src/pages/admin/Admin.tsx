@@ -13,6 +13,7 @@ import Sidebar from "@/components/default/Sidebar";
 import Navbar from "@/components/default/Navbar";
 import { getUsersAdmin } from "@/lib/Api/api";
 
+
 function Admin() {
   interface User {
     id_admin: number;
@@ -30,15 +31,6 @@ function Admin() {
   const [keyword, setKeyword] = useState("");
   const [query, setQuery] = useState("");
   const [msg, setMsg] = useState("");
-
-  useEffect(() => {
-    getUsersAdmin(keyword, page, limit).then((result) => {
-      setUsers(result.result as User[]);
-      setPage(result.page);
-      setPages(result.totalPage);
-      setRows(result.totalRows);
-    });
-  }, [page, keyword]);
 
   const changePage = ({ selected }: { selected: number }) => {
     setPage(selected);
@@ -72,20 +64,72 @@ function Admin() {
       console.log(error);
     }
   };
+
+  // POPUP
+  const [display, setDisplay] = useState("hidden")
+  const handleOverlayClick = (event:any) => {
+    // Menutup popup hanya jika event terjadi pada elemen overlay (filter-overlay)
+    if (event.target.classList.contains('filter-overlay')) {
+      setDisplay("hidden")
+    }
+  };
+
+  // ADD ADMIN
+  const [name, setName] = useState("");
+  const [tlp, setTlp] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  // const navigate = useNavigate();
+
+  const saveUser = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await axios.post("https://bengkel-api-ruby.vercel.app/api/auth/registerAdmin", {
+        name,
+        tlp,
+        email,
+        username,
+        password,
+      });
+
+      // HIDE
+      setDisplay("hidden")
+
+      // CLEAR FORM
+      setName("")
+      setTlp("")
+      setEmail("")
+      setUsername("")
+      setPassword("")
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // USE EFFECT
+  useEffect(() => {
+    getUsersAdmin(keyword, page, limit).then((result) => {
+      setUsers(result.result as User[]);
+      setPage(result.page);
+      setPages(result.totalPage);
+      setRows(result.totalRows);
+    });
+  }, [page, keyword, saveUser]);
+
   return (
     <div className="h-screen bg-surface-1 flex text-gray-900">
       <Sidebar />
 
-      <section className=" bg-surface-1 h-auto pb-40 px-12  ">
-        <Navbar.Default3 text="Data Admin"/>
+      <section className="bg-surface-1 px-12 pb-7 overflow-scroll">
+        <Navbar.Default3 text="Data Admin" />
 
         <div className="flex justify-between items-center">
           <form className="text-stone-800 w-1/3" onSubmit={searchData}>
             <Input className="py-6" type="text" placeholder="Cari" value={query} onChange={(e) => setQuery(e.target.value)} />
           </form>
-          <Link to={"/addAdmin"}>
-            <Button className=" rounded-[30px] text-xl font-bold border-2 px-11 py-6 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]">Tambah</Button>
-          </Link>
+
+          <Button onClick={() => setDisplay("visible")} className=" rounded-[30px] text-xl font-bold border-2 px-11 py-6 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]">Tambah</Button>
         </div>
 
         <Table className="text-stone-800 mt-5">
@@ -143,6 +187,51 @@ function Admin() {
           />
         </nav>
       </section>
+
+      {/* POPUP */}
+      <div onClick={handleOverlayClick} className={` ${display} filter-overlay bg-black/50 z-20 fixed top-0 left-0 w-full h-full flex items-center justify-center`}>
+        
+        {/* CARD */}
+        <form onSubmit={saveUser} className="w-1/3 bg-white shadow-md rounded p-8">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+              Nama
+            </label>
+            <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nama" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name" aria-required>
+              No. Hp
+            </label>
+            <input type="number" id="tlp" value={tlp} onChange={(e) => setTlp(e.target.value)} placeholder="No. Hp" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " onWheel={(event) => event.currentTarget.blur()} />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+              Email
+            </label>
+            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+              Username
+            </label>
+            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+              Password
+            </label>
+            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+          </div>
+          <div className="flex justify-center">
+            <button type="submit" className="bg-[#20B038] hover:bg-[#20B038]/70 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              Save
+            </button>
+          </div>
+        </form>
+
+      </div>
     </div>
   );
 }

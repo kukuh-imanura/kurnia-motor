@@ -75,7 +75,7 @@ function Customer() {
     <div className="h-screen bg-surface-1 flex text-gray-900">
       <Sidebar />
 
-      <div className="w-5/6 pb-80 px-12 ">
+      <div className="w-5/6 pb-7 px-12 overflow-scroll">
         <Navbar.Default3 text="Data Customer"/>
 
         <div className=" flex justify-between items-center">
