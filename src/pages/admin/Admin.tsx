@@ -101,6 +101,14 @@ function Admin() {
       setEmail("")
       setUsername("")
       setPassword("")
+
+      // RE RENDER
+      getUsersAdmin(keyword, page, limit).then((result) => {
+        setUsers(result.result as User[]);
+        setPage(result.page);
+        setPages(result.totalPage);
+        setRows(result.totalRows);
+      });
     } catch (error) {
       console.log(error);
     }
@@ -114,7 +122,7 @@ function Admin() {
       setPages(result.totalPage);
       setRows(result.totalRows);
     });
-  }, [page, keyword, saveUser]);
+  }, [page, keyword]);
 
   return (
     <div className="h-screen bg-surface-1 flex text-gray-900">
