@@ -21,12 +21,12 @@ import Booking from "./pages/layanan/Booking.tsx";
 import Pickup from "./pages/layanan/Pickup.tsx";
 
 // Admin Area
-import Admin from "./pages/Admin.tsx";
+import Admin from "./pages/admin/Admin.tsx";
 import Profile from "./pages/admin/Profile.tsx";
 import AddUserAdmin from "./components/default/AddUserAdmin.tsx";
 
 // Customer Area
-import Customer from "./pages/Customer.tsx";
+import Customer from "./pages/customer/Customer.tsx";
 import AddUserCustomer from "./components/default/AddUserCustomer.tsx";
 
 // Laporan Area
@@ -49,7 +49,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/login/reset" element={<Reset />} />
         
         {/* LAYANAN AREA */}
-        <Route path="/chat" element={<Chat />} />
+        {/* <Route path="/chat" element={<Chat />} /> */}
         <Route path="/review" element={<Review />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/pickup" element={<Pickup />} />
