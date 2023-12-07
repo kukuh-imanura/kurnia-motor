@@ -8,7 +8,6 @@ import ReactPaginate from "react-paginate";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Sidebar from "@/components/default/Sidebar";
 import Navbar from "@/components/default/Navbar";
 import { getUsersAdmin } from "@/lib/Api/api";
@@ -25,7 +24,7 @@ function Admin() {
 
   const [users, setUsers] = useState<User[]>([]);
   const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(5);
+  const [limit, _] = useState(5);
   const [pages, setPages] = useState(0);
   const [rows, setRows] = useState(0);
   const [keyword, setKeyword] = useState("");
