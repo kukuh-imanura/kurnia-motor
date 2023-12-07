@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./globals.css";
 import { BrowserRouter } from "react-router-dom";
-import Index from "./Index";
+import Auth from "./Auth";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 
   <React.StrictMode>
     <BrowserRouter>
-      <Index />
+      <Auth />
     </BrowserRouter>
   </React.StrictMode>
 );

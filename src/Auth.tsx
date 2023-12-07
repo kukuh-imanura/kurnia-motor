@@ -34,10 +34,12 @@ import Update from "./pages/laporan/Update.tsx";
 import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
 
-function Index() {
-  const isLogin = false
+function Auth() {
+  const isLogin = true
+
   return (
     <Routes>
+
       {/* Authentikasi */}
       <Route element={<PublicRoutes isLogin={isLogin} />}>
         {/* LOGIN AREA */}
@@ -79,4 +81,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Auth;
