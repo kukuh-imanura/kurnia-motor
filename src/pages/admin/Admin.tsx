@@ -77,7 +77,7 @@ function Admin() {
       <Sidebar />
 
       <section className=" bg-surface-1 h-auto pb-40 px-12  ">
-        <Navbar.Default3 text="Data Customer"/>
+        <Navbar.Default3 text="Data Admin"/>
 
         <div className="flex justify-between items-center">
           <form className="text-stone-800 w-1/3" onSubmit={searchData}>
@@ -94,7 +94,7 @@ function Admin() {
             Total Rows: {rows} Page: {rows ? page + 1 : 0} of {pages}
           </TableCaption>
           <TableHeader>
-            <TableRow className=" bg-dark-2    text-orange-50">
+            <TableRow className=" bg-dark-2 text-orange-50">
               <TableHead className="px-10 rounded-tl-[10px]">No</TableHead>
               <TableHead className="pr-40">Nama</TableHead>
               {/* <TableHead>No. Hp</TableHead> */}

@@ -25,7 +25,7 @@ function Customer() {
 
   const [users, setUsers] = useState<User[]>([]);
   const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(5);
+  const [limit, _] = useState(5);
   const [pages, setPages] = useState(0);
   const [rows, setRows] = useState(0);
   const [keyword, setKeyword] = useState("");
@@ -70,6 +70,7 @@ function Customer() {
       console.log(error);
     }
   };
+
   return (
     <div className="h-screen bg-surface-1 flex text-gray-900">
       <Sidebar />
@@ -81,9 +82,6 @@ function Customer() {
           <form className="text-stone-800 w-1/3  " onSubmit={searchData}>
             <Input className="py-6" type="text" placeholder="Cari" value={query} onChange={(e) => setQuery(e.target.value)} />
           </form>
-          {/* <Link to={"/addCustomer"}>
-            <Button className="text-xl font-bold border-2 px-11 py-6 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]  rounded-[30px] ">Tambah</Button>
-          </Link> */}
         </div>
 
         <Table className="text-stone-800 mt-5">
@@ -92,8 +90,8 @@ function Customer() {
             Total Rows: {rows} Page: {rows ? page + 1 : 0} of {pages}
           </TableCaption>
           <TableHeader>
-            <TableRow className=" bg-dark-2   text-orange-50">
-              <TableHead className="px-10 rounded-tl-[10px]">No</TableHead>
+            <TableRow className=" bg-dark-2 text-orange-50">
+              <TableHead className="px-10 rounded-tl-[10px] text-center">No</TableHead>
               <TableHead>Nama</TableHead>
               <TableHead>No. Hp</TableHead>
               <TableHead>Email</TableHead>
