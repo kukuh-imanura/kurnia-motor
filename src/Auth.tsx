@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 // Main
 import Home from "./pages/Home.tsx";
@@ -35,7 +35,10 @@ import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
 
 function Auth() {
-  const isLogin = true
+  const token = localStorage.getItem('token')
+  const isLogin = token ? true : false
+
+  useNavigate()
 
   return (
     <Routes>
