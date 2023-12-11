@@ -2,7 +2,7 @@ import Input from "@/components/default/Input"
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser, FaEye, FaEyeSlash, FaLock, FaLockOpen } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 type FormValue = {
   username: string,
@@ -13,12 +13,14 @@ function Login() {
   // HANDLE INPUT
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const [isPass, setISPass] = useState(true)
+  const [isPass, setIsPass] = useState(true)
 
   // HANDLE FORM
   const {register, handleSubmit, formState:{errors}} = useForm<FormValue>()
+  const navigate = useNavigate()
   const handleLogin = () => {
-    alert(`${username}, ${password}`)
+    // alert(`${username}, ${password}`)
+    navigate("/")
   }
   
   return (
@@ -44,7 +46,7 @@ function Login() {
               <div className="relative rounded-full">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">{isPass ? <FaLock /> : <FaLockOpen />}</div>
                 <input type={isPass ? "password" : "text"} {...register("password", {required:"Masukkan Password"})} placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className={` block w-full py-1 pl-10 pr-10 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full border-gray-900 focus:outline-none`} />
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" onClick={() => setISPass(!isPass)}>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" onClick={() => setIsPass(!isPass)}>
                   { isPass ? <FaEyeSlash /> : <FaEye />}
                 </div>
               </div>
