@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 // Main
 import Home from "./pages/Home.tsx";
@@ -33,9 +33,16 @@ import Update from "./pages/laporan/Update.tsx";
 // Routes
 import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
+import { useEffect } from "react";
 
 function Auth() {
-  const isLogin = false
+  const token = localStorage.getItem('token')
+  const isLogin = token ? true : false
+
+  const navigate = useNavigate()
+  useEffect(() => {
+    isLogin ? navigate("/") : navigate("/login")
+  }, [])
 
   return (
     <Routes>

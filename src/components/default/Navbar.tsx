@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "/assets/images/logo-orange.png?url";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
@@ -32,14 +32,17 @@ function Default1() {
 }
 
 function Default2(props: any) {
+  const navigate = useNavigate()
+  const logout = () => {
+    localStorage.removeItem('token')
+    navigate("/login")
+  }
   return (
     <div className={`${props.className} flex p-10 items-center justify-between w-full`}>
       <p className="text-3xl font-bold">{props.text}</p>
       <div className="flex gap-5">
         {props.input ? <Input.Search placeholder="Masukkan kata kunci" icon="right" className="bg-white/0" /> : ""}
-        <Link to="/login">
-          <MdLogout size="2em" />
-        </Link>
+        <MdLogout size="2em" onClick={logout} className="cursor-pointer"/>
       </div>
     </div>
   );

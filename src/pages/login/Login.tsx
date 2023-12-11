@@ -19,6 +19,10 @@ function Login() {
   const {register, handleSubmit, formState:{errors}} = useForm<FormValue>()
   const navigate = useNavigate()
   const handleLogin = () => {
+    // SET TOKEN
+    localStorage.setItem('token', username)
+    console.log(localStorage.getItem('token'))
+
     // alert(`${username}, ${password}`)
     navigate("/")
   }
