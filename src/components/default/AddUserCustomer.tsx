@@ -8,17 +8,19 @@ const AddUserCustomer = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confPassword, setconfPassword] = useState("");
   const navigate = useNavigate();
 
   const saveUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post("https://bengkel-api-ruby.vercel.app/api/auth/registerCustomer", {
+      await axios.post("http://localhost:5000/api/auth/registerCustomer", {
         name,
         tlp,
         email,
         username,
         password,
+        confPassword,
       });
       navigate("/customer");
     } catch (error) {
@@ -63,6 +65,12 @@ const AddUserCustomer = () => {
                   Password
                 </label>
                 <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                  Password
+                </label>
+                <input type="password" id="password" value={confPassword} onChange={(e) => setconfPassword(e.target.value)} placeholder="Password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
               </div>
               <div className="mb-6">
                 <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

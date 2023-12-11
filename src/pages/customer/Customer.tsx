@@ -39,7 +39,7 @@ function Customer() {
       setPages(result.totalPage);
       setRows(result.totalRows);
     });
-  }, [page, keyword]);
+  }, [page, keyword, limit]);
 
   const changePage = ({ selected }: { selected: number }) => {
     setPage(selected);
@@ -76,7 +76,7 @@ function Customer() {
       <Sidebar />
 
       <div className="w-5/6 pb-7 px-12 overflow-scroll">
-        <Navbar.Default3 text="Data Customer"/>
+        <Navbar.Default3 text="Data Customer" />
 
         <div className=" flex justify-between items-center">
           <form className="text-stone-800 w-1/3  " onSubmit={searchData}>
