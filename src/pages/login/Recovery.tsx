@@ -21,7 +21,8 @@ function Login() {
   // HANDLE RECOVERY
   const navigate = useNavigate()
   const  sendMail = () => {
-    alert(`Username : ${username}, Email : ${email}`)
+    // HANDLE BACKEND
+    // alert(`Username : ${username}, Email : ${email}`)
     navigate("/login")
   }
 
