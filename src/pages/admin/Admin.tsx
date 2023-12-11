@@ -12,7 +12,6 @@ import Sidebar from "@/components/default/Sidebar";
 import Navbar from "@/components/default/Navbar";
 import { getUsersAdmin } from "@/lib/Api/api";
 
-
 function Admin() {
   interface User {
     id_admin: number;
@@ -65,18 +64,18 @@ function Admin() {
   };
 
   // POPUP
-  const [display, setDisplay] = useState("hidden")
-  const handleOverlayClick = (event:any) => {
+  const [display, setDisplay] = useState("hidden");
+  const handleOverlayClick = (event: any) => {
     // Menutup popup hanya jika event terjadi pada elemen overlay (filter-overlay)
-    if (event.target.classList.contains('filter-overlay')) {
-      setDisplay("hidden")
+    if (event.target.classList.contains("filter-overlay")) {
+      setDisplay("hidden");
     }
   };
 
   // ADD ADMIN
   const [pict, setPict] = useState("");
   const [name, setName] = useState("");
-  const [tlp, setTlp] = useState("");
+  // const [tlp, setTlp] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -87,21 +86,20 @@ function Admin() {
     try {
       await axios.post("https://bengkel-api-ruby.vercel.app/api/auth/registerAdmin", {
         name,
-        tlp,
         email,
         username,
         password,
       });
 
       // HIDE
-      setDisplay("hidden")
+      setDisplay("hidden");
 
       // CLEAR FORM
-      setName("")
-      setTlp("")
-      setEmail("")
-      setUsername("")
-      setPassword("")
+      setName("");
+      // setTlp("");
+      setEmail("");
+      setUsername("");
+      setPassword("");
 
       // RE RENDER
       getUsersAdmin(keyword, page, limit).then((result) => {
@@ -137,7 +135,9 @@ function Admin() {
             <Input className="py-6" type="text" placeholder="Cari" value={query} onChange={(e) => setQuery(e.target.value)} />
           </form>
 
-          <Button onClick={() => setDisplay("visible")} className=" rounded-[30px] text-xl font-bold border-2 px-11 py-6 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]">Tambah</Button>
+          <Button onClick={() => setDisplay("visible")} className=" rounded-[30px] text-xl font-bold border-2 px-11 py-6 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]">
+            Tambah
+          </Button>
         </div>
 
         <Table className="text-stone-800 mt-5">
@@ -198,52 +198,46 @@ function Admin() {
 
       {/* POPUP */}
       <div onClick={handleOverlayClick} className={` ${display} filter-overlay bg-black/50 z-20 fixed top-0 left-0 w-full h-full flex items-center justify-center`}>
-        
         {/* CARD */}
-        <form onSubmit={saveUser} className="w-1/3 bg-white shadow-md rounded p-8">
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="pict">
-              Foto
-            </label>
-            <input type="file" id="pict" value={pict} onChange={(e) => setPict(e.target.value)} placeholder="Foto" className="file:rounded file:text-white file:bg-blue-500 file:hover:bg-blue-400 file:h-full file:py-2 file:px-3 file:mr-3 file:border-none file:cursor-pointer" />
+        <div className="bg-white shadow-md rounded-xl h-fit w-fit space-y-5">
+          <div className="px-10 py-7 flex items-center justify-between text-brand-1 text-2xl font-bold border-b-2">
+            <p>Tambah Admin</p>
           </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-              Nama
-            </label>
-            <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nama" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name" aria-required>
-              No. Hp
-            </label>
-            <input type="number" id="tlp" value={tlp} onChange={(e) => setTlp(e.target.value)} placeholder="No. Hp" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " onWheel={(event) => event.currentTarget.blur()} />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-              Username
-            </label>
-            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-              Password
-            </label>
-            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-          </div>
-          <div className="flex justify-center">
-            <button type="submit" className="bg-[#20B038] hover:bg-[#20B038]/70 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-              Save
-            </button>
-          </div>
-        </form>
+          <form onSubmit={saveUser}>
+            <div className="flex px-10 pb-1">
+              <div className="flex flex-col gap-4">
+                <label className=" text-gray-700 text-sm font-bold " htmlFor="name">
+                  Nama:
+                </label>
+                <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nama" className="border border-gray-900 rounded-md pb-2 px-5" />
+                <label className=" text-gray-700 text-sm font-bold " htmlFor="name">
+                  Email:
+                </label>
+                <Input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="border border-gray-900 rounded-md py-2 px-5" />
+                <label className=" text-gray-700 text-sm font-bold " htmlFor="name">
+                  Username:
+                </label>
+                <Input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" className="border border-gray-900 rounded-md py-2 px-5" />
+                <label className=" text-gray-700 text-sm font-bold " htmlFor="name">
+                  Password:
+                </label>
+                <Input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="border border-gray-900 rounded-md py-2 px-5" />
+              </div>
+              <div className="pl-10 flex flex-col items-center">
+                <label htmlFor="#" className="mb-2">
+                  Foto Profile
+                </label>
+                <img src="/assets/images/admin/adelia.png" alt="Foto Admin" className="rounded-full border-2 border-brand-1" />
+              </div>
+            </div>
 
+            <div className="flex items-center justify-center pb-7 mt-4 ">
+              <Button type="submit" className="w-fit rounded-[30px] text-xl font-bold border-2 px-8 py-3 border-[#20B038] text-[#20B038] hover:text-gray-100 hover:bg-[#20B038]">
+                save
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
