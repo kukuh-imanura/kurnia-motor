@@ -35,7 +35,7 @@ import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
 
 function Auth() {
-  const isLogin = true
+  const isLogin = false
 
   return (
     <Routes>

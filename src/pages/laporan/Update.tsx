@@ -15,7 +15,7 @@ function Update() {
     <div className="bg-surface-1 text-gray-900 flex">
       <Sidebar/>
 
-      <div className="w-full">
+      <div className="w-5/6">
         <Navbar.Default2 text={
           <div className="text-center h-[60px] text-2xl font-bold text-gray-900">
             <Link to="/laporan" className="flex items-center gap-5">

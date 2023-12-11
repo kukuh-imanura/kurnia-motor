@@ -74,6 +74,7 @@ function Admin() {
   };
 
   // ADD ADMIN
+  const [pict, setPict] = useState("");
   const [name, setName] = useState("");
   const [tlp, setTlp] = useState("");
   const [email, setEmail] = useState("");
@@ -201,6 +202,12 @@ function Admin() {
         {/* CARD */}
         <form onSubmit={saveUser} className="w-1/3 bg-white shadow-md rounded p-8">
           <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="pict">
+              Foto
+            </label>
+            <input type="file" id="pict" value={pict} onChange={(e) => setPict(e.target.value)} placeholder="Foto" className="file:rounded file:text-white file:bg-blue-500 file:hover:bg-blue-400 file:h-full file:py-2 file:px-3 file:mr-3 file:border-none file:cursor-pointer" />
+          </div>
+          <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
               Nama
             </label>
@@ -212,7 +219,6 @@ function Admin() {
             </label>
             <input type="number" id="tlp" value={tlp} onChange={(e) => setTlp(e.target.value)} placeholder="No. Hp" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " onWheel={(event) => event.currentTarget.blur()} />
           </div>
-
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Email

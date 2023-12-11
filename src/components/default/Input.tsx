@@ -43,7 +43,7 @@ function Login(props: any) {
         <div className="relative rounded-full">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">{props.type === "password" ? type === "password" ? <FaLock /> : <FaLockOpen /> : props.icon}</div>
 
-          <input type={type} name={props.name} placeholder={props.placeholder} value={props.value} className={`${props.className} block w-full py-1 pl-10 pr-10 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full border-gray-900 focus:outline-none`} />
+          <input type={type} name={props.name} placeholder={props.placeholder} value={props.value} onChange={props.onchange} className={`${props.className} block w-full py-1 pl-10 pr-10 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full border-gray-900 focus:outline-none`} />
 
           {props.type === "password" ? (
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" onClick={handleSetType}>
@@ -98,10 +98,12 @@ function Textarea(props: any) {
 }
 
 function Default(props:any) {
+
   const [inputValue, setInputValue] = useState(props.value || '');
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
+  
   return (
     <div className="flex flex-col">
       {

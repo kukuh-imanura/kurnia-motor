@@ -62,6 +62,7 @@ List Komponen yang digunakan dalam Project
 | React Paginate | `npm install react-paginate` |
 | React Hook Form | `npm install react-hook-form` |
 | Axios | `npm install axios` |
+| Node Mailer | `npm install nodemailer` |
 
 4. Instalasi Component dari [`Shadcn UI`](https://ui.shadcn.com/docs/components)
 
