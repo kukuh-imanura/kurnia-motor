@@ -33,16 +33,12 @@ import Update from "./pages/laporan/Update.tsx";
 // Routes
 import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
-import { useEffect } from "react";
 
 function Auth() {
   const token = localStorage.getItem('token')
   const isLogin = token ? true : false
 
-  const navigate = useNavigate()
-  useEffect(() => {
-    isLogin ? navigate("/") : navigate("/login")
-  }, [])
+  useNavigate()
 
   return (
     <Routes>

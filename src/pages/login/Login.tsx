@@ -20,10 +20,7 @@ function Login() {
   const navigate = useNavigate()
   const handleLogin = () => {
     // SET TOKEN
-    localStorage.setItem('token', username)
-    console.log(localStorage.getItem('token'))
-
-    // alert(`${username}, ${password}`)
+    localStorage.setItem('token', username);
     navigate("/")
   }
   
