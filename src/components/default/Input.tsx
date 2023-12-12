@@ -38,7 +38,7 @@ function Login(props: any) {
   return (
     <>
       {type === "submit" ? (
-        <input type={props.type} placeholder={props.placeholder} value={props.value} className={`${props.className} w-full py-1 px-5 bg-brand-1 text-gray-100 rounded-full border-gray-900`} />
+        <input type={props.type} placeholder={props.placeholder} value={props.value} className={`${props.className} py-1 rounded-full`} />
       ) : (
         <div className="relative rounded-full">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">{props.type === "password" ? type === "password" ? <FaLock /> : <FaLockOpen /> : props.icon}</div>
