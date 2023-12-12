@@ -13,7 +13,7 @@ function Detail() {
         <Navbar.Default2 text="Detail" />
 
         <div className="h-full px-10 pb-10">
-          <div className="flex flex-col justify-between shadow-md rounded-md h-full bg-white">
+          <div className="flex flex-col justify-between shadow-md rounded-md bg-white">
             <Link to="/pickup" className="flex items-center gap-3 p-5 text-xl text-brand-1 font-bold border-b">
               <FaArrowLeft />
               Informasi Customer
