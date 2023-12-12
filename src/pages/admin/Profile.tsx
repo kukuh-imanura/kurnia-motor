@@ -5,7 +5,6 @@ import { FaRegUser, FaRegEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { FaXmark } from "react-icons/fa6";
 import Input from "@/components/default/Input";
-import Button from "@/components/default/Button";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -131,12 +130,6 @@ function Profile() {
                   <input id="pass" type="password" {...register("password", {required:"Masukkan Password"})} value={password} onChange={(e) => setPassword(e.target.value)} className="border border-gray-900 rounded-md py-2 px-5 focus:outline-none" />
                   <p className="text-sm text-[#FF0000]">{errors.password?.message}</p>
                 </div>
-                
-
-                {/* <Input.Default type="text" value="Adel Mali" label="Nama" className="border border-gray-900 rounded-md py-2 px-5"/> */}
-                {/* <Input.Default type="email" value="adel@gmail.com" label="Email" className="border border-gray-900 rounded-md py-2 px-5"/>
-                <Input.Default type="text" value="adelmali" label="Username" className="border border-gray-900 rounded-md py-2 px-5"/>
-                <Input.Default type="password" value="733uutvne7" label="Password" className="border border-gray-900 rounded-md py-2 px-5"/> */}
               </div>
               <div className="pl-10 flex flex-col items-center">
                 <p className="mb-2">Foto Profile</p>
