@@ -1,7 +1,4 @@
-import Button from "@/components/default/Button";
 import Sidebar from "@/components/default/Sidebar";
-// import Footer from "@/components/default/Footer"
-import Input from "@/components/default/Input";
 import Navbar from "@/components/default/Navbar";
 import Table from "@/components/default/Table";
 import { Link } from "react-router-dom";
@@ -18,9 +15,9 @@ function Update() {
         <Navbar.Default2
           text={
             <div className="text-center h-[60px] text-2xl font-bold text-gray-900">
-              <Link to="/laporan" className="flex items-center gap-5">
+              <Link to="/laporan" className="text-3xl flex items-center gap-5">
                 <FaArrowLeft />
-                <p className="text-3xl">Tambahkan Data Laporan</p>
+                Tambahkan Data Laporan
               </Link>
             </div>
           }
@@ -28,13 +25,6 @@ function Update() {
 
         <section className="px-20 bg-surface-1">
           <div className="drop-shadow-md">
-            <div className="p-8 bg-gray-100 flex-space-around flex justify-between">
-              <Input.Default placeholder=".../.../..." className="bg-dark-100 h-11 rounded-full border-2 text-light-1 rounded-md border-2 placeholder:text-dark-100 placeholder:text-center pt-3 w-32 focus:outline-none" />
-              <div className="flex gap-3">
-                <Button.Default text="Simpan" className="w-fit"/>
-                <Button.Default text="Hapus" className="w-fit"/>
-              </div>
-            </div>
 
             <Table.Form header={header} className="bg-dark-6 text-light-1 h-10" />
           </div>

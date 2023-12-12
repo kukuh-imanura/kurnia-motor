@@ -64,9 +64,10 @@ function Laporan() {
               </tr>
 
               {/* PERULANGAN */}
+
               <tr className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
                 <td>
-                  <Input.Checkbox />
+                  <Input.Checkbox className="border-brand-1"/>
                 </td>
                 <td>01/01/2023</td>
                 <td className="text-left">Ganti oli MPX</td>
@@ -76,34 +77,34 @@ function Laporan() {
               </tr>
               <tr className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
                 <td>
-                  <Input.Checkbox />
+                  <Input.Checkbox className="border-brand-1"/>
                 </td>
                 <td>01/01/2023</td>
                 <td className="text-left">Ganti oli MPX</td>
                 <td>1</td>
                 <td>35000</td>
                 <td>35000</td>
-              </tr>
+              </tr> 
               <tr className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
                 <td>
-                  <Input.Checkbox />
+                  <Input.Checkbox className="border-brand-1"/>
                 </td>
                 <td>01/01/2023</td>
                 <td className="text-left">Ganti oli MPX</td>
                 <td>1</td>
                 <td>35000</td>
                 <td>35000</td>
-              </tr>
+              </tr> 
               <tr className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
                 <td>
-                  <Input.Checkbox />
+                  <Input.Checkbox className="border-brand-1"/>
                 </td>
                 <td>01/01/2023</td>
                 <td className="text-left">Ganti oli MPX</td>
                 <td>1</td>
                 <td>35000</td>
                 <td>35000</td>
-              </tr>      
+              </tr>   
 
               <tr className="bg-dark-6 text-light-1 h-10">
                 <th colSpan={5} className="text-left pl-20">

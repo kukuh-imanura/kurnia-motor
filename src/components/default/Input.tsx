@@ -17,11 +17,11 @@ function Disabled(props: any) {
   );
 }
 
-function Checkbox() {
+function Checkbox(props:any) {
   const [isChecked, setIsChecked] = useState(false);
   return (
     <div className="relative">
-      <input id="myCheckbox" type="checkbox" name="" onChange={() => setIsChecked(!isChecked)} className="appearance-none w-[13px] h-[13px] bg-gray-100 border border-brand-1 rounded-sm checked:bg-blue-500 checked:border-0" />
+      <input id="myCheckbox" type="checkbox" name="" onChange={() => setIsChecked(!isChecked)} className={` ${props.className} appearance-none w-[13px] h-[13px] bg-gray-100 border rounded-sm checked:bg-blue-500 checked:border-0`} />
       {isChecked && <FaCheck className="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 text-gray-100 pointer-events-none" />}
     </div>
   );
@@ -43,7 +43,7 @@ function Login(props: any) {
         <div className="relative rounded-full">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">{props.type === "password" ? type === "password" ? <FaLock /> : <FaLockOpen /> : props.icon}</div>
 
-          <input type={type} name={props.name} placeholder={props.placeholder} value={props.value} onChange={props.onchange} className={`${props.className} block w-full py-1 pl-10 pr-10 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full border-gray-900 focus:outline-none`} />
+          <input type={type} name={props.name} placeholder={props.placeholder} value={props.value} onChange={props.onchange} className={`${props.className} block w-full py-1 pl-10 pr-10 bg-white/0 text-sm placeholder:text-gray-900 border rounded-full focus:outline-none`} />
 
           {props.type === "password" ? (
             <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer" onClick={handleSetType}>
