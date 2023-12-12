@@ -28,13 +28,14 @@ function Update() {
 
         <section className="px-20 bg-surface-1">
           <div className="drop-shadow-md">
-            <div className="h-32 bg-gray-100 flex-space-around p-8">
-              <Input.Default className="bg-dark-100 h-11 rounded-full border-2 text-light-1 rounded-md border-2 placeholder:text-dark-100 placeholder:text-center pt-3 w-32 focus:outline-none" placeholder=".../.../..." />
-              <td className="space-x-3 flex justify-end">
-                <Button.Default text="Simpan" />
-                <Button.Default text="Hapus" />
-              </td>
+            <div className="p-8 bg-gray-100 flex-space-around flex justify-between">
+              <Input.Default placeholder=".../.../..." className="bg-dark-100 h-11 rounded-full border-2 text-light-1 rounded-md border-2 placeholder:text-dark-100 placeholder:text-center pt-3 w-32 focus:outline-none" />
+              <div className="flex gap-3">
+                <Button.Default text="Simpan" className="w-fit"/>
+                <Button.Default text="Hapus" className="w-fit"/>
+              </div>
             </div>
+
             <Table.Form header={header} className="bg-dark-6 text-light-1 h-10" />
           </div>
         </section>

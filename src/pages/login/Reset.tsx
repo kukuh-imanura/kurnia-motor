@@ -60,7 +60,7 @@ function Login() {
               </div>
               <p className="text-sm text-[#FF0000]">{errors.confPass?.message}</p>
 
-              <Input.Login value="Reset Password" type="submit" className="cursor-pointer mt-2" />
+              <Input.Login value="Reset Password" type="submit" className="cursor-pointer mt-2 w-full bg-brand-1 text-gray-100 font-bold" />
             </form>
 
           </div>

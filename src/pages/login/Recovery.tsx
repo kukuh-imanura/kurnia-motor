@@ -51,7 +51,7 @@ function Login() {
               </div>
               <p className="text-sm text-[#FF0000]">{errors.email?.message}</p>
 
-              <Input.Login value="Kirim" type="submit" className="cursor-pointer mt-2" />
+              <Input.Login value="Kirim" type="submit" className="cursor-pointer mt-2 w-full bg-brand-1 text-gray-100 font-bold" />
             </form>
           </div>
         </div>
