@@ -5,11 +5,19 @@ import { FaRegUser, FaRegEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { FaXmark } from "react-icons/fa6";
 import Input from "@/components/default/Input";
-import Button from "@/components/default/Button";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+type FormValue = {
+  name: string,
+  email: string,
+  username: string,
+  password: string,
+}
 
 function Profile() {
 
+  // HANDLE POPUP
   const [display, setDisplay] = useState("hidden")
   const handleOverlayClick = (event:any) => {
     // Menutup popup hanya jika event terjadi pada elemen overlay (filter-overlay)
@@ -17,6 +25,21 @@ function Profile() {
       setDisplay("hidden")
     }
   };
+
+  // HANDLE INPUT
+  const [name, setName] = useState("Adel Mali")
+  const [email, setEmail] = useState("adel@gmail.com")
+  const [username, setUsername] = useState("adelmali")
+  const [password, setPassword] = useState("adel1234")
+
+  // HANDLE FORM
+  const {register, handleSubmit, formState:{errors}} = useForm<FormValue>()
+
+  // HANDLE UPDATE
+  const updateProfile = () => {
+    alert("Data di Update")
+    setDisplay("hidden")
+  }
 
   return (
     <div className="h-screen bg-surface-1 text-gray-900 flex">
@@ -40,32 +63,34 @@ function Profile() {
           </div>
 
           <div className="w-full px-10">
-            <p className="text-2xl font-bold mb-5">Adel Mali</p>
+            <p className="text-2xl font-bold mb-5">{name}</p>
             <table className="space-y-3 w-1/2 h-full">
-              <tr>
-                <td className="flex items-center">
-                  <FaRegEnvelope className="mr-3 text-brand-1"/>
-                  Email
-                </td>
-                <td>:</td>
-                <td className="font-bold">adel@gmail.com</td>
-              </tr>
-              <tr>
-                <td className="flex items-center">
-                  <FaRegUser className="mr-3 text-brand-1"/>
-                  Username
-                </td>
-                <td>:</td>
-                <td className="font-bold">adelamali</td>
-              </tr>
-              <tr>
-                <td className="flex items-center">
-                  <MdLockOutline className="mr-3 text-brand-1"/>
-                  Password
-                </td>
-                <td>:</td>
-                <td className="font-bold">733uutvne7</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td className="flex items-center">
+                    <FaRegEnvelope className="mr-3 text-brand-1"/>
+                    Email
+                  </td>
+                  <td>:</td>
+                  <td className="font-bold">{email}</td>
+                </tr>
+                <tr>
+                  <td className="flex items-center">
+                    <FaRegUser className="mr-3 text-brand-1"/>
+                    Username
+                  </td>
+                  <td>:</td>
+                  <td className="font-bold">{username}</td>
+                </tr>
+                <tr>
+                  <td className="flex items-center">
+                    <MdLockOutline className="mr-3 text-brand-1"/>
+                    Password
+                  </td>
+                  <td>:</td>
+                  <td className="font-bold">{password}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -81,22 +106,42 @@ function Profile() {
             <FaXmark onClick={() => setDisplay("hidden")} className="cursor-pointer"/>
           </div>
 
-          <div className="flex px-10 pb-7">
-            <div className="flex flex-col gap-5">
-              <Input.Default type="text" value="Adel Mali" label="Nama" className="border border-gray-900 rounded-md py-2 px-5"/>
-              <Input.Default type="email" value="adel@gmail.com" label="Email" className="border border-gray-900 rounded-md py-2 px-5"/>
-              <Input.Default type="text" value="adelmali" label="Username" className="border border-gray-900 rounded-md py-2 px-5"/>
-              <Input.Default type="password" value="733uutvne7" label="Password" className="border border-gray-900 rounded-md py-2 px-5"/>
-            </div>
-            <div className="pl-10 flex flex-col items-center">
-              <label htmlFor="#" className="mb-2">Foto Profile</label>
-              <img src="/assets/images/admin/adelia.png" alt="Foto Admin" className="rounded-full border-2 border-brand-1" />
-            </div>
-          </div>
+          <form onSubmit={handleSubmit(updateProfile)} className="px-10 pb-7">
+            <div className="flex">
+              <div className="flex flex-col gap-5">
 
-          <div className="flex items-center justify-center pb-7">
-            <Button.Default text="Simpan" className="w-fit" onClick={() => setDisplay("hidden")}/>
-          </div>
+                <div className="flex flex-col">
+                  <label htmlFor="name" className="mb-2">Nama :</label>
+                  <input id="name" type="text" {...register("name", {required:"Masukkan Nama"})} value={name} onChange={(e) => setName(e.target.value)} className="border border-gray-900 rounded-md py-2 px-5 focus:outline-none" />
+                  <p className="text-sm text-[#FF0000]">{errors.name?.message}</p>
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="email" className="mb-2">Email :</label>
+                  <input id="email" type="email" {...register("email", {required:"Masukkan Email"})} value={email} onChange={(e) => setEmail(e.target.value)} className="border border-gray-900 rounded-md py-2 px-5 focus:outline-none" />
+                  <p className="text-sm text-[#FF0000]">{errors.email?.message}</p>
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="username" className="mb-2">Username :</label>
+                  <input id="username" type="text" {...register("username", {required:"Masukkan Username"})} value={username} onChange={(e) => setUsername(e.target.value)} className="border border-gray-900 rounded-md py-2 px-5 focus:outline-none" />
+                  <p className="text-sm text-[#FF0000]">{errors.username?.message}</p>
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="pass" className="mb-2">Password :</label>
+                  <input id="pass" type="password" {...register("password", {required:"Masukkan Password"})} value={password} onChange={(e) => setPassword(e.target.value)} className="border border-gray-900 rounded-md py-2 px-5 focus:outline-none" />
+                  <p className="text-sm text-[#FF0000]">{errors.password?.message}</p>
+                </div>
+              </div>
+              <div className="pl-10 flex flex-col items-center">
+                <p className="mb-2">Foto Profile</p>
+                <img id="pict" src="/assets/images/admin/adelia.png" alt="Foto Admin" className="rounded-full border-2 border-brand-1" />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center pb-7 mt-5">
+              {/* <Button.Default text="Simpan" className="w-fit"/> */}
+              <Input.Login value="Simpan" type="submit" className="cursor-pointer px-10 h-11 w-fit text-[#20B038] font-bold border-2 border-[#20B038] hover:bg-[#20B038] hover:text-gray-100"/>
+            </div>
+          </form>
 
         </div>
       </div>

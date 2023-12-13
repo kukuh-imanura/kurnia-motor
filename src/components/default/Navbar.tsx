@@ -39,7 +39,7 @@ function Default2(props: any) {
   }
   return (
     <div className={`${props.className} flex p-10 items-center justify-between w-full`}>
-      <p className="text-3xl font-bold">{props.text}</p>
+      <div className="text-3xl font-bold">{props.text}</div>
       <div className="flex gap-5">
         {props.input ? <Input.Search placeholder="Masukkan kata kunci" icon="right" className="bg-white/0" /> : ""}
         <MdLogout size="2em" onClick={logout} className="cursor-pointer"/>

@@ -54,7 +54,7 @@ function Login() {
               <p className="text-sm text-[#FF0000]">{errors.password?.message}</p>
 
               <Link to="/login/recovery" className="italic text-sm text-right block pb-2">Lupa password</Link>
-              <Input.Login value="Masuk" type="submit" className="cursor-pointer"/>
+              <Input.Login value="Masuk" type="submit" className="cursor-pointer w-full bg-brand-1 text-gray-100 font-bold"/>
             </form>
 
           </div>
