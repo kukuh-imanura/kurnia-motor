@@ -3,6 +3,7 @@ import Input from "@/components/default/Input";
 import Button from "./Button";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 
 function Laporan(props: any) {
@@ -75,14 +76,28 @@ function Form(props: any) {
     setRows([...rows, { layanan: "", satuan: 0, harga: 0, total: 0 }]);
   };
 
+  const navigate = useNavigate()
+  const tambahLaporan = (e:any) => {
+    e.preventDefault();
+
+    const data = (
+      rows.map((value:any, index:any) => (
+        `${index} : ${value.layanan}, ${value.satuan}, ${value.harga}, ${value.total}`
+      ))
+    )
+
+    console.log(data)
+    alert("Data Berhasil Ditambahkan")
+    navigate("/laporan")
+  }
 
   return (
-    <div>
+    <form onSubmit={tambahLaporan}>
       <div className="p-8 bg-gray-100 flex-space-around flex justify-between">
         <input type="date" placeholder=".../.../..." value={date} onChange={(e) => setDate(e.target.value)} className="text-center bg-dark-100 rounded-full border-2 text-gray-900 rounded-md border-2 placeholder:text-dark-100 placeholder:text-center p-3 w-40 focus:outline-none" />
         <div className="flex gap-3">
-          <Button.Default text="Simpan" className="w-fit" />
-          <Button.Default text="Hapus" className="w-fit" />
+          <Input.Login value="Simpan" type="submit" className="cursor-pointer px-10 h-11 w-fit text-[#20B038] font-bold border-2 border-[#20B038] hover:bg-[#20B038] hover:text-gray-100"/>
+          <Input.Login value="Hapus" type="reset" className="cursor-pointer px-10 h-11 w-fit text-[#DF1407] font-bold border-2 border-[#DF1407] hover:bg-[#DF1407] hover:text-gray-100"/>
         </div>
       </div>
       <table className={`${props.className} w-full`}>
@@ -130,7 +145,7 @@ function Form(props: any) {
           </tr>
         </tbody>
       </table>
-    </div>
+    </form>
   );
 }
 
