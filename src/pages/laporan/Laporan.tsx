@@ -3,40 +3,62 @@ import Navbar from "@/components/default/Navbar";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Button from "@/components/default/Button";
 import { useState } from "react";
-// import Input from "@/components/default/Input";
-// import { Link } from "react-router-dom";
+import Input from "@/components/default/Input";
 
 function Laporan() {
-  const laporan = [
-    { tanggal: "01/01/2023", layanan: "Ganti oli MPX", satuan: 10, harga: 35000, total: 350000 },
-    { tanggal: "01/01/2023", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "02/01/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "02/01/2023", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "03/01/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "03/01/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "04/01/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "04/01/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "05/01/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "01/12/2022", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "02/12/2022", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "03/12/2022", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "04/12/2022", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "01/02/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "02/02/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "03/02/2023", layanan: "Ganti oli MPX", satuan: 5, harga: 35000, total: 350000 },
-    { tanggal: "04/02/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "05/02/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "01/01/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "02/01/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "03/01/2023", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
-    { tanggal: "04/01/2023", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
-  ];
+  let [laporan, setLaporan] = useState([
+    { id:1, tanggal: "01/01/2023", layanan: "Ganti oli MPX", satuan: 10, harga: 35000, total: 350000 },
+    { id:2, tanggal: "02/01/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:3, tanggal: "01/01/2023", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
+    { id:4, tanggal: "02/01/2023", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
+    { id:5, tanggal: "03/01/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:6, tanggal: "03/01/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
+    { id:7, tanggal: "04/01/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
+    { id:8, tanggal: "04/01/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
+    { id:9, tanggal: "05/01/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
+    { id:10, tanggal: "01/12/2022", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
+    { id:11, tanggal: "02/12/2022", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
+    { id:12, tanggal: "03/12/2022", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
+    { id:13, tanggal: "04/12/2022", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
+    { id:14, tanggal: "01/02/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
+    { id:15, tanggal: "02/02/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
+    { id:16, tanggal: "03/02/2023", layanan: "Ganti oli MPX", satuan: 5, harga: 35000, total: 350000 },
+    { id:17, tanggal: "04/02/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:18, tanggal: "05/02/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:19, tanggal: "01/01/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
+    { id:20, tanggal: "02/01/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
+    { id:21, tanggal: "03/01/2023", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
+    { id:22, tanggal: "04/01/2023", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
+  ]);
 
   // Menyimpan data setelah dikonversi menjadi string
   localStorage.setItem("laporan", JSON.stringify(laporan));
 
   // Membaca data dan mengonversi kembali menjadi array objek
-  const storedData = JSON.parse(localStorage.getItem("laporan") || "[]");
+  let storedData = JSON.parse(localStorage.getItem("laporan") || "[]");
+
+  // HANDLE DELETE
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
+  // Function to handle checkbox change
+  const handleCheckboxChange = (id: string) => {
+    setSelectedItems((prevSelectedItems) => {
+      if (prevSelectedItems.includes(id)) {
+        return prevSelectedItems.filter((item) => item !== id);
+      } else {
+        return [...prevSelectedItems, id];
+      }
+    });
+  };
+
+  const handleDelete = (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = laporan.filter((item:any) => !selectedItems.includes(item.id));
+
+    setLaporan(result)
+    setSelectedItems([])
+    localStorage.setItem("laporan", JSON.stringify(result));
+  };
 
   // Sorting
   // Mengubah format tanggal menjadi objek Date
@@ -75,16 +97,16 @@ function Laporan() {
   });
   const finalFilteredDate = filteredDate.filter((item: any) => item !== undefined);
 
-  // Membuat Tanggal Unik
-  const uniqueDates = new Set();
-  const result = finalFilteredDate.map((item: any) => {
-    if (uniqueDates.has(item.tanggal)) {
-      item.tanggal = "";
-    } else {
-      uniqueDates.add(item.tanggal);
-    }
-    return item;
-  });
+  // // Membuat Tanggal Unik
+  // const uniqueDates = new Set();
+  // const result = finalFilteredDate.map((item: any) => {
+  //   if (uniqueDates.has(item.tanggal)) {
+  //     item.tanggal = "";
+  //   } else {
+  //     uniqueDates.add(item.tanggal);
+  //   }
+  //   return item;
+  // });
 
   return (
     <div className="bg-surface-1 text-gray-900 flex">
@@ -100,56 +122,57 @@ function Laporan() {
               <p>BENGKEL MOTOR KUNIA</p>
             </div>
 
-            <div className="space-x-3 mt-10 flex justify-end">
-              <Button.Default text="Tambahkan" link="/update" />
-              <Button.Default text="Hapus" />
-            </div>
+            <form onSubmit={handleDelete}>
+              <div className="space-x-3 mt-10 flex justify-end">
+                <Button.Default text="Tambahkan" link="/update" />
+                <Input.Login value="Hapus" type="submit" className="cursor-pointer px-10 h-11 w-fit text-[#DF1407] font-bold border-2 border-[#DF1407] hover:bg-[#DF1407] hover:text-gray-100"/>
+              </div>
 
-            {/* NEW */}
-            <table className={`mt-5 w-full rounded-lg overflow-hidden`}>
-              <thead>
-                <tr className="bg-dark-6 text-light-1 h-10">
-                  <th></th>
-                  <th>Tanggal</th>
-                  <th>Layanan</th>
-                  <th>Satuan</th>
-                  <th>Harga</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {/* PERULANGAN */}
-
-                {result.map((value: any, index: any) => (
-                  <tr key={index} className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
-                    <td>
-                      {/* <Input.Checkbox className="border-brand-1"/> */}
-                      <input type="checkbox" name={index} id={index} />
-                    </td>
-                    <td>{value.tanggal}</td>
-                    <td className="text-left">{value.layanan}</td>
-                    <td>{value.satuan}</td>
-                    <td>{value.harga}</td>
-                    <td>{value.total}</td>
+              <table className={`mt-5 w-full rounded-lg overflow-hidden`}>
+                <thead>
+                  <tr className="bg-dark-6 text-light-1 h-10">
+                    <th></th>
+                    <th>Tanggal</th>
+                    <th>Layanan</th>
+                    <th>Satuan</th>
+                    <th>Harga</th>
+                    <th>Total</th>
                   </tr>
-                ))}
+                </thead>
 
-                <tr className="bg-dark-6 text-light-1 h-10">
-                  <th colSpan={5} className="text-left pl-20">
-                    SUBTOTAL PENDAPATAN BULAN INI
-                  </th>
-                  <th>
-                    {
-                      result.reduce((accumulator:any, value:any) => {
-                        const subtotal = accumulator + value.total;
-                        return subtotal;
-                      }, 0)                     
-                    }
-                  </th>
-                </tr>
-              </tbody>
-            </table>
+                <tbody>
+                  {/* PERULANGAN */}
+
+                  {finalFilteredDate.map((value: any, index: any) => (
+                    <tr key={index} className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
+                      <td>
+                        {/* <Input.Checkbox className="border-brand-1"/> */}
+                        <input id={value.id} name={value.id} type="checkbox" checked={selectedItems.includes(value.id)} onChange={() => handleCheckboxChange(value.id)} />
+                      </td>
+                      <td>{value.tanggal}</td>
+                      <td className="text-left">{value.layanan}</td>
+                      <td>{value.satuan}</td>
+                      <td>{value.harga}</td>
+                      <td>{value.total}</td>
+                    </tr>
+                  ))}
+
+                  <tr className="bg-dark-6 text-light-1 h-10">
+                    <th colSpan={5} className="text-left pl-20">
+                      SUBTOTAL PENDAPATAN BULAN INI
+                    </th>
+                    <th>
+                      {
+                        finalFilteredDate.reduce((accumulator:any, value:any) => {
+                          const subtotal = accumulator + value.total;
+                          return subtotal;
+                        }, 0)                     
+                      }
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
 
             <div className="text-gray-900 flex items-center justify-center space-x-10 my-10">
               <FaChevronLeft onClick={() => setThisMonth(thisMonth - 1)} className="cursor-pointer"/>
