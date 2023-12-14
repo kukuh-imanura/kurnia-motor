@@ -1,4 +1,5 @@
 import Input from "@/components/default/Input"
+import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaUser, FaEye, FaEyeSlash, FaLock, FaLockOpen } from "react-icons/fa6";
@@ -18,10 +19,28 @@ function Login() {
   // HANDLE FORM
   const {register, handleSubmit, formState:{errors}} = useForm<FormValue>()
   const navigate = useNavigate()
-  const handleLogin = () => {
-    // SET TOKEN
-    localStorage.setItem('token', username);
-    navigate("/")
+
+  const handleLogin = async (e:any) => {
+    e.preventDefault
+
+    try {
+      const res = await axios.post("https://bengkel-api-ruby.vercel.app/api/auth/loginAdmin", {
+        username,
+        password,
+      });
+
+      // SET TOKEN
+      localStorage.setItem('token', res.data.uuid);
+      navigate("/")
+
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        alert(error.response?.data);
+      } else {
+        alert(error);
+      }
+    }
+
   }
   
   return (
