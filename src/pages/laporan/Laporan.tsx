@@ -7,28 +7,28 @@ import Input from "@/components/default/Input";
 
 function Laporan() {
   let [laporan, setLaporan] = useState([
-    { id:1, tanggal: "01/01/2023", layanan: "Ganti oli MPX", satuan: 10, harga: 35000, total: 350000 },
-    { id:2, tanggal: "02/01/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:3, tanggal: "01/01/2023", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
-    { id:4, tanggal: "02/01/2023", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
-    { id:5, tanggal: "03/01/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:6, tanggal: "03/01/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
-    { id:7, tanggal: "04/01/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
-    { id:8, tanggal: "04/01/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
-    { id:9, tanggal: "05/01/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
-    { id:10, tanggal: "01/12/2022", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
-    { id:11, tanggal: "02/12/2022", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
-    { id:12, tanggal: "03/12/2022", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
-    { id:13, tanggal: "04/12/2022", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
-    { id:14, tanggal: "01/02/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
-    { id:15, tanggal: "02/02/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
-    { id:16, tanggal: "03/02/2023", layanan: "Ganti oli MPX", satuan: 5, harga: 35000, total: 350000 },
-    { id:17, tanggal: "04/02/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:18, tanggal: "05/02/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:19, tanggal: "01/01/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
-    { id:20, tanggal: "02/01/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
-    { id:21, tanggal: "03/01/2023", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
-    { id:22, tanggal: "04/01/2023", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
+    { id:1, tanggal: "01/10/2023", layanan: "Ganti oli MPX", satuan: 10, harga: 35000, total: 350000 },
+    { id:2, tanggal: "02/10/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:3, tanggal: "01/10/2023", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
+    { id:4, tanggal: "02/10/2023", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
+    { id:5, tanggal: "03/10/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:6, tanggal: "03/10/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
+    { id:7, tanggal: "04/10/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
+    { id:8, tanggal: "04/10/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
+    { id:9, tanggal: "05/10/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
+    { id:10, tanggal: "01/12/2023", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
+    { id:11, tanggal: "02/12/2023", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
+    { id:12, tanggal: "03/12/2023", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
+    { id:13, tanggal: "04/12/2023", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
+    { id:14, tanggal: "01/11/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
+    { id:15, tanggal: "02/11/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
+    { id:16, tanggal: "03/11/2023", layanan: "Ganti oli MPX", satuan: 5, harga: 35000, total: 350000 },
+    { id:17, tanggal: "04/11/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:18, tanggal: "05/11/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
+    { id:19, tanggal: "01/11/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
+    { id:20, tanggal: "02/11/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
+    { id:21, tanggal: "03/11/2023", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
+    { id:22, tanggal: "04/11/2023", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
   ]);
 
   // Menyimpan data setelah dikonversi menjadi string
@@ -75,7 +75,7 @@ function Laporan() {
   }));
 
   // filter berdasarkan bulan
-  const [thisMonth, setThisMonth] = useState(1);
+  const [thisMonth, setThisMonth] = useState(12);
   const [thisYear, setThisYear] = useState(2023);
   if(thisMonth < 1){
     setThisYear(thisYear - 1)

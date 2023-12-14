@@ -79,16 +79,39 @@ function Form(props: any) {
   const navigate = useNavigate()
   const tambahLaporan = (e:any) => {
     e.preventDefault();
+    
+    const filteredRows = rows.filter(function (row) {
+      return date && row.layanan && row.satuan && row.harga && row.total;
+    });
 
-    const data = (
-      rows.map((value:any, index:any) => (
-        `${index} : ${value.layanan}, ${value.satuan}, ${value.harga}, ${value.total}`
-      ))
+    let data = (
+      filteredRows.map((value:any) => {
+        return {
+          "tanggal": date,
+          "layanan": value.layanan,
+          "satuan": value.satuan,
+          "harga": value.harga,
+          "total": value.total
+        }
+      })
     )
 
-    console.log(data)
-    alert("Data Berhasil Ditambahkan")
-    navigate("/laporan")
+    let laporan = JSON.parse(localStorage.getItem("laporan") || "[]");
+
+    data = data.map((value:any, index:any) => ({
+      id: laporan.length + index + 1,
+      ...value
+    }))
+    
+    laporan = laporan.concat(data)
+
+    if(data.length === 0){
+      alert("Data Kosong atau Tanggal Kosong")
+    }else{
+      localStorage.setItem("laporan", JSON.stringify(laporan));
+      alert("Data Berhasil Ditambahkan")
+      navigate("/laporan")
+    }
   }
 
   return (
@@ -103,7 +126,7 @@ function Form(props: any) {
       <table className={`${props.className} w-full`}>
         <thead className="bg-dark-6 h-10 text-center">
           <tr>
-            <td className="w-10"></td>
+            {/* <td className="w-10"></td> */}
             <td>Layanan</td>
             <td>Satuan</td>
             <td>Harga</td>
@@ -114,9 +137,9 @@ function Form(props: any) {
         <tbody>
           {rows.map((row, index) => (
             <tr key={index} className={`bg-gray-200 odd:bg-gray-100 text-dark-1 h-10 text-center`}>
-              <td className="w-10">
+              {/* <td className="w-10">
                 <Input.Checkbox className="border-gray-900" />
-              </td>
+              </td> */}
               <td>
                 <input type="text" value={row.layanan} onChange={(e) => handleInputChange(index, 'layanan', e.target.value)} className="px-2 w-2/3 border border-gray-900" />
               </td>
