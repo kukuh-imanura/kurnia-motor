@@ -5,7 +5,6 @@ import Button from "@/components/default/Button";
 import { useEffect, useState } from "react";
 import Input from "@/components/default/Input";
 import axios from "axios";
-import { error } from "console";
 
 function Laporan() {
   
