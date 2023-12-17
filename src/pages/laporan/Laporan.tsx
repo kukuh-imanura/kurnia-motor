@@ -2,45 +2,34 @@ import Sidebar from "@/components/default/Sidebar";
 import Navbar from "@/components/default/Navbar";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Button from "@/components/default/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "@/components/default/Input";
+import axios from "axios";
+import { error } from "console";
 
 function Laporan() {
-  let [laporan, setLaporan] = useState([
-    { id:1, tanggal: "01/10/2023", layanan: "Ganti oli MPX", satuan: 10, harga: 35000, total: 350000 },
-    { id:2, tanggal: "02/10/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:3, tanggal: "01/10/2023", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
-    { id:4, tanggal: "02/10/2023", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
-    { id:5, tanggal: "03/10/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:6, tanggal: "03/10/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
-    { id:7, tanggal: "04/10/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
-    { id:8, tanggal: "04/10/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
-    { id:9, tanggal: "05/10/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
-    { id:10, tanggal: "01/12/2023", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
-    { id:11, tanggal: "02/12/2023", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
-    { id:12, tanggal: "03/12/2023", layanan: "Shock Breaker Ohlins", satuan: 1, harga: 35000, total: 35000 },
-    { id:13, tanggal: "04/12/2023", layanan: "Knalpot RCB", satuan: 1, harga: 35000, total: 35000 },
-    { id:14, tanggal: "01/11/2023", layanan: "Ganti oli Castroll", satuan: 1, harga: 35000, total: 35000 },
-    { id:15, tanggal: "02/11/2023", layanan: "Ganti oli MPX", satuan: 1, harga: 35000, total: 35000 },
-    { id:16, tanggal: "03/11/2023", layanan: "Ganti oli MPX", satuan: 5, harga: 35000, total: 350000 },
-    { id:17, tanggal: "04/11/2023", layanan: "Service Honda Beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:18, tanggal: "05/11/2023", layanan: "Ganti Kampas rem beat", satuan: 1, harga: 35000, total: 35000 },
-    { id:19, tanggal: "01/11/2023", layanan: "Ganti Ban Corsa", satuan: 1, harga: 35000, total: 35000 },
-    { id:20, tanggal: "02/11/2023", layanan: "Spakbor depan Nmax", satuan: 1, harga: 35000, total: 35000 },
-    { id:21, tanggal: "03/11/2023", layanan: "Master rem brembo", satuan: 1, harga: 35000, total: 35000 },
-    { id:22, tanggal: "04/11/2023", layanan: "Kaliper Brembo", satuan: 1, harga: 35000, total: 35000 },
-  ]);
+  
+  const [dataLaporan, setDataLaporan] = useState<any[]>([]);
+  // filter berdasarkan bulan
+  const date = new Date()
+  const month = date.getMonth() + 1
+  const year = date.getFullYear()
+  const [thisMonth, setThisMonth] = useState(month);
+  const [thisYear, setThisYear] = useState(year);
 
-  // Menyimpan data setelah dikonversi menjadi string
-  localStorage.setItem("laporan", JSON.stringify(laporan));
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5008/laporan/?month=${thisMonth}&year=${thisYear}`)
+      .then((response) => {
+        setDataLaporan(response.data.datas);
+      })
+      .catch((error) => {
+        return "Error : " + error;
+      });
+  }, [thisMonth]);
 
-  // Membaca data dan mengonversi kembali menjadi array objek
-  let storedData = JSON.parse(localStorage.getItem("laporan") || "[]");
-
-  // HANDLE DELETE
+  // HANDLE CHECKBOX CHANGE
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
-
-  // Function to handle checkbox change
   const handleCheckboxChange = (id: string) => {
     setSelectedItems((prevSelectedItems) => {
       if (prevSelectedItems.includes(id)) {
@@ -51,32 +40,46 @@ function Laporan() {
     });
   };
 
-  const handleDelete = (e: React.FormEvent) => {
+  // // HANDLE DELETE
+  const handleDelete = async (e: React.FormEvent) => {
     e.preventDefault();
-    const result = laporan.filter((item:any) => !selectedItems.includes(item.id));
 
-    setLaporan(result)
-    setSelectedItems([])
-    localStorage.setItem("laporan", JSON.stringify(result));
+    // console.log(selectedItems)
+
+    await axios.delete(`http://localhost:5008/laporan/${selectedItems}`)
+      .then((response) => {
+        return console.log(response.data)
+      })
+      .catch((error) => {
+        return "Error : " + error;
+      })
+
+      // CREATE VIEW transaction_view AS
+      // SELECT 
+      //     ROW_NUMBER() OVER (ORDER BY t.date) AS No,
+      //     t.date,
+      //     s.service,
+      //     SUM(s.unit) AS unit,
+      //     s.price,
+      //     SUM(s.total) AS total
+      // FROM 
+      //     transaction AS t
+      // JOIN 
+      //     service AS s ON t.id_transaction = s.id_transaction
+      // GROUP BY 
+      //     t.date, s.service, s.price
+      // ORDER BY 
+      //     t.date, No;
+      
+
+    // const result = laporan.filter((item:any) => !selectedItems.includes(item.id));
+
+    // setLaporan(result)
+    // setSelectedItems([])
+    // localStorage.setItem("laporan", JSON.stringify(result));
   };
 
-  // Sorting
-  // Mengubah format tanggal menjadi objek Date
-  const laporanFormatted = storedData.map((item: any) => ({
-    ...item,
-    tanggal: new Date(item.tanggal),
-  }));
-  // Mengurutkan array berdasarkan tanggal
-  laporanFormatted.sort((a: any, b: any) => a.tanggal - b.tanggal);
-  // Mengubah kembali format tanggal menjadi string
-  const sortedLaporan = laporanFormatted.map((item: any) => ({
-    ...item,
-    tanggal: item.tanggal.toLocaleDateString("en-US"),
-  }));
-
-  // filter berdasarkan bulan
-  const [thisMonth, setThisMonth] = useState(12);
-  const [thisYear, setThisYear] = useState(2023);
+  // HANDLE PAGINATION
   if(thisMonth < 1){
     setThisYear(thisYear - 1)
     setThisMonth(12)
@@ -84,29 +87,6 @@ function Laporan() {
     setThisYear(thisYear + 1)
     setThisMonth(1)
   }
-  const filteredDate = sortedLaporan.map((item: any) => {
-    const [day, month, year] = item.tanggal.split("/");
-
-    if (month == thisMonth && year == thisYear) {
-      const dateObject = `${day}/${month}/${year}`;
-      return {
-        ...item,
-        tanggal: dateObject,
-      };
-    }
-  });
-  const finalFilteredDate = filteredDate.filter((item: any) => item !== undefined);
-
-  // // Membuat Tanggal Unik
-  // const uniqueDates = new Set();
-  // const result = finalFilteredDate.map((item: any) => {
-  //   if (uniqueDates.has(item.tanggal)) {
-  //     item.tanggal = "";
-  //   } else {
-  //     uniqueDates.add(item.tanggal);
-  //   }
-  //   return item;
-  // });
 
   return (
     <div className="bg-surface-1 text-gray-900 flex">
@@ -125,7 +105,7 @@ function Laporan() {
             <form onSubmit={handleDelete}>
               <div className="space-x-3 mt-10 flex justify-end">
                 <Button.Default text="Tambahkan" link="/update" />
-                <Input.Login value="Hapus" type="submit" className="cursor-pointer px-10 h-11 w-fit text-[#DF1407] font-bold border-2 border-[#DF1407] hover:bg-[#DF1407] hover:text-gray-100"/>
+                <Input.Login value="Hapus" type="submit" className="cursor-pointer px-10 h-11 w-fit text-[#DF1407] font-bold border-2 border-[#DF1407] hover:bg-[#DF1407] hover:text-gray-100" />
               </div>
 
               <table className={`mt-5 w-full rounded-lg overflow-hidden`}>
@@ -141,21 +121,34 @@ function Laporan() {
                 </thead>
 
                 <tbody>
-                  {/* PERULANGAN */}
+                  {dataLaporan?.map((value: any, index: any) => {
+                    // Konversi string tanggal menjadi objek Date
+                    const dateObject = new Date(value.date);
+                    dateObject.setDate(dateObject.getDate() + 1);
 
-                  {finalFilteredDate.map((value: any, index: any) => (
-                    <tr key={index} className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
-                      <td>
-                        {/* <Input.Checkbox className="border-brand-1"/> */}
-                        <input id={value.id} name={value.id} type="checkbox" checked={selectedItems.includes(value.id)} onChange={() => handleCheckboxChange(value.id)} />
-                      </td>
-                      <td>{value.tanggal}</td>
-                      <td className="text-left">{value.layanan}</td>
-                      <td>{value.satuan}</td>
-                      <td>{value.harga}</td>
-                      <td>{value.total}</td>
-                    </tr>
-                  ))}
+                    // Membuat objek Intl.DateTimeFormat dengan opsi zona waktu
+                    const dateTimeFormat = new Intl.DateTimeFormat("id-ID", {
+                      year: "numeric",
+                      month: "numeric",
+                      day: "numeric",
+                      timeZone: "Asia/Jakarta",
+                    });
+
+                    // Menggunakan objek Intl.DateTimeFormat untuk memformat tanggal
+                    const formattedDate = dateTimeFormat.format(dateObject);
+                    return (
+                      <tr key={index} className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
+                        <td>
+                          <input id={value.No} name={value.No} type="checkbox" checked={selectedItems.includes(value.No)} onChange={() => handleCheckboxChange(value.No)}/>                          
+                        </td>
+                        <td>{formattedDate}</td>
+                        <td className="text-left">{value.service}</td>
+                        <td>{value.unit}</td>
+                        <td>{value.price}</td>
+                        <td>{value.total}</td>
+                      </tr>
+                    );
+                  })}
 
                   <tr className="bg-dark-6 text-light-1 h-10">
                     <th colSpan={5} className="text-left pl-20">
@@ -163,10 +156,10 @@ function Laporan() {
                     </th>
                     <th>
                       {
-                        finalFilteredDate.reduce((accumulator:any, value:any) => {
-                          const subtotal = accumulator + value.total;
+                        dataLaporan?.reduce((accumulator:any, value:any) => {
+                          const subtotal = accumulator + Number(value.total);
                           return subtotal;
-                        }, 0)                     
+                        }, 0)
                       }
                     </th>
                   </tr>
