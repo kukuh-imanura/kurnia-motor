@@ -32,17 +32,17 @@ function Default1() {
 }
 
 function Default2(props: any) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const logout = () => {
-    localStorage.removeItem('token')
-    navigate("/login")
-  }
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
   return (
     <div className={`${props.className} flex p-10 items-center justify-between w-full`}>
       <div className="text-3xl font-bold">{props.text}</div>
       <div className="flex gap-5">
         {props.input ? <Input.Search placeholder="Masukkan kata kunci" icon="right" className="bg-white/0" /> : ""}
-        <MdLogout size="2em" onClick={logout} className="cursor-pointer"/>
+        <MdLogout size="2em" onClick={logout} className="cursor-pointer" />
       </div>
     </div>
   );

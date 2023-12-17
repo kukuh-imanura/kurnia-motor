@@ -33,16 +33,19 @@ import Update from "./pages/laporan/Update.tsx";
 // Routes
 import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
+// import { AuthContextProvider } from "./pages/context/autContext.tsx";
 
 function Auth() {
-  const token = localStorage.getItem('token')
-  const isLogin = token ? true : false
+  // const { currentUser } = useAuth();
 
-  useNavigate()
+  const token = localStorage.getItem("user");
+  const isLogin = token ? true : false;
+
+  useNavigate();
 
   return (
+    // <AuthContextProvider>
     <Routes>
-
       {/* Authentikasi */}
       <Route element={<PublicRoutes isLogin={isLogin} />}>
         {/* LOGIN AREA */}
@@ -81,6 +84,7 @@ function Auth() {
 
       <Route path="*" element={<NotFound />} />
     </Routes>
+    // </AuthContextProvider>
   );
 }
 
