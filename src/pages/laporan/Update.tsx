@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
 
 function Update() {
-  const header = ["", "Layanan", "Satuan", "Harga", "Total"];
 
   return (
     <div className="bg-surface-1 text-gray-900 flex h-screen">
@@ -26,7 +25,7 @@ function Update() {
         <section className="px-20 bg-surface-1">
           <div className="drop-shadow-md">
 
-            <Table.Form header={header} className="bg-dark-6 text-light-1 h-10" />
+            <Table.Form className="bg-dark-6 text-light-1 h-10" />
           </div>
         </section>
       </div>
