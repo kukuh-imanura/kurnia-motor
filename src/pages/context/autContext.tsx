@@ -8,6 +8,7 @@ interface User {
   uuid: string;
   name: string;
   email: string;
+  pict: string;
 }
 
 interface AuthContextType {
@@ -60,6 +61,7 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ childr
           name: userData.name,
           email: userData.email,
           username: userData.username,
+          pict: userData.pict,
         } as User;
       } else {
         console.error("User data not found");
