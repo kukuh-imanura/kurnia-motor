@@ -17,14 +17,16 @@ function Login() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      await login(inputs.username, inputs.password);
-      // console.log("Login response:", res);
-      // SET TOKEN
-      // localStorage.setItem("token", res.data.uuid);
-      navigate("/");
-    } catch (err: any) {
-      setErr(err.response.data);
+
+    if(inputs.username === "" || inputs.password === ""){
+      alert("Username atau Password Kosong")
+    }else{
+      try {
+        await login(inputs.username, inputs.password)
+        navigate("/");
+      } catch (err: any) {
+        setErr(err.response.data);
+      }
     }
   };
   const [isPass, setIsPass] = useState(true);
