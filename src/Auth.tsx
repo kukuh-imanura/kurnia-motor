@@ -34,12 +34,17 @@ import Update from "./pages/laporan/Update.tsx";
 import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
 // import { AuthContextProvider } from "./pages/context/autContext.tsx";
+import { useAuth } from "./pages/context/autContext.tsx";
 
 function Auth() {
   // const { currentUser } = useAuth();
 
-  const token = localStorage.getItem("user");
-  const isLogin = token ? true : false;
+  // const token = localStorage.getItem("user");
+  // const isLogin = token ? true : false;
+
+  const { currentUser } = useAuth();
+  console.log(currentUser)
+  const isLogin = currentUser ? true : false;
 
   useNavigate();
 
