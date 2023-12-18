@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 function Sidebar() {
   const [name, setName] = useState("");
+  const [pict, setPict] = useState("");
 
   const menuLayanan = [
     { text: "Antrian Online", link: "/booking" },
@@ -29,6 +30,7 @@ function Sidebar() {
       .then((res) => {
         if (res) {
           setName(res.name);
+          setPict(res.pict);
         }
       })
       .catch((error) => {
@@ -39,7 +41,7 @@ function Sidebar() {
   return (
     <div className="w-1/6 bg-brand-1 flex flex-col justify-between">
       <div className="w-full bg-surface-invers py-5 text-brand-1 flex flex-col items-center">
-        <img src="/assets/images/admin/adelia.png" alt="Foto Admin" className="rounded-full" />
+        <img src={pict ? pict : "/assets/images/admin/adelia.png"} alt="Foto Admin" className="rounded-full" />
         <p className="text-2xl font-bold mt-3 text-center">Halo {name}</p>
         <Link to="/admin/profile" className="text-sm font-light flex items-center gap-1">
           View Profile
