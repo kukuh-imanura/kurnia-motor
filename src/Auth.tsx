@@ -33,13 +33,14 @@ import Update from "./pages/laporan/Update.tsx";
 // Routes
 import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
+import { useAuth } from "./pages/context/autContext.tsx";
 // import { AuthContextProvider } from "./pages/context/autContext.tsx";
 
 function Auth() {
-  // const { currentUser } = useAuth();
+  const { currentUser } = useAuth();
 
-  const token = localStorage.getItem("user");
-  const isLogin = token ? true : false;
+  // const token = localStorage.getItem("user");
+  const isLogin = currentUser ? true : false;
 
   useNavigate();
 
@@ -64,7 +65,7 @@ function Auth() {
         <Route path="/review" element={<Review />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/pickup" element={<Pickup />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/pickup/detail" element={<Detail />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />
