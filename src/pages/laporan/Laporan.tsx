@@ -32,13 +32,13 @@ function Laporan() {
     e.preventDefault();
 
     await axios
-      .delete(`http://localhost:5008/laporan/${selectedItems}`)
+      .delete(`http://localhost:5000/api/laporan/${selectedItems}`)
       .then((response) => {
-        console.log(response.data.message);
+        console.log(response.data);
 
         // Refresh the user list after deletion
-        axios.get(`http://localhost:5008/laporan/?month=${thisMonth}&year=${thisYear}`).then((response: any) => {
-          setDataLaporan(response.data.datas);
+        axios.get(`http://localhost:5000/api/laporan/?month=${thisMonth}&year=${thisYear}`).then((response: any) => {
+          setDataLaporan(response.data);
         });
 
         setSelectedItems([])
@@ -59,9 +59,9 @@ function Laporan() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5008/laporan/?month=${thisMonth}&year=${thisYear}`)
+      .get(`http://localhost:5000/api/laporan/?month=${thisMonth}&year=${thisYear}`)
       .then((response) => {
-        setDataLaporan(response.data.datas);
+        setDataLaporan(response.data);
       })
       .catch((error) => {
         return "Error : " + error;

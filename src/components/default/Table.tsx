@@ -104,9 +104,8 @@ function Form(props: any) {
       const layanan = value.layanan
       const satuan = value.satuan
       const harga = value.harga
-      const total = value.total
       // console.log(value.satuan)
-      await axios.post('http://localhost:5008/laporan', {tanggal, layanan, satuan, harga, total})
+      await axios.post('http://localhost:5000/api/laporan', {tanggal, layanan, satuan, harga})
         .then((response:any) => {
           console.log(response.data)
         })
@@ -147,9 +146,6 @@ function Form(props: any) {
         <tbody>
           {rows.map((row, index) => (
             <tr key={index} className={`bg-gray-200 odd:bg-gray-100 text-dark-1 h-10 text-center`}>
-              {/* <td className="w-10">
-                <Input.Checkbox className="border-gray-900" />
-              </td> */}
               <td>
                 <input type="text" value={row.layanan} onChange={(e) => handleInputChange(index, 'layanan', e.target.value)} className="px-2 w-2/3 border border-gray-900" />
               </td>
