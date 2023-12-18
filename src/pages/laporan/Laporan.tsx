@@ -7,25 +7,13 @@ import Input from "@/components/default/Input";
 import axios from "axios";
 
 function Laporan() {
-  
   const [dataLaporan, setDataLaporan] = useState<any[]>([]);
   // filter berdasarkan bulan
-  const date = new Date()
-  const month = date.getMonth() + 1
-  const year = date.getFullYear()
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
   const [thisMonth, setThisMonth] = useState(month);
   const [thisYear, setThisYear] = useState(year);
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5008/laporan/?month=${thisMonth}&year=${thisYear}`)
-      .then((response) => {
-        setDataLaporan(response.data.datas);
-      })
-      .catch((error) => {
-        return "Error : " + error;
-      });
-  }, [thisMonth]);
 
   // HANDLE CHECKBOX CHANGE
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -39,53 +27,46 @@ function Laporan() {
     });
   };
 
-  // // HANDLE DELETE
+  // HANDLE DELETE
   const handleDelete = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // console.log(selectedItems)
-
-    await axios.delete(`http://localhost:5008/laporan/${selectedItems}`)
+    await axios
+      .delete(`http://localhost:5008/laporan/${selectedItems}`)
       .then((response) => {
-        return console.log(response.data)
+        console.log(response.data.message);
+
+        // Refresh the user list after deletion
+        axios.get(`http://localhost:5008/laporan/?month=${thisMonth}&year=${thisYear}`).then((response: any) => {
+          setDataLaporan(response.data.datas);
+        });
+
+        setSelectedItems([])
       })
       .catch((error) => {
         return "Error : " + error;
-      })
-
-      // CREATE VIEW transaction_view AS
-      // SELECT 
-      //     ROW_NUMBER() OVER (ORDER BY t.date) AS No,
-      //     t.date,
-      //     s.service,
-      //     SUM(s.unit) AS unit,
-      //     s.price,
-      //     SUM(s.total) AS total
-      // FROM 
-      //     transaction AS t
-      // JOIN 
-      //     service AS s ON t.id_transaction = s.id_transaction
-      // GROUP BY 
-      //     t.date, s.service, s.price
-      // ORDER BY 
-      //     t.date, No;
-      
-
-    // const result = laporan.filter((item:any) => !selectedItems.includes(item.id));
-
-    // setLaporan(result)
-    // setSelectedItems([])
-    // localStorage.setItem("laporan", JSON.stringify(result));
+      });
   };
 
   // HANDLE PAGINATION
-  if(thisMonth < 1){
-    setThisYear(thisYear - 1)
-    setThisMonth(12)
-  }else if(thisMonth > 12){
-    setThisYear(thisYear + 1)
-    setThisMonth(1)
+  if (thisMonth < 1) {
+    setThisYear(thisYear - 1);
+    setThisMonth(12);
+  } else if (thisMonth > 12) {
+    setThisYear(thisYear + 1);
+    setThisMonth(1);
   }
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5008/laporan/?month=${thisMonth}&year=${thisYear}`)
+      .then((response) => {
+        setDataLaporan(response.data.datas);
+      })
+      .catch((error) => {
+        return "Error : " + error;
+      });
+  }, [thisMonth]);
 
   return (
     <div className="bg-surface-1 text-gray-900 flex">
@@ -138,7 +119,7 @@ function Laporan() {
                     return (
                       <tr key={index} className={`even:bg-gray-200 bg-gray text-dark-1 h-10`}>
                         <td>
-                          <input id={value.No} name={value.No} type="checkbox" checked={selectedItems.includes(value.No)} onChange={() => handleCheckboxChange(value.No)}/>                          
+                          <input id={value.id_report} name={value.id_report} type="checkbox" checked={selectedItems.includes(value.id_report)} onChange={() => handleCheckboxChange(value.id_report)} />
                         </td>
                         <td>{formattedDate}</td>
                         <td className="text-left">{value.service}</td>
@@ -154,12 +135,10 @@ function Laporan() {
                       SUBTOTAL PENDAPATAN BULAN INI
                     </th>
                     <th>
-                      {
-                        dataLaporan?.reduce((accumulator:any, value:any) => {
-                          const subtotal = accumulator + Number(value.total);
-                          return subtotal;
-                        }, 0)
-                      }
+                      {dataLaporan?.reduce((accumulator: any, value: any) => {
+                        const subtotal = accumulator + Number(value.total);
+                        return subtotal;
+                      }, 0)}
                     </th>
                   </tr>
                 </tbody>
@@ -167,25 +146,12 @@ function Laporan() {
             </form>
 
             <div className="text-gray-900 flex items-center justify-center space-x-10 my-10">
-              <FaChevronLeft onClick={() => setThisMonth(thisMonth - 1)} className="cursor-pointer"/>
+              <FaChevronLeft onClick={() => setThisMonth(thisMonth - 1)} className="cursor-pointer" />
               <p className="text-brand-1 cursor-default">
-                {
-                  thisMonth === 1 ? "January" : 
-                  thisMonth === 2 ? "February" : 
-                  thisMonth === 3 ? "Maret" : 
-                  thisMonth === 4 ? "April" : 
-                  thisMonth === 5 ? "Mei" : 
-                  thisMonth === 6 ? "Juni" : 
-                  thisMonth === 7 ? "Juli" : 
-                  thisMonth === 8 ? "Agustus" : 
-                  thisMonth === 9 ? "September" : 
-                  thisMonth === 10 ? "Oktober" : 
-                  thisMonth === 11 ? "November" : 
-                  thisMonth === 12 ? "Desember" : ""
-                }
+                {thisMonth === 1 ? "January" : thisMonth === 2 ? "February" : thisMonth === 3 ? "Maret" : thisMonth === 4 ? "April" : thisMonth === 5 ? "Mei" : thisMonth === 6 ? "Juni" : thisMonth === 7 ? "Juli" : thisMonth === 8 ? "Agustus" : thisMonth === 9 ? "September" : thisMonth === 10 ? "Oktober" : thisMonth === 11 ? "November" : thisMonth === 12 ? "Desember" : ""}
                 {` ${thisYear}`}
               </p>
-              <FaChevronRight onClick={() => setThisMonth(thisMonth + 1)} className="cursor-pointer"/>
+              <FaChevronRight onClick={() => setThisMonth(thisMonth + 1)} className="cursor-pointer" />
             </div>
           </div>
         </div>
