@@ -4,6 +4,7 @@ import Button from "./Button";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 // import { useForm } from "react-hook-form";
 
 function Laporan(props: any) {
@@ -52,16 +53,13 @@ function Laporan(props: any) {
 }
 
 function Form(props: any) {
-  // HANDLE FORM
-  // const { register, handleSubmit, setValue, getValues } = useForm();
+  const navigate = useNavigate()
   
   // HANDLE INPUT
   const [date, setDate] = useState("");
-  
   const [rows, setRows] = useState([
     { layanan: "", satuan: 0, harga: 0, total: 0 },
   ]);
-
   const handleInputChange = (index: number, field: string, value: any) => {
     const newRows = [...rows];
     newRows[index] = { ...newRows[index], [field]: value };
@@ -72,18 +70,21 @@ function Form(props: any) {
     setRows(newRows);
   };
 
+  // TAMBAH ROW
   const handleAddRow = () => {
     setRows([...rows, { layanan: "", satuan: 0, harga: 0, total: 0 }]);
   };
 
-  const navigate = useNavigate()
+  // HANDLE SUBMIT
   const tambahLaporan = (e:any) => {
     e.preventDefault();
     
+    // CEK EMPTY
     const filteredRows = rows.filter(function (row) {
       return date && row.layanan && row.satuan && row.harga && row.total;
     });
 
+    // FORMAT DATA AGAR SESUAI DB
     let data = (
       filteredRows.map((value:any) => {
         return {
@@ -96,19 +97,27 @@ function Form(props: any) {
       })
     )
 
-    let laporan = JSON.parse(localStorage.getItem("laporan") || "[]");
+    // console.log(data)
 
-    data = data.map((value:any, index:any) => ({
-      id: laporan.length + index + 1,
-      ...value
-    }))
-    
-    laporan = laporan.concat(data)
+    data.map( async (value:any) => {
+      const tanggal = value.tanggal
+      const layanan = value.layanan
+      const satuan = value.satuan
+      const harga = value.harga
+      // console.log(value.satuan)
+      await axios.post('http://localhost:5000/api/laporan', {tanggal, layanan, satuan, harga})
+        .then((response:any) => {
+          console.log(response.data)
+        })
+        .catch((error:any) => {
+          console.log(error)
+        })
+    })
 
+    // ALERT KONDISI
     if(data.length === 0){
       alert("Data Kosong atau Tanggal Kosong")
     }else{
-      localStorage.setItem("laporan", JSON.stringify(laporan));
       alert("Data Berhasil Ditambahkan")
       navigate("/laporan")
     }
@@ -124,9 +133,9 @@ function Form(props: any) {
         </div>
       </div>
       <table className={`${props.className} w-full`}>
+
         <thead className="bg-dark-6 h-10 text-center">
           <tr>
-            {/* <td className="w-10"></td> */}
             <td>Layanan</td>
             <td>Satuan</td>
             <td>Harga</td>
@@ -137,9 +146,6 @@ function Form(props: any) {
         <tbody>
           {rows.map((row, index) => (
             <tr key={index} className={`bg-gray-200 odd:bg-gray-100 text-dark-1 h-10 text-center`}>
-              {/* <td className="w-10">
-                <Input.Checkbox className="border-gray-900" />
-              </td> */}
               <td>
                 <input type="text" value={row.layanan} onChange={(e) => handleInputChange(index, 'layanan', e.target.value)} className="px-2 w-2/3 border border-gray-900" />
               </td>
