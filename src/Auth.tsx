@@ -43,7 +43,6 @@ function Auth() {
   // const isLogin = token ? true : false;
 
   const { currentUser } = useAuth();
-  console.log(currentUser)
   const isLogin = currentUser ? true : false;
 
   useNavigate();
