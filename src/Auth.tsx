@@ -64,7 +64,7 @@ function Auth() {
         <Route path="/review" element={<Review />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/pickup" element={<Pickup />} />
-        <Route path="/pickup/detail" element={<Detail />} />
+        <Route path="/pickup/detail/:id" element={<Detail />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />
