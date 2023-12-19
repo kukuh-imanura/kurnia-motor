@@ -81,8 +81,8 @@ function Pickup() {
                         <div className="flex gap-3">
                           {/* Kalau di terima/Tolek, ambil ID dari dataBooking, dan kemudian ubah status dari data tersebut menjadi (diproses atau ditolak) */}
                           <Button.Default text="Detail" link={`/pickup/detail/${value.id_pickup}`} />
-                          <Button.Default text="Terima" onClick={() => handleTerima(value.id_pickup)} />
-                          <Button.Default text="Tolak" onClick={() => handleTolak(value.id_pickup)} />
+                          <Button.Default text="Terima" onClick={() => handleTerima(value.name)} />
+                          <Button.Default text="Tolak" onClick={() => handleTolak(value.name)} />
                         </div>
                       </td>
                     </tr>

@@ -1,9 +1,23 @@
 import Card from "@/components/default/Card"
 import Navbar from "@/components/default/Navbar"
-import Pagination from "@/components/default/Pagination"
 import Sidebar from "@/components/default/Sidebar"
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Review() {
+  const [dataReview, setDataReview] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/review`)
+      .then((response) => {
+        setDataReview(response.data);
+      })
+      .catch((error) => {
+        return "Error : " + error;
+      });
+  }, []);
+
   return (
     <div className="h-screen bg-surface-1 text-gray-900 flex">
       <Sidebar/>
@@ -12,16 +26,18 @@ function Review() {
         <Navbar.Default2 text="Ulasan"/>
 
         <div className="px-20">
-          <div className="grid grid-cols-2 gap-5">
-            <Card.Review />
-            <Card.Review />
-            <Card.Review />
-            <Card.Review />
+          <div className="grid grid-cols-2 gap-5 pb-10">
+
+            {
+              dataReview?.map((value:any, index:any) => {
+                return(
+                  <Card.Review key={index} star={value.ratings} name={value.name} text={value.review} img={value.pict}/>
+                )
+              })
+            }
+
           </div>
-
-          <Pagination />
         </div>
-
       </div>
     </div>
   )
