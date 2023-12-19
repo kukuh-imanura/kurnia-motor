@@ -4,6 +4,7 @@ import Dropdown from "./Dropdown";
 import Button from "./Button";
 import { MdLogout } from "react-icons/md";
 import Input from "./Input";
+import { useAuth } from "@/pages/context/autContext";
 // import { Input2 } from "@/components/ui/input";
 
 // import { useState } from "react";
@@ -32,9 +33,10 @@ function Default1() {
 }
 
 function Default2(props: any) {
+  const { logout } = useAuth();
   const navigate = useNavigate();
-  const logout = () => {
-    localStorage.removeItem("user");
+  const Logout = () => {
+    logout();
     navigate("/login");
   };
   return (
@@ -42,7 +44,7 @@ function Default2(props: any) {
       <div className="text-3xl font-bold">{props.text}</div>
       <div className="flex gap-5">
         {props.input ? <Input.Search placeholder="Masukkan kata kunci" icon="right" className="bg-white/0" /> : ""}
-        <MdLogout size="2em" onClick={logout} className="cursor-pointer" />
+        <MdLogout size="2em" onClick={Logout} className="cursor-pointer" />
       </div>
     </div>
   );
