@@ -48,9 +48,6 @@ function Pickup() {
   const handleTolak = (id: any) => {
     alert(`Tolak ${id}`);
   };
-  const handleDetail = () => {
-    console.log("test")
-  };
 
   return (
     <div className="h-screen bg-surface-1 text-gray-900 flex">
