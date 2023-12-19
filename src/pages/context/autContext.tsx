@@ -73,11 +73,6 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ childr
     }
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem("user", JSON.stringify(currentUser));
-  //   console.log("currentUser", currentUser);
-  // }, [currentUser]);
-
   return <AuthContext.Provider value={{ currentUser, login, logout, getUserById }}>{children}</AuthContext.Provider>;
 };
 

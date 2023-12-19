@@ -93,7 +93,7 @@ function Textarea(props: any) {
           <p className="font-bold">Catatan Customer</p>
         ) : null
       }
-      <textarea rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`} readOnly/>
+      <textarea id={props.id} name={props.name} rows={2} placeholder={props.placeholder} className={`${props.className} text-sm placeholder:text-light focus:outline-none resize-none`} readOnly/>
     </div>
   );
 }

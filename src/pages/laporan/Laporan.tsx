@@ -32,12 +32,12 @@ function Laporan() {
     e.preventDefault();
 
     await axios
-      .delete(`http://localhost:5000/api/laporan/${selectedItems}`)
+      .delete(`https://bengkel-api-ruby.vercel.app/api/laporan/${selectedItems}`)
       .then((response) => {
         console.log(response.data);
 
         // Refresh the user list after deletion
-        axios.get(`http://localhost:5000/api/laporan/?month=${thisMonth}&year=${thisYear}`).then((response: any) => {
+        axios.get(`https://bengkel-api-ruby.vercel.app/api/laporan/?month=${thisMonth}&year=${thisYear}`).then((response: any) => {
           setDataLaporan(response.data);
         });
 
@@ -59,7 +59,7 @@ function Laporan() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/laporan/?month=${thisMonth}&year=${thisYear}`)
+      .get(`https://bengkel-api-ruby.vercel.app/api/laporan/?month=${thisMonth}&year=${thisYear}`)
       .then((response) => {
         setDataLaporan(response.data);
       })

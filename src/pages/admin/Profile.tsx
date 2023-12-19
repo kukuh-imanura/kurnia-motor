@@ -18,6 +18,7 @@ type FormValue = {
 };
 
 function Profile() {
+  const [pictUrl, setPictUrl] = useState("" || "/assets/images/admin/default.jpg");
   // HANDLE POPUP
   const [display, setDisplay] = useState("hidden");
   const handleOverlayClick = (event: any) => {
@@ -90,7 +91,7 @@ function Profile() {
         <div className="h-full px-10 pb-10  gap-5 flex flex-col">
           <div className="relative w-full h-[216px] bg-surface-invers rounded-t-xl">
             <div className="absolute left-10 inset-y-1/2 transform -translate-y-1/2 z-10 rounded-full border-2 border-brand-1 w-fit h-fit p-3">
-              <img src="/assets/images/admin/adelia.png" alt="Foto Admin" className="rounded-full" />
+              <img src={pictUrl} alt="Foto Admin" className="rounded-full w-[100px] h-[100px]" />
             </div>
 
             <div className="absolute bottom-0 left-0 bg-surface-1 w-full h-[108px] py-10 flex justify-end">

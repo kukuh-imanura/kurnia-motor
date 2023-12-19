@@ -105,7 +105,7 @@ function Form(props: any) {
       const satuan = value.satuan
       const harga = value.harga
       // console.log(value.satuan)
-      await axios.post('http://localhost:5000/api/laporan', {tanggal, layanan, satuan, harga})
+      await axios.post('https://bengkel-api-ruby.vercel.app/api/laporan', {tanggal, layanan, satuan, harga})
         .then((response:any) => {
           console.log(response.data)
         })

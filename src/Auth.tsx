@@ -34,7 +34,6 @@ import Update from "./pages/laporan/Update.tsx";
 import PublicRoutes from "./pages/routes/PublicRoutes.tsx";
 import AuthRoutes from "./pages/routes/AuthRoutes.tsx";
 import { useAuth } from "./pages/context/autContext.tsx";
-// import { AuthContextProvider } from "./pages/context/autContext.tsx";
 
 function Auth() {
   const { currentUser } = useAuth();
@@ -65,7 +64,7 @@ function Auth() {
         <Route path="/review" element={<Review />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/pickup" element={<Pickup />} />
-        <Route path="/pickup/detail" element={<Detail />} />
+        <Route path="/pickup/detail/:id" element={<Detail />} />
 
         {/* ADMIN AREA */}
         <Route path="/admin" element={<Admin />} />
