@@ -55,7 +55,7 @@ function Detail() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-500 text-sm">Nomor Telepon :</p>
-                      <p>{value.phone}</p>
+                      <p>{value.tlp}</p>
                     </div>
                     <div>
                       <p className="font-bold text-gray-500 text-sm">Alamat Pemilik :</p>
