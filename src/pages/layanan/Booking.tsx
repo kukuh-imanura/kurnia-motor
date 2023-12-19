@@ -43,9 +43,16 @@ function Booking() {
 
   // HANDLE TERIMA/TOLAK
   const handleTerima = async (id:any, name:any) => {
+    console.log(id)
     await axios.patch(`https://bengkel-api-ruby.vercel.app/api/booking/${id}?status=proceed`)
       .then((response) => {
         alert(`Terima ${name}`)
+
+        // Refresh the user list after deletion
+        axios.get(`https://bengkel-api-ruby.vercel.app/api/booking`).then((response: any) => {
+          setDataBooking(response.data.result);
+        });
+
         console.log(response)
       })
       .catch((error:any) => {
@@ -56,6 +63,12 @@ function Booking() {
     await axios.patch(`https://bengkel-api-ruby.vercel.app/api/booking/${id}?status=denied`)
       .then((response) => {
         alert(`Terima ${name}`)
+
+        // Refresh the user list after deletion
+        axios.get(`https://bengkel-api-ruby.vercel.app/api/booking`).then((response: any) => {
+          setDataBooking(response.data.result);
+        });
+        
         console.log(response)
       })
       .catch((error:any) => {
@@ -97,8 +110,8 @@ function Booking() {
                           <td>
                             <div className="flex gap-3">
                               {/* Kalau di terima/Tolek, ambil ID dari dataBooking, dan kemudian ubah status dari data tersebut menjadi (diproses atau ditolak) */}
-                              <Button.Default text="Terima" onClick={() => handleTerima(value.id, value.name)} />
-                              <Button.Default text="Tolak" onClick={() => handleTolak(value.id, value.name)} />
+                              <Button.Default text="Terima" onClick={() => handleTerima(value.id_booking, value.name)} />
+                              <Button.Default text="Tolak" onClick={() => handleTolak(value.id_booking, value.name)} />
                             </div>
                           </td>
                         </tr>
