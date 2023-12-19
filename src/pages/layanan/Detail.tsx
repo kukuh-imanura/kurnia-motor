@@ -17,7 +17,7 @@ function Detail() {
       .get(`https://bengkel-api-ruby.vercel.app/api/pickup/${id}`)
       .then((response) => {
         setDetail(response.data);
-        // console.log(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         return "Error : " + error;
@@ -44,8 +44,14 @@ function Detail() {
               <div key={index}>
                 <div className="flex justify-between px-5 pt-5 h-full">
                   <div className="w-3/5">
-                    {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2019872.6304964416!2d116.6340022203005!3d-8.589871315279899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dca4d68d22b8d27%3A0x82a1915875a8c41c!2sSumbawa!5e0!3m2!1sen!2sid!4v1701266531972!5m2!1sen!2sid" className="border-0 h-full w-full" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe> */}
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32659997.193073303!2d95.876939821214!3d-2.222860563592035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sen!2sid!4v1702962461204!5m2!1sen!2sid" className="border-0 h-full w-full" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    {
+                      value.map?(
+                        <iframe src={value.map} className="border-0 h-full w-full" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                      ) : (
+                        // <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32659997.193073303!2d95.876939821214!3d-2.222860563592035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c4c07d7496404b7%3A0xe37b4de71badf485!2sIndonesia!5e0!3m2!1sen!2sid!4v1702962461204!5m2!1sen!2sid" className="border-0 h-full w-full" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.519513272351!2d112.67346137409498!3d-7.2953767717099245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fc492c704845%3A0xc965c3251d9d4f9c!2sJl.%20Bukit%20Darmo%20Boulevard%20No.22%2C%20Babatan%2C%20Kec.%20Wiyung%2C%20Surabaya%2C%20Jawa%20Timur%2060213!5e0!3m2!1sen!2sid!4v1702966727991!5m2!1sen!2sid" className="border-0 h-full w-full" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                      )
+                    }
                   </div>
 
                   <div className="w-3/5 h-[240px] space-y-3 px-5 overflow-auto">
@@ -55,7 +61,7 @@ function Detail() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-500 text-sm">Nomor Telepon :</p>
-                      <p>{value.phone}</p>
+                      <p>{value.tlp}</p>
                     </div>
                     <div>
                       <p className="font-bold text-gray-500 text-sm">Alamat Pemilik :</p>
