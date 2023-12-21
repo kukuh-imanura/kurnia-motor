@@ -18,7 +18,7 @@ type FormValue = {
 };
 
 function Profile() {
-  const [pictUrl, setPictUrl] = useState("" || "/assets/images/admin/default.jpg");
+  const [pictUrl, _] = useState("" || "/assets/images/admin/default.jpg");
   // HANDLE POPUP
   const [display, setDisplay] = useState("hidden");
   const handleOverlayClick = (event: any) => {

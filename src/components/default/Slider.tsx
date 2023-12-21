@@ -32,7 +32,7 @@ function Action(props:any) {
       {/* CARD */}
       <div className="flex gap-5 w-fit">
         {currentSlide.map((value:any, index:any) => (
-          <Card.Action key={index} img={value.img} text={value.text} btn={value.btn} link={value.link} status={value.status}/>
+          <Card.Review key={index} img={value.img} text={value.text} btn={value.btn} link={value.link} status={value.status}/>
         ))}
       </div>
 
