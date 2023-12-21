@@ -179,7 +179,7 @@ function Profile() {
               </div>
               <div className="pl-10 flex flex-col items-center">
                 <p className="mb-2">Foto Profile</p>
-                <img id="pict" src="/assets/images/admin/adelia.png" alt="Foto Admin" className="rounded-full border-2 border-brand-1" />
+                <img id="pict" src={pictUrl} alt="Foto Admin" className="rounded-full border-2 border-brand-1 w-[100px] h-[100px]" />
               </div>
             </div>
 
