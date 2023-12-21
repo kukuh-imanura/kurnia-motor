@@ -9,7 +9,7 @@ function Review() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/review`)
+      .get(`https://bengkel-api-ruby.vercel.app/api/review`)
       .then((response) => {
         setDataReview(response.data);
       })
