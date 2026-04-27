@@ -71,6 +71,12 @@ List Komponen yang digunakan dalam Project
 | --------- | --- |
 | Button | `npx shadcn-ui@latest add button` |
 
+## Hak Akses
+
+| Role  | Username | Password |
+| ----- | -------- | -------- |
+| Admin | admin    | admin123 |
+
 ## More
 ### React + TypeScript + Vite
 
