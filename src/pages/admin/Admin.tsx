@@ -73,7 +73,7 @@ function Admin() {
   };
 
   // ADD ADMIN
-  const [pict, setPict] = useState("");
+  // const [pict, setPict] = useState("");
   const [name, setName] = useState("");
   // const [tlp, setTlp] = useState("");
   const [email, setEmail] = useState("");
